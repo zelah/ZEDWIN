@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Compiles under Windows XP Professional
 Racket Version: 5.2.1
 Need to change hardwired paths.
@@ -11,3 +12,18 @@ Compiling ZED programs:
 Run ZED.rkt
 Choose a ZED source code file to compile
 Racket code is output to the file RACKET.rkt
+=======
+Compiles under Windows XP Professional
+Racket Version: 5.2.1
+Need to change hardwired paths.
+
+Instructions:
+place the files on your desktop
+change the paths in COMPILER.rkt to match your system
+change the paths in ZED.txt to match your system
+
+Compiling ZED programs:
+Run ZED.rkt
+Choose a ZED source code file to compile
+Racket code is output to the file RACKET.rkt
+>>>>>>> windows format
