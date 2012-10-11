@@ -1,0 +1,1282 @@
+("my-flatten") "tree"
+nil
+("not") ("pair?") "tree"
+"tree"
+
+("my-flatten") "tree"
+'(() (1 2 (3)))
+("null?") ("car") "tree"
+("my-flatten") ("cdr") "tree"
+
+("my-flatten") "tree"
+'((1 (2)) 3 (4))
+("pair?") ("car") "tree"
+("append") ("my-flatten") ("car") "tree"
+           ("my-flatten") ("cdr") "tree"
+
+("my-flatten") "tree"
+'(3 (4) 5)
+("not") ("pair?") ("car") "tree"
+("cons") ("car") "tree" ("my-flatten") ("cdr") "tree"
+
+("my-remove") "number" "list"
+3 nil
+("null?") "list"
+nil
+
+("my-remove") "number" "list"
+0 '(3 4 5)
+("=") "number" 0
+"list"
+
+("my-remove") "number" "list"
+1 '(2 3 4 5)
+(">") "number" 0
+("my-remove") ("-") "number" 1
+              ("cdr") "list"
+
+("string->ZED") "string"
+"name"
+(always)
+("string->symbol")
+  ("list->string")
+    ("append")
+      ("wrap3") #Z #E #D
+      ("my-flatten")
+        ("map") "symbol-character"
+                ("string->list") "string"
+
+("symbol-character") "character"
+#\nul
+(=) "character" #nul
+("wrap2") #@ #!
+
+("symbol-character") "character"
+#\u0001
+(=) "character" #01
+("wrap2") #@ #$
+
+("symbol-character") "character"
+#\u0002
+(=) "character" #02
+("wrap2") #@ #%
+
+("symbol-character") "character"
+#\u0003
+(=) "character" #03
+("wrap2") #@ #&
+
+("symbol-character") "character"
+#\u0004
+(=) "character" #04
+("wrap2") #@ #*
+
+("symbol-character") "character"
+#\u0005
+(=) "character" #05
+("wrap2") #@ #+
+
+("symbol-character") "character"
+#\u0006
+(=) "character" #06
+("wrap2") #@ #-
+
+("symbol-character") "character"
+#\u0007
+(=) "character" #07
+("wrap2") #@ #.
+
+("symbol-character") "character"
+#\backspace
+(=) "character" #backspace
+("wrap2") #@ #/
+
+("symbol-character") "character"
+#\tab
+(=) "character" #tab
+("wrap2") #@ #:
+
+("symbol-character") "character"
+#\newline 
+(=) "character" #newline
+("wrap2") #@ #<
+
+("symbol-character") "character"
+#\vtab 
+(=) "character" #vtab
+("wrap2") #@ #=
+
+("symbol-character") "character"
+#\page 
+(=) "character" #page
+("wrap2") #@ #>
+
+("symbol-character") "character"
+#\return
+(=) "character" #return
+("wrap2") #@ #?
+
+("symbol-character") "character"
+#\u000E
+(=) "character" #0E
+("wrap2") #@ #A
+
+("symbol-character") "character"
+#\u000F
+(=) "character" #0F
+("wrap2") #@ #B
+
+("symbol-character") "character"
+#\u0010 
+(=) "character" #010
+("wrap2") #@ #C
+
+("symbol-character") "character"
+#\u0011 
+(=) "character" #011
+("wrap2") #@ #D
+
+("symbol-character") "character"
+#\u0012
+(=) "character" #012
+("wrap2") #@ #E
+
+("symbol-character") "character"
+#\u0013 
+(=) "character" #013
+("wrap2") #@ #F
+
+("symbol-character") "character"
+#\u0014 
+(=) "character" #014
+("wrap2") #@ #G
+
+("symbol-character") "character"
+#\u0015 
+(=) "character" #015
+("wrap2") #@ #H
+
+("symbol-character") "character"
+#\u0016
+(=) "character" #016
+("wrap2") #@ #I
+
+("symbol-character") "character"
+#\u0017 
+(=) "character" #017
+("wrap2") #@ #J
+
+("symbol-character") "character"
+#\u0018 
+(=) "character" #018
+("wrap2") #@ #K
+
+("symbol-character") "character"
+#\u0019 
+(=) "character" #019
+("wrap2") #@ #L
+
+("symbol-character") "character"
+#\u001A 
+(=) "character" #01A
+("wrap2") #@ #M
+
+("symbol-character") "character"
+#\u001B 
+(=) "character" #01B
+("wrap2") #@ #N
+
+("symbol-character") "character"
+#\u001C
+(=) "character" #01C
+("wrap2") #@ #O
+
+("symbol-character") "character"
+#\u001D 
+(=) "character" #01D
+("wrap2") #@ #P
+
+("symbol-character") "character"
+#\u001E 
+(=) "character" #01E
+("wrap2") #@ #Q
+
+("symbol-character") "character"
+#\u001F
+(=) "character" #01F
+("wrap2") #@ #R
+
+("symbol-character") "character"
+#\space 
+(=) "character" #space
+("wrap2") #@ #S
+
+("symbol-character") "character"
+#\@ 
+(=) "character" #@
+("wrap2") #@ #@
+
+("symbol-character") "character"
+#\" 
+(=) "character" #"
+("wrap2") #@ #T
+
+("symbol-character") "character"
+#\' 
+(=) "character" #'
+("wrap2") #@ #U
+
+("symbol-character") "character"
+#\(
+(=) "character" #(
+("wrap2") #@ #V
+
+("symbol-character") "character"
+#\) 
+(=) "character" #)
+("wrap2") #@ #W
+
+("symbol-character") "character"
+#\,
+(=) "character" #,
+("wrap2") #@ #X
+
+("symbol-character") "character"
+#\; 
+(=) "character" #;
+("wrap2") #@ #Y
+
+("symbol-character") "character"
+#\[ 
+(=) "character" #[
+("wrap2") #@ #Z
+
+("symbol-character") "character"
+#\\
+(=) "character" #\
+("wrap2") #@ #^
+
+("symbol-character") "character"
+#\] 
+(=) "character" #]
+("wrap2") #@ #_
+
+("symbol-character") "character"
+#\` 
+(=) "character" #`
+("wrap2") #@ #a
+
+("symbol-character") "character"
+#\{ 
+(=) "character" #{
+("wrap2") #@ #b
+
+("symbol-character") "character"
+#\| 
+(=) "character" #|
+("wrap2") #@ #c
+
+("symbol-character") "character"
+#\} 
+(=) "character" #}
+("wrap2") #@ #d
+
+("symbol-character") "character"
+#\rubout 
+(=) "character" #rubout
+("wrap2") #@ #e
+
+("symbol-character") "character"
+#\u009F 
+("not") ("char-graphic?") "character"
+("wrap2") #@ #f
+
+("symbol-character") "character"
+#\Z 
+("char-graphic?") "character"
+"character"
+
+("clause-name") "clause"
+'(abs (number) ((=) number 0) (0))
+(always)
+("car") "clause"
+
+("clause-arguments") "clause"
+'(abs (number) ((=) number 0) (0))
+(always)
+("cadr") "clause"
+
+("clause-arity") "clause"
+'(abs (number) ((=) number 0) (0))
+(always)
+("length") ("clause-arguments") "clause"
+
+("clause-body") "clause"
+'(abs (number) ((=) number 0) (0))
+(always)
+("cddr") "clause"
+
+("clause-name-agree") "one" "two"
+;;;'(abs (number) ((=) number 0) (0))
+   '(abs (number) ((>) number 0) (number))
+("eq?") ("clause-name") "one"
+        ("clause-name") "two"
+("clause-name") "one"
+
+("clause-arguments-agree") "one" "two"
+;;;'(abs (number) ((=) number 0) (0))
+   '(abs (number) ((>) number 0) (number))
+("equal?") ("clause-arguments") "one"
+           ("clause-arguments") "two"
+("clause-arguments") "one"
+
+("combine-clauses") "one" "two"
+;;;'(abs (number) ((=) number 0) (0))
+   '(abs (number) ((>) number 0) (number))
+(always)
+("cons") ("clause-name-agree") "one" "two"
+         ("cons") ("clause-arguments-agree") "one" "two"
+                  ("append") ("clause-body") "one"
+                             ("clause-body") "two"
+
+("combine-head-clauses") "program"
+;;;'((abs (number) ((=) number 0) (0))
+     (abs (number) ((>) number 0) (number))
+     (abs (number) ((<) number 0) ((-) 0 number)))
+(always)
+("cons") ("combine-clauses") ("car") "program" ("cadr") "program"
+         ("cddr") "program"
+
+("ready-clause") "clause"
+'(((abs) number) ((=) number 0) (0))
+(always)
+("cons") ("caaar") "clause"
+         ("cons") ("cdar") "clause"
+                  ("cdr") "clause"
+
+("ready-program") "program"
+;;;'((((abs) number) ((=) number 0) (0))
+     (((abs) number) ((>) number 0) (number))
+     (((abs) number) ((<) number 0) ((-) 0 number)))
+(always)
+("map") "ready-clause" "program"
+
+("combine-all") "program"
+nil
+("null?") "program"
+nil
+
+("combine-all") "program"
+'((square (number) ((always)) ((*) number number)))
+("null?") ("cdr") "program"
+"program"
+
+("combine-all") "program"
+;;;'((abs (number) ((=) number 0) (0))
+     (abs (number) ((>) number 0) (number))
+     (abs (number) ((<) number 0) ((-) 0 number)))
+(=) ("clause-name") ("car") "program"
+    ("clause-name") ("cadr") "program"
+("combine-all") ("combine-head-clauses") "program"
+
+("combine-all") "program"
+;;;'((square (number) ((always)) ((*) number number))
+     (negate (number) ((always)) ((-) 0 number)))
+("not") (=) ("clause-name") ("car") "program"
+            ("clause-name") ("cadr") "program"
+("cons") ("car") "program"
+         ("combine-all") ("cdr") "program"
+
+("combine-program-clauses") "program"
+;;;'((((square) number) ((always)) ((*) number number))
+     (((negate) number) ((always)) ((-) 0 number)))
+(always)
+("combine-all") ("ready-program") "program"
+
+("arity-hash1") "clause"
+'(abs (number) ((=) number 0) (0))
+(always)
+("cons") ("clause-name") "clause"
+         ("clause-arity") "clause"
+
+("arity-hash") "program"
+comment: program plus primitives
+(always)
+("make-hasheq") ("append") ("map") "arity-hash1" "program"
+                ("append") ("wrap16")
+                ("cons") "'wrap" 1
+                ("cons") "'wrap2" 2
+                ("cons") "'wrap3" 3
+                ("cons") "'wrap4" 4
+                ("cons") "'wrap5" 5
+                ("cons") "'wrap6" 6
+                ("cons") "'wrap7" 7
+                ("cons") "'wrap8" 8
+                ("cons") "'wrap9" 9
+                ("cons") "'wrap10" 10
+                ("cons") "'wrap11" 11
+                ("cons") "'wrap12" 12
+                ("cons") "'wrap13" 13
+                ("cons") "'wrap14" 14
+                ("cons") "'wrap15" 15
+                ("cons") "'wrap16" 16
+              ("append") ("wrap16")
+                ("cons") "'and" 2
+                ("cons") "'append" 2
+                ("cons") "'assoc" 2
+                ("cons") "'begin" 2
+                ("cons") "'boolean?" 1
+                ("cons") "'caaar" 1
+                ("cons") "'cadr" 1
+                ("cons") "'caddr" 1
+                ("cons") "'cadddr" 1
+                ("cons") "'car" 1
+                ("cons") "'cdar" 1
+                ("cons") "'cddddr" 1
+                ("cons") "'cddr" 1
+                ("cons") "'cdr" 1
+                ("cons") "'char?" 1
+                ("cons") "'char-numeric?" 1
+              ("append") ("wrap16")
+                ("cons") "'char-graphic?" 1
+                ("cons") "'close-input-port" 1
+                ("cons") "'close-output-port" 1
+                ("cons") "'cons" 2
+                ("cons") "'define" 2
+                ("cons") "'delete-file" 1
+                ("cons") "'display" 2
+                ("cons") "'eq?" 2
+                ("cons") "'equal?" 2
+                ("cons") "'eof-object?" 1
+                ("cons") "'exact?" 1
+                ("cons") "'file-exists?" 1
+                ("cons") "'inexact?" 1
+                ("cons") "'length" 1
+                ("cons") "'list->string" 1
+                ("cons") "'map" 2
+              ("append") ("wrap16")
+                ("cons") "'not" 1
+                ("cons") "'null?" 1
+                ("cons") "'number?" 1
+                ("cons") "'newline" 1
+                ("cons") "'number->string" 1
+                ("cons") "'or" 2
+                ("cons") "'open-input-file" 1
+                ("cons") "'open-output-file" 1
+                ("cons") "'pair?" 1
+                ("cons") "'quote" 1
+                ("cons") "'reverse" 1
+                ("cons") "'read-char" 1
+                ("cons") "'symbol?" 1
+                ("cons") "'string?" 1
+                ("cons") "'string-append" 2
+                ("cons") "'string->symbol" 1
+              ("append") ("wrap16")
+                ("cons") "'symbol->string" 1
+                ("cons") "'string->list" 1
+                ("cons") "'string->number" 1
+                ("cons") "'=" 2
+                ("cons") "'<" 2
+                ("cons") "'>" 2
+                ("cons") "'-" 2
+                ("cons") "'+" 2
+                ("cons") "'*" 2
+                ("cons") "'/" 2
+                ("cons") "'ZED1" 1
+                ("cons") "'ZED!" 1
+                ("cons") "'ZEDc" 2
+                ("cons") "'ZEDone" 1
+                ("cons") "'ZEDtwo" 2
+                ("cons") "'ZEDthree" 3
+              ("append") ("wrap16")
+                ("cons") "'ZEDfour" 4
+                ("cons") "'ZEDfive" 5
+                ("cons") "'ZEDsix" 6
+                ("cons") "'ZEDseven" 7
+                ("cons") "'ZEDeight" 8
+                ("cons") "'ZEDnine" 9
+                ("cons") "'ZEDten" 10
+                ("cons") "'force" 1
+                ("cons") "'ZED=" 2
+                ("cons") "'caar" 1
+                ("cons") "'cdddr" 1
+                ("cons") "'list" 0
+                ("cons") "'ZEDalways" 0
+                ("cons") "'apply" 2
+                ("cons") "'ZEDsequence" 2
+                ("cons") "'ZEDand" 2
+              ("append") ("wrap16")
+                ("cons") "'ZEDor" 2
+                ("cons") "'ZEDone1" 1
+                ("cons") "'ZEDone2" 1
+                ("cons") "'ZEDone3" 1
+                ("cons") "'ZEDone4" 1
+                ("cons") "'ZEDone5" 1
+                ("cons") "'ZEDtwo1" 2
+                ("cons") "'ZEDtwo2" 2
+                ("cons") "'ZEDtwo3" 2
+                ("cons") "'ZEDtwo4" 2
+                ("cons") "'ZEDtwo5" 2
+                ("cons") "'ZEDthree1" 3
+                ("cons") "'ZEDthree2" 3
+                ("cons") "'ZEDthree3" 3
+                ("cons") "'ZEDthree4" 3
+                ("cons") "'ZEDthree5" 3
+              ("append") ("wrap16")  
+                ("cons") "'ZEDfour1" 4
+                ("cons") "'ZEDfour2" 4
+                ("cons") "'ZEDfour3" 4
+                ("cons") "'ZEDfour4" 4
+                ("cons") "'ZEDfour5" 4
+                ("cons") "'ZEDfive1" 5
+                ("cons") "'ZEDfive2" 5
+                ("cons") "'ZEDfive3" 5
+                ("cons") "'ZEDfive4" 5
+                ("cons") "'ZEDfive5" 5
+                ("cons") "'ZEDsix1" 6
+                ("cons") "'ZEDsix2" 6
+                ("cons") "'ZEDsix3" 6
+                ("cons") "'ZEDsix4" 6
+                ("cons") "'ZEDsix5" 6
+                ("cons") "'ZEDseven1" 7
+              ("append") ("wrap16")
+                ("cons") "'ZEDseven2" 7
+                ("cons") "'ZEDseven3" 7
+                ("cons") "'ZEDseven4" 7
+                ("cons") "'ZEDseven5" 7
+                ("cons") "'ZEDeight1" 8
+                ("cons") "'ZEDeight2" 8
+                ("cons") "'ZEDeight3" 8
+                ("cons") "'ZEDeight4" 8
+                ("cons") "'ZEDeight5" 8
+                ("cons") "'ZEDnine1" 9
+                ("cons") "'ZEDnine2" 9
+                ("cons") "'ZEDnine3" 9
+                ("cons") "'ZEDnine4" 9
+                ("cons") "'ZEDnine5" 9
+                ("cons") "'ZEDten1" 10
+                ("cons") "'ZEDten2" 10
+              ("wrap8")
+                ("cons") "'ZEDten3" 10
+                ("cons") "'ZEDten4" 10
+                ("cons") "'ZEDten5" 10
+                ("cons") "'get-file" 0
+                ("cons") "'make-hasheq" 1
+                ("cons") "'hash-ref" 2
+                ("cons") "'apply1" 4
+                ("cons") "'filter" 2
+
+("arity") "function" "arity-hash"
+'ZED= '((ZED* . 2) (ZED= . 2))
+(always)
+("hash-ref") "arity-hash" "function"
+
+("primitives")
+comment: new primitives
+(always)
+("append") ("wrap16")
+             "'begin"
+             ("quote") ("define") "wrap" "list"
+             ("quote") ("define") "wrap2" "list"
+             ("quote") ("define") "wrap3" "list"
+             ("quote") ("define") "wrap4" "list"
+             ("quote") ("define") "wrap5" "list"
+             ("quote") ("define") "wrap6" "list"
+             ("quote") ("define") "wrap7" "list"
+             ("quote") ("define") "wrap8" "list"
+             ("quote") ("define") "wrap9" "list"
+             ("quote") ("define") "wrap10" "list"
+             ("quote") ("define") "wrap11" "list"
+             ("quote") ("define") "wrap12" "list"
+             ("quote") ("define") "wrap13" "list"
+             ("quote") ("define") "wrap14" "list"
+             ("quote") ("define") "wrap15" "list"
+           ("wrap12")
+             ("quote") ("define") "wrap16" "list"
+             ("wrap3")
+                "'define-syntax"
+                "'ZEDand"
+                ("wrap3")
+                  "'syntax-rules"
+                  nil
+                  ("wrap2")
+                    ("wrap3") "'_" "'a" "'b"
+                    ("wrap3") "'and" "'a" "'b"
+             ("wrap3")
+                "'define-syntax"
+                "'ZEDor"
+                ("wrap3")
+                  "'syntax-rules"
+                  nil
+                  ("wrap2")
+                    ("wrap3") "'_" "'a" "'b"
+                    ("wrap3") "'or" "'a" "'b"
+             ("wrap3")
+                "'define-syntax"
+                "'ZEDsequence"
+                ("wrap3")
+                  "'syntax-rules"
+                  nil
+                  ("wrap2")
+                    ("wrap3") "'_" "'a" "'b"
+                    ("wrap3") "'begin" "'a" "'b"
+             ("wrap3")
+                "'define-syntax"
+                "'ZEDc"
+                ("wrap3")
+                  "'syntax-rules"
+                  nil
+                  ("wrap2")
+                    ("wrap3") "'_" "'a" "'b"
+                    ("wrap3") "'cons"
+                              ("wrap2") "'delay" "'a"
+                              ("wrap2") "'delay" "'b"
+             ("quote")
+               ("define")
+                 ("ZED1") "pair" ("force") ("car") "pair"
+             ("quote")
+               ("define")
+                 ("ZED!") "pair" ("force") ("cdr") "pair"
+             ("quote") ("define") "ZED=" "eqv?"
+             ("quote") ("define") "ZEDerr" "'err"
+             ("wrap3")
+               "'define"
+               "'ZEDnil"
+               ("wrap2")
+                 "'quote"
+                 nil
+             ("quote") ("define") ("ZEDalways") #true
+             ("wrap3")
+                "'define-syntax"
+                "'apply1"
+                ("wrap3")
+                  "'syntax-rules"
+                  nil
+                  ("wrap2")
+                    ("wrap5") "'_" "'a" "'b" "'c" "'d"
+                    ("wrap5") "'apply" "'a" "'b" "'c" "'d"
+
+("application?") "expression"
+'((+) 1 2)
+(always)
+("and") ("not") ("null?") "expression"
+        ("pair?") ("car") "expression"
+
+("function") "expression"
+'((+) 1 2)
+(always)
+("caar") "expression"
+
+("double-application?") "expression"
+nil
+("null?") "expression"
+#false
+
+("double-application?") "expression"
+'((always))
+("null?") ("cdr") "expression"
+#false
+
+("double-application?") "expression"
+'((+) (+) 1 2 3)
+("not") ("null?") ("cdr") "expression"
+("and") ("pair?") ("car") "expression"
+        ("pair?") ("cadr") "expression"
+
+("schemefy1") "expression" "arity-hash"
+'(1 2 3) ((+ . 2)) 
+("not") ("application?") "expression"
+("car") "expression"
+
+("schemefy1") "expression" "arity-hash"
+'((zero) (one) 1) '((zero . 0) (one . 1))
+(=) 0 ("arity") ("function") "expression" "arity-hash"
+("car") "expression"
+
+("schemefy1") "expression" "arity-hash"
+'((+) (+) 1 2 3) '((+ . 2))
+("double-application?") "expression"
+("cons") ("function") "expression"
+         ("cons") ("schemefy1") ("cdr") "expression" "arity-hash"
+                  ("gather")
+                    ("-") ("arity")
+                            ("function") "expression"
+                            "arity-hash"
+                          1
+                    ("my-remove")
+                      ("+") 1 ("length")
+                                ("my-flatten")
+                                  ("schemefy1")
+                                    ("cdr") "expression"
+                                    "arity-hash"
+                      "expression"
+                    "arity-hash"
+
+("schemefy1") "expression" "arity-hash"
+'((+) 1 2 3) '((+ . 2))
+("application?") "expression"
+("cons") ("function") "expression"
+         ("gather") ("arity")
+                      ("function") "expression"
+                      "arity-hash"
+                    ("cdr") "expression"
+                    "arity-hash"
+
+("schemefy") "expression" "arity-hash"
+'((+) (+) 1 2 3) '((+ . 2))
+(always)
+("wrap") ("schemefy1") "expression" "arity-hash"
+
+("gather") "how-many" "expression" "arity-hash"
+0 '(3) '((+ . 2))
+("=") "how-many" 0
+nil
+
+("gather") "how-many" "expression" "arity-hash"
+2 '((+) 1 2 3) '((+ . 2))
+("application?") "expression"
+("append") ("schemefy") "expression" "arity-hash"
+           ("gather") ("-") "how-many" 1
+                      ("my-remove")
+                        ("length")
+                          ("my-flatten")
+                            ("schemefy")
+                              "expression"
+                              "arity-hash"
+                        "expression"
+                      "arity-hash"
+
+("gather") "how-many" "expression" "arity-hash"
+1 '(2 3) '((+ . 2))
+("not") ("application?") "expression"
+("cons") ("car") "expression"
+         ("gather") ("-") "how-many" 1
+                    ("cdr") "expression"
+                    "arity-hash"
+
+("map-with") two "list" "extra"
++ nil 1
+("null?") "list"
+nil
+
+("map-with") two "list" "extra"
++ '(1 3 5 7) 1
+("not") ("null?") "list"
+("cons") (two) ("car") "list" "extra"
+         ("map-with") two ("cdr") "list" "extra"
+
+("functionize") "function" "arity-hash"
+;;;'(abs (number) ((<) number 0)
+                  ((-) 0 number)
+                  ((not) (<) number 0)
+                  (number))
+   '((< . 2) (- . 2) (not . 1))
+(always)
+("wrap3") "'define"
+          ("cons") ("car") "function" ("cadr") "function"
+          ("cons") "'cond"
+                   ("append")
+                     ("condefy")
+                       ("map-with")
+                         "schemefy"
+                         ("cddr") "function"
+                         "arity-hash"
+                     ("wrap") ("wrap2") "'else" "'ZEDerr"
+
+("condefy") "clauses"
+nil
+("null?") "clauses"
+nil
+
+("condefy") "clauses"
+'(((< number 0)) ((- 0 number)) ((not (< number 0))) (number))
+("not") ("null?") "clauses"
+("cons") ("append") ("car") "clauses"
+                    ("cadr") "clauses"
+         ("condefy") ("cddr") "clauses"
+
+("programize") "program" "arity-hash"
+;;;'((abs (number) ((<) number 0)
+                   ((-) 0 number)
+                   ((not) (<) number 0)
+                   (number))
+     (square (number) ((always))
+                      ((*) number number)))
+   '((< . 2) (- . ) (not . 1) (always . 0) (* . 2))
+(always)
+("cons") "'begin"
+         ("map-with") "functionize" "program" "arity-hash"
+
+("namefy") "expression"
+nil
+("null?") "expression"
+nil
+
+("namefy") "expression"
+'(square)
+("pair?") "expression"
+("wrap") ("symbolize") ("car") "expression"
+
+("namefy") "expression"
+'number
+("not") ("pair?") "expression"
+("flexify") "expression"
+
+("symbolize") "expression"
+'hey
+("symbol?") "expression"
+("string->ZED") ("symbol->string") "expression"
+
+("symbolize") "expression"
+"hey"
+("string?") "expression"
+("string->symbol") "expression"
+
+("symbolize") "expression"
+42
+("number?") "expression"
+("string->ZED") ("number->string") "expression"
+
+("flexify") "expression"
+'hey
+("symbol?") "expression"
+("flexify1") ("string->list") ("symbol->string") "expression"
+
+("flexify") "expression"
+"hey"
+("string?") "expression"
+("string->symbol") "expression"
+
+("flexify") "expression"
+#true
+("boolean?") "expression"
+"expression"
+
+("flexify") "expression"
+#\Z
+("char?") "expression"
+"expression"
+
+("flexify") "expression"
+42
+("exact?") "expression"
+"expression"
+
+("flexify") "expression"
+.25
+("inexact?") "expression"
+("string->number")
+  ("string-append") ""#e"" ("number->string") "expression"
+
+("flexify1") "list"
+'(#\# #\0 #\1)
+("and") (=) ## ("car") "list"
+        ("and") (=) #0 ("cadr") "list"
+                ("not") ("null?") ("cddr") "list"
+("string->symbol")
+  ("list->string") ("append") ("wrap3") ## #\ #u
+                              ("cddr") "list"
+
+("flexify1") "list"
+'(#\# #\t #\r #\u #\e) 
+("or") ("equal?") "list" ("wrap5") ## #t #r #u #e
+       ("equal?") "list" ("wrap6") ## #f #a #l #s #e
+("string->symbol") ("list->string") "list"
+
+("flexify1") "list"
+'(#\# #\n #\u #\l)
+(=) ("car") "list" ##
+("string->symbol") ("list->string") ("append") ("wrap2") ## #\
+                                               ("cdr") "list"
+
+("flexify1") "list"
+'(#\h #\e #\y)
+("not") (=) ("car") "list" ##
+("string->ZED") ("list->string") "list"
+
+("read-all!") "port"
+comment: reads in from port
+(always)
+("read-all1") "port" ("read-char") "port"
+
+("read-all1") "port" "character"
+comment: termination condition
+("eof-object?") "character"
+nil
+
+("read-all1") "port" "character"
+comment: save the character and read more 
+("not") ("eof-object?") "character"
+("cons") "character" ("read-all!") "port"
+
+("newline-space1") "program"
+nil
+("null?") "program"
+nil
+
+("newline-space1") "program"
+'(#\Z)
+("null?") ("cdr") "program"
+"program"
+
+("newline-space1") "program"
+'(#\newline #\tab #\Z #\E #\D)
+("and") (=) #newline ("car") "program"
+        ("or") (=) #space ("cadr") "program"
+               (=) #tab ("cadr") "program"
+("newline-space1") ("cdr") "program"
+
+("newline-space1") "program"
+'(#\newline #\newline #space #\Z)
+(=) #newline ("car") "program"
+("cons") #newline ("newline-space1") ("cdr") "program"
+
+("newline-space1") "program"
+'(#\Z #\newline #newline #\space) 
+("not") (=) #newline ("car") "program"
+("cons") ("car") "program" ("newline-space1") ("cdr") "program"
+
+("again") "program"
+'(#\Z #\newline #\newline #\space)
+(always)
+("again1") "program" ("newline-space1") "program"
+
+("again1") "program" "newline-space1"
+'(#\Z #\space) '(#\Z #\space)
+("equal?") "program" "newline-space1"
+"program"
+
+("again1") "program" "newline-space1"
+'(#\Z #\newline #\space) '(#\Z #\space)
+("not") ("equal?") "program" "newline-space1"
+("again") "newline-space1"
+
+("newline-space") "program"
+'(#\Z #\newline #\newline #\space)
+(always)
+("append") ("again") "program"
+           ("wrap") #newline
+
+("repeats") "program"
+nil
+("null?") "program"
+nil
+
+("repeats") "program"
+'(#\Z)
+("null?") ("cdr") "program"
+"program"
+
+("repeats") "program"
+'(#\newline #\newline #\newline #\Z)
+("and") (=) #newline ("car") "program"
+        (=) #newline ("cadr") "program"
+("repeats") ("cdr") "program"
+
+("repeats") "program"
+'(#\tab #\space #\tab #\Z)
+("and") ("or") (=) #space ("car") "program"
+               (=) #tab ("car") "program"
+        ("or") (=) #space ("cadr") "program"
+               (=) #tab ("cadr") "program"
+("repeats") ("cdr") "program"
+
+("repeats") "program"
+'(#\tab #\Z) 
+(always)
+("cons") ("car") "program" ("repeats") ("cdr") "program"
+
+("space-tab") "program"
+nil 
+("null?") "program"
+nil
+
+("space-tab") "program"
+'(#\tab #\Z #\space) 
+(=) #tab ("car") "program"
+("cons") #space ("space-tab") ("cdr") "program"
+
+("space-tab") "program"
+'(#\Z #\tab)
+(always)
+("cons") ("car") "program" ("space-tab") ("cdr") "program"
+
+("space-newline") "program"
+nil 
+("null?") "program"
+nil
+
+("space-newline") "program"
+'(#\newline) 
+("null?") ("cdr") "program"
+"program"
+
+("space-newline") "program"
+'(#\space #\newline #\Z) 
+("and") (=) #space ("car") "program"
+        (=) #newline ("cadr") "program"
+("space-newline") ("cdr") "program"
+
+("space-newline") "program"
+'(#\newline #\Z #\space #\newline)
+(always)
+("cons") ("car") "program" ("space-newline") ("cdr") "program"
+
+("leading") "program"
+nil
+("null?") "program"
+nil
+
+("leading") "program"
+'(#\newline #\Z) 
+(=) #newline ("car") "program"
+("cdr") "program"
+
+("leading") "program"
+'(#\Z #\newline #\E #\newline)
+(always)
+"program"
+
+("sentences") "program"
+'(#\o #\n #\e #\newline #\t #\w #\o #\newline)
+(always)
+("sentences1") "program" nil
+
+("sentences1") "program" "accumulator"
+nil
+("null?") "program"
+nil
+
+("sentences1") "program" "accumulator"
+'(#\newline #\t #\w #\o #\newline) '(#\e #\n #\o)
+(=) #newline ("car") "program"
+("cons") ("reverse") "accumulator"
+         ("sentences1") ("cdr") "program" nil
+
+("sentences1") "program" "accumulator"
+'(#\e #\newline #\t #\w #\o #\newline) '(#\n #\o)
+(always)
+("sentences1") ("cdr") "program"
+               ("cons") ("car") "program"
+                        "accumulator"
+
+("discard") "program"
+nil
+("null?") "program"
+nil
+
+("discard") "program"
+'(1 2 3 4 5 6 7 8)
+(always)
+("cons") ("car") "program"
+         ("cons") ("caddr") "program"
+                  ("cons") ("cadddr") "program"
+                           ("discard") ("cddddr") "program"
+
+("read-sentence") "sentence"
+nil 
+("null?") "sentence"
+nil
+
+("read-sentence") "sentence"
+'(#\space #\n #\u #\m #\b #\e #\r)
+(=) #space ("car") "sentence"
+("read-sentence") ("cdr") "sentence"
+
+("read-sentence") "sentence"
+'(#\( #\a #\b #\s #\) #\space #\n #\u #\m #\b #\e #\r))
+(=) #( ("car") "sentence"
+("cons")
+  ("namefy") ("wrap") ("verb") ("gather-verb") ("cdr") "sentence"
+  ("read-sentence")
+    ("my-remove") ("+") 2 ("length")
+                          ("gather-verb")
+                            ("cdr") "sentence"
+                  "sentence"
+
+("read-sentence") "sentence"
+'(#\n #\u #\m #\b #\e #\r) 
+(always)
+("cons") ("noun") ("list->string") ("gather-noun") "sentence"
+         ("read-sentence")
+           ("my-remove")
+             ("length")
+               ("gather-noun") "sentence"
+             "sentence"
+
+("verb") "gather-verb"
+'(#\" #\q #\u #\o #\t #\e #\")
+("and") ("not") ("null?") ("cdr") "gather-verb"
+        ("and") (=) #" ("car") "gather-verb"
+                (=) #" ("car") ("reverse") "gather-verb"
+("list->string")
+  ("cdr") ("reverse") ("cdr") ("reverse") "gather-verb"
+
+("verb") "gather-verb"
+'(#\q #\u #\o #\t #\e)
+(always)
+("string->symbol") ("list->string") "gather-verb"
+
+("noun") "string"
+".5" 
+(always)
+("noun-number") "string" ("string->number") "string"
+
+("noun-number") "noun" "number"
+".5" 0.5
+(always)
+("namefy") ("noun-number1") "noun" "number"
+
+("noun-number1") "noun" "number"
+".5" 0.5
+"number"
+"number"
+
+("noun-number1") "noun" "number"
+"\"square\"" #false 
+("and") (=) #" ("car") ("string->list") "noun"
+        (=) #" ("car") ("reverse") ("string->list") "noun"
+("list->string")
+  ("cdr") ("reverse") ("cdr") ("reverse") ("string->list") "noun"
+
+("noun-number1") "noun" "number"
+"square" #false
+(always)
+("string->symbol") "noun"
+
+("read-sentences") "sentences"
+'((#\( #\s #\q #\u #\a #\r #\e #\) #\space #\x)
+  (#\( #\a #\l #\w #\a #\y #\s #\))
+  (#\( #\" #\* #\" #\) #\space #\x #\space #\x))
+(always)
+("map") "read-sentence" "sentences"
+
+("gather-verb") "sentence"
+'(#\) #\space #\x)
+(=) #) ("car") "sentence"
+nil
+
+("gather-verb") "sentence"
+'(#\s #\q #\u #\a #\r #\e #\) #\space #\x)
+(always)
+("cons") ("car") "sentence"
+         ("gather-verb") ("cdr") "sentence"
+
+("gather-noun") "sentence"
+nil
+("null?") "sentence"
+nil
+
+("gather-noun") "sentence"
+'(#\space #\n #\u #\m #\b #\e #\r #\2)
+(=) #space ("car") "sentence"
+nil
+
+("gather-noun") "sentence"
+'(#\n #\u #\m #\b #\e #\r #\1 #\space #\n #\u #\m #\b #\e #\r #\2)
+(always)
+("cons") ("car") "sentence"
+         ("gather-noun") ("cdr") "sentence"
+
+("by-three") "program"
+nil
+("null?") "program"
+nil
+
+("by-three") "program"
+'(1 2 3 4 5 6 7 8 9) 
+(always)
+("cons")
+  ("wrap3")
+    ("car") "program"
+    ("cadr") "program"
+    ("caddr") "program"
+  ("by-three") ("cdddr") "program"
+
+("my-compile")
+comment: compile it
+(always)
+("my-compile1")
+  ("open-input-file")
+    ("must-get-file")
+  ("open-input-file")
+    (message) (wrap3) ""C:/Documents""
+                      ""and"" 
+                      ""Settings/zelah/Desktop/ZED/PRELUDE.txt""
+  ("begin") ("when-file-exists")
+              (message) (wrap3) ""C:/Documents"" 
+                                ""and"" 
+                                ""Settings/zelah/Desktop/ZED/RACKET.rkt""
+            ("open-output-file")
+              (message) (wrap3) ""C:/Documents""
+                                ""and""
+                                ""Settings/zelah/Desktop/ZED/RACKET.rkt""
+
+("must-get-file")
+comment
+(always)
+("must-get-file1") ("get-file")
+
+("must-get-file1") path
+comment
+path
+path
+
+("must-get-file1") path
+comment
+(always)
+("must-get-file")
+
+("when-file-exists") "path"
+comment: ensure file can be written
+("file-exists?") "path"
+("delete-file") "path"
+
+(not-return?) character
+#Z
+(always)
+(not) (=) #return character
+
+("my-compile1") "ZED" "PRELUDE" "RACKET"
+comment: generate combined
+(always)
+("my-compile2") "ZED"
+                "PRELUDE"
+                "RACKET"
+                ("combine-program-clauses")
+                  ("by-three")
+                    ("read-sentences")
+                      ("discard")
+                        ("sentences")
+                          ("leading")
+                            ("space-newline")
+                              ("space-tab")
+                                ("repeats")
+                                  ("newline-space")
+                                    ("filter") not-return?
+                                               ("append") ("append")
+                                                 ("read-all!") "PRELUDE"
+                                                 ("wrap2") #newline #newline
+                                                 ("read-all!") "ZED"
+
+("my-compile2") "ZED" "PRELUDE" "RACKET" "combined"
+comment: programize program
+(always)
+("my-compile3") "ZED"
+                "PRELUDE"
+                "RACKET"
+                ("programize") "combined" ("arity-hash") "combined"
+
+("my-compile3") "ZED" "PRELUDE" "RACKET" "programized"
+comment: write out the compiled program
+(always)
+("begin") ("display") ""#lang"" "RACKET"
+          ("begin") ("display") #space "RACKET"
+          ("begin") ("display") ""racket/gui"" "RACKET"
+          ("begin") ("newline") "RACKET"
+          ("begin") ("display") ("primitives") "RACKET"
+          ("begin") ("newline") "RACKET"
+          ("begin") ("display") "programized" "RACKET"
+          ("begin") ("close-input-port") "ZED"
+          ("begin") ("close-input-port") "PRELUDE"
+          ("close-output-port") "RACKET"

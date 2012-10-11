@@ -1,0 +1,968 @@
+(2) list
+comment
+(always)
+(ref) 2 list
+
+(3) list
+comment
+(always)
+(ref) 3 list
+
+(4) list
+comment
+(always)
+(ref) 4 list
+
+(5) list
+comment
+(always)
+(ref) 5 list
+
+(6) list
+comment
+(always)
+(ref) 6 list
+
+(7) list
+comment
+(always)
+(ref) 7 list
+
+(8) list
+comment
+(always)
+(ref) 8 list
+
+(9) list
+comment
+(always)
+(ref) 9 list
+
+(10) list
+comment
+(always)
+(ref) 10 list
+
+(-2) list
+comment
+(always)
+(tails) 2 list
+
+(-3) list
+comment
+(always)
+(tails) 3 list
+
+(-4) list
+comment
+(always)
+(tails) 4 list
+
+(-5) list
+comment
+(always)
+(tails) 5 list
+
+(-6) list
+comment
+(always)
+(tails) 6 list
+
+(-7) list
+comment
+(always)
+(tails) 7 list
+
+(-8) list
+comment
+(always)
+(tails) 8 list
+
+(-9) list
+comment
+(always)
+(tails) 9 list
+
+(-10) list
+comment
+(always)
+(tails) 10 list
+
+(<) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "<" ("wrap2") one two
+
+(>) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") ">" ("wrap2") one two
+
+(-) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "-" ("wrap2") one two
+
+(+) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "+" ("wrap2") one two
+
+(*) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "*" ("wrap2") one two
+
+(/) one two
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "/" ("wrap2") one two
+
+(add1) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "add1" ("wrap") number
+
+(add-between) item list
+comment
+(null?) list 
+nil
+
+(add-between) item list
+comment
+(null?) (!) list
+list 
+
+(add-between) item list
+comment
+(not) (null?) (!) list
+(c) (1) list 
+    (c) item 
+        (add-between) item (!) list
+
+(append) list1 list2
+comment
+(null?) list1
+list2
+
+(append) list1 list2
+comment
+(always)
+(c) (1) list1 (append) (!) list1 list2
+
+(append-output-file) output-file
+comment
+(always)
+("apply1") "open-output-file" 
+           ("wrap") output-file
+           "#:exists"
+           "'append"
+
+(bits->byte) bits
+comment
+(always)
+("ZEEbits->byte") bits 0
+
+("ZEEbits->byte") bits accumulator
+comment
+(null?) bits
+accumulator
+
+("ZEEbits->byte") bits accumulator
+comment
+(1) bits
+("ZEEbits->byte") (!) bits
+                  (+) 1 (*) 2 accumulator
+
+("ZEEbits->byte") bits accumulator
+comment
+(always)
+("ZEEbits->byte") (!) bits
+                  (*) 2 accumulator
+
+(boolean?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "boolean?" ("wrap") value
+
+(byte->bits) byte
+comment
+(always)
+(append) (repeat) (-) 8 (length) ("ZEEbyte->bits") byte
+                  #false
+         (reverse) ("ZEEbyte->bits") byte
+
+("ZEEbyte->bits") byte
+comment
+(zero?) byte
+nil
+
+("ZEEbyte->bits") byte
+comment
+(odd?) byte
+(c) #true ("ZEEbyte->bits") (/) (-) byte 1 2
+
+("ZEEbyte->bits") byte
+comment
+(even?) byte
+(c) #false ("ZEEbyte->bits") (/) byte 2
+
+(bytes->path) byte-string
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "bytes->path" ("wrap") byte-string
+
+(bytes-append) byte-string1 byte-string2
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "bytes-append" ("wrap2") byte-string1 byte-string2
+
+(character?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "char?" ("wrap") value
+
+(character->string) character
+comment
+(always)
+("apply") "list->string" ("wrap") ("wrap") character
+
+(close-input-port) port
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "close-input-port" ("wrap") port
+
+(close-output-port) port
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "close-output-port" ("wrap") port
+
+(collect-garbage)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "collect-garbage" nil
+
+(current-memory-use)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "current-memory-use" nil
+
+(current-random-number-generator)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "current-pseudo-random-generator" nil
+
+(default-input-port)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "current-input-port" nil
+
+(default-output-port)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "current-output-port" nil
+
+(delete-file) file
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "delete-file" ("wrap") file
+
+(display) port item
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "display" ("wrap2") item port
+
+(dr) value
+comment
+(always)
+(sequence) (display) (default-output-port) (pr) ("ZEEdr") value
+           (sequence) (newline) (default-output-port)
+           (sequence) (newline) (default-output-port)
+           value 
+
+("ZEEdr") value
+comment
+(pair?) value
+(mp) "ZEEdr" (first) 64 value
+
+("ZEEdr") value
+comment
+(always)
+value
+
+(drr) value
+comment
+(always)
+(sequence) (display) (default-output-port) (pr) value
+           (sequence) (newline) (default-output-port)
+           (sequence) (newline) (default-output-port)
+           value
+
+(end-of-file-object)
+accessing the underlying Racket/Scheme function
+(always)
+"eof"
+
+(end-of-file-object?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "eof-object?" ("wrap") value
+
+(eq?) symbol1 symbol2
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "eq?" ("wrap2") symbol1 symbol2
+
+(equal?) list1 list2
+comment
+(or) (null?) list1 (null?) list2
+(and) (null?) list1 (null?) list2
+
+(equal?) list1 list2
+comment
+(not) (pair?) list1
+(=) list1 list2
+
+(equal?) list1 list2
+comment
+(always)
+(and) (equal?) (1) list1 (1) list2
+      (equal?) (!) list1 (!) list2
+
+(even?) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "even?" ("wrap") number
+
+(exact->inexact) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "exact->inexact" ("wrap") number
+
+(fi) one list
+comment
+(null?) list
+nil
+
+(fi) one list
+comment
+(one) (1) list
+(c) (1) list (fi) one (!) list
+
+(fi) one list
+comment
+(always)
+(fi) one (!) list
+
+(file-exists?) file
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "file-exists?" ("wrap") file
+
+(file-size) file
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "file-size" ("wrap") file
+
+(first) number list
+comment
+(not) (pair?) list
+list
+
+(first) number list
+comment
+(zero?) number 
+nil
+
+(first) number list
+comment
+(positive?) number
+(c) (1) list 
+    (first) (sub1) number 
+            (!) list
+
+(generate-symbol) base
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "gensym" ("wrap") base
+
+(get-file) message
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "get-file" ("wrap") message
+
+(get-text-from-user) title message
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "get-text-from-user" 
+          ("wrap2") title message
+
+(gr) garbage value
+comment
+(always)
+(sequence) (dr) garbage value
+
+(grr) garbage value
+comment
+(always)
+(sequence) (drr) garbage value
+
+(last) list
+comment
+(null?) list
+err
+
+(last) list
+comment
+(null?) (!) list
+(1) list
+
+(last) list
+comment
+(always)
+(last) (!) list
+
+(length) list
+comment
+(null?) list
+0
+
+(length) list
+comment
+(always)
+(add1) (length) (!) list
+
+(list?) list
+comment
+(null?) list
+#true
+
+(list?) list
+comment
+(pair?) list
+(list?) (!) list
+
+(list?) list
+comment
+(always)
+#false
+
+(list->racket) list
+comment
+(null?) list
+nil
+
+(list->racket) list
+comment
+(always)
+("cons") (1) list (list->racket) (!) list
+
+(list->string) list
+comment
+(always)
+("apply") "string-append" ("apply") "flatten" ("wrap") ("ZEElist->string") list
+
+("ZEElist->string") list
+comment
+(null?) list
+nil
+
+("ZEElist->string") list
+comment
+(not) (pair?) list
+("ZEElist->string") (wrap2) "","" list
+
+("ZEElist->string") list
+comment
+(null?) (1) list
+("ZEElist->string") (!) list
+
+("ZEElist->string") list
+comment
+(pair?) (1) list
+("cons") ("ZEElist->string") (1) list
+         ("ZEElist->string") (!) list
+
+("ZEElist->string") list
+comment
+(always)
+("cons") ("apply") 
+           "call-with-output-string"
+           ("wrap") ("apply") ("apply") "curry" ("wrap") "curry" 
+                              ("wrap2") "display" (1) list
+         ("ZEElist->string") (!) list
+
+(list->ZED) list
+comment
+(null?) list
+nil
+
+(list->ZED) list
+comment
+(always)
+(c) ("car") list
+    (list->ZED) ("cdr") list
+
+(make-random-number-generator)
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "make-pseudo-random-generator" nil
+
+(maximum) number1 number2
+comment
+(always)
+("apply") "max" ("wrap2") number1 number2
+
+(member?) value list
+comment
+(null?) list
+#false
+
+(member?) value list
+comment
+(=) value (1) list
+#true
+
+(member?) value list
+comment
+(always)
+(member?) value (!) list
+
+(message) list
+comment
+(always)
+(list->string) (add-between) #space list
+
+(message-box) title message
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "message-box" ("wrap2") title message
+
+(modulo) large small
+comment
+(always)
+("apply") "modulo" ("wrap2") large small
+
+(mp) one list
+comment
+(null?) list
+nil
+
+(mp) one list
+comment
+(pair?) list
+(c) (one) (1) list
+    (mp) one (!) list
+
+(mp) one list
+comment
+(always)
+(one) list
+
+(multiple?) small large
+comment
+(always)
+(=) 0 (modulo) large small
+
+(negative?) number
+comment
+(always)
+(<) number 0
+
+(newline) port
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "newline" ("wrap") port
+
+(not) boolean
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "not" ("wrap") boolean
+
+(null?) list
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "null?" ("wrap") list
+
+(number?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "number?" ("wrap") value
+
+(number->string) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "number->string" ("wrap") number
+
+(odd?) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "odd?" ("wrap") number
+
+(open-input-file) path
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "open-input-file" ("wrap") path
+
+(open-output-file) path
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "open-output-file" ("wrap") path
+
+(pair?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "pair?" ("wrap") value
+
+(path->bytes) path
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "path->bytes" ("wrap") path
+
+(positive?) number
+comment
+(always)
+(>) number 0
+
+(pr) list
+comment
+(always)
+(list->string) ("ZEEpr") list
+
+("ZEEpr") list
+comment
+(list?) list
+(append) (append) (wrap) #[ (add-between) #space (mp) "ZEEpr" list (wrap) #]
+
+("ZEEpr") list
+comment
+(always)
+list
+
+(random-number-generator->vector) generator
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "pseudo-random-generator->vector" ("wrap") generator
+
+(random-number-generator?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "pseudo-random-generator?" ("wrap") value
+
+(put-file) message
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "put-file" ("wrap") message
+
+(quotient) numerator denominator
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "quotient" ("wrap2") numerator denominator
+
+(random) generator range
+accessing the underlying Racket/Scheme function
+(always)
+(add1) ("apply") "random" ("wrap2") range generator
+
+(random-number-generator-vector?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "pseudo-random-generator-vector?" ("wrap") value
+
+(random-seed) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "random-seed" ("wrap") number
+
+(read) port
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "read" ("wrap") port
+
+(read-byte) port
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "read-byte" ("wrap") port
+
+(read-bytes) port
+comment
+(always)
+("ZEEread-bytes") port (read-byte) port
+
+("ZEEread-bytes") port byte
+comment
+(end-of-file-object?) byte
+(sequence) (close-input-port) port nil
+
+("ZEEread-bytes") port byte
+comment
+(always)
+(c) byte (read-bytes) port
+
+(reduce) final two list
+comment
+(null?) list
+final
+
+(reduce) final two list
+comment
+(always)
+("ZEEreduce") final two (!) list (1) list
+
+("ZEEreduce") final two list accumulator
+comment
+(null?) list
+(two) accumulator final
+
+("ZEEreduce") final two list accumulator
+comment
+(always)
+("ZEEreduce") final two (!) list (two) accumulator (1) list
+
+(reduce-append) list
+comment
+(null?) list
+nil
+
+(reduce-append) list
+comment
+(null?) (1) list
+(reduce-append) (!) list
+
+(reduce-append) list
+comment
+(always)
+("ZEEreduce-append") (1) list (!) list
+
+("ZEEreduce-append") list1 list2
+comment
+(null?) list1
+(reduce-append) list2
+
+("ZEEreduce-append") list1 list2
+comment
+(always)
+(c) (1) list1 ("ZEEreduce-append") (!) list1 list2
+
+(ref) number list
+comment
+(=) number 1
+(1) list
+
+(ref) number list
+comment
+(>) number 1
+(ref) (sub1) number (!) list
+
+(remove) value list
+comment
+(null?) list
+nil
+
+(remove) value list
+comment
+(=) value (1) list
+(!) list
+
+(remove) value list
+comment
+(always)
+(c) (1) list (remove) value (!) list
+
+(remove-with-equal) value list
+comment
+(equal?) value (1) list
+(!) list
+
+(remove-with-equal) value list
+comment
+(always)
+(c) (1) list (remove-with-equal) value (!) list
+
+(repeat) number item
+comment
+(zero?) number
+nil
+
+(repeat) number item
+comment
+(positive?) number
+(c) item (repeat) (sub1) number item
+
+(replace-output-file) output-file
+comment
+(always)
+("apply1") "open-output-file" 
+           ("wrap") output-file
+           "#:exists"
+           "'replace"                            
+
+(reverse) list
+comment
+(always)
+("ZEEreverse") list nil
+
+("ZEEreverse") list reverse
+comment
+(null?) list
+reverse
+
+("ZEEreverse") list reverse
+comment
+(always)
+("ZEEreverse") (!) list 
+               (c) (1) list reverse
+
+(sort) less-than? list
+comment
+(always)
+(list->ZED) ("apply") "sort" ("wrap2") (list->racket) list
+                                       less-than?
+
+(space) port
+comment
+(always)
+(display) port #space
+
+(string?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "string?" ("wrap") value
+
+(sub1) number
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "sub1" ("wrap") number
+
+(symbol?) value
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "symbol?" ("wrap") value
+
+(symbol->string) symbol
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "symbol->string" ("wrap") symbol
+
+(tails) number list
+comment
+(or) (null?) list 
+     (=) number 0
+list
+
+(tails) number list
+comment
+(>) number 0
+(tails) (sub1) number (!) list
+
+(vector->random-number-generator) vector
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "vector->pseudo-random-generator" ("wrap") vector
+
+(wrap) a
+comment
+(always)
+(c) a nil
+
+(wrap2) a b
+comment
+(always)
+(c) a (wrap) b
+
+(wrap3) a b d
+comment
+(always)
+(c) a (wrap2) b d
+
+(wrap4) a b d e
+comment
+(always)
+(c) a (wrap3) b d e
+
+(wrap5) a b d e f
+comment
+(always)
+(c) a (wrap4) b d e f
+
+(wrap6) a b d e f g
+comment
+(always)
+(c) a (wrap5) b d e f g
+
+(wrap7) a b d e f g h
+comment
+(always)
+(c) a (wrap6) b d e f g h
+
+(wrap8) a b d e f g h i
+comment
+(always)
+(c) a (wrap7) b d e f g h i
+
+(wrap9) a b d e f g h i j
+comment
+(always)
+(c) a (wrap8) b d e f g h i j
+
+(wrap10) a b d e f g h i j k
+comment
+(always)
+(c) a (wrap9) b d e f g h i j k
+
+(wrap11) a b d e f g h i j k l
+comment
+(always)
+(c) a (wrap10) b d e f g h i j k l
+
+(wrap12) a b d e f g h i j k l m
+comment
+(always)
+(c) a (wrap11) b d e f g h i j k l m
+
+(wrap13) a b d e f g h i j k l m n
+comment
+(always)
+(c) a (wrap12) b d e f g h i j k l m n
+
+(wrap14) a b d e f g h i j k l m n o
+comment
+(always)
+(c) a (wrap13) b d e f g h i j k l m n o
+
+(wrap15) a b d e f g h i j k l m n o p
+comment
+(always)
+(c) a (wrap14) b d e f g h i j k l m n o p
+
+(wrap16) a b d e f g h i j k l m n o p q
+comment
+(always)
+(c) a (wrap15) b d e f g h i j k l m n o p q
+
+(write-byte) port byte
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "write-byte" ("wrap2") byte port
+
+(write-bytes) port list
+comment
+(null?) list
+(close-output-port) port
+
+(write-bytes) port list
+comment
+(always)
+(sequence) (write-byte) port (1) list
+           (write-bytes) port (!) list
+
+(xor) bit1 bit2
+comment
+(and) (boolean?) bit1
+      (boolean?) bit2
+(not) (=) bit1 bit2
+
+(zero?) number
+comment
+(always)
+(=) number 0

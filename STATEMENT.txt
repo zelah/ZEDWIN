@@ -1,0 +1,45 @@
+Mission Statement
+-----------------
+
+ZED is a functional programming language that compiles to efficient Scheme/Racket code.
+
+The syntax and semantics of ZED are summarized in this document for easy reference by all contributors.
+
+The basis for all ZED programs is the function declaration.
+
+So what is involved in declaring a function?
+
+(square) number
+3
+(always)
+(*) number number
+
+This program is about as simple as it gets! 
+
+What are the different parts for?
+
+The first line is:
+
+(square) number
+
+This line is called the "signature" of the function declaration and it mimics the way the function is called in other parts of the program. There are two important parts. First, the function name is "square". Second, the single formal parameter is named "number". 
+
+The second line is:
+
+3
+
+This line is documentation only but is required in every "clause". As you will see later a clause always has exactly four parts. This line is called the "documentation section" of the clause.
+
+The third line is:
+
+(always)
+
+This section of the clause is called the "clause guard". "(always)" always evaluates to the boolean value #true. Because of this, the fourth part of the clause is always evaluated and returned as the value of the function.
+
+The fourth line is:
+
+(*) number number
+
+This section of the clause is called the "clause value". It is evaluated if the corresponding clause guard is the first within the function declaration to evaluate to #true. As you will soon see, a function declaration may be composed of more than one clause.
+
+<continue>
