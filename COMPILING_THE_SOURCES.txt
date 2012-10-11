@@ -1,4 +1,4 @@
-Compiles under OSX Mountain Lion
+Compiles under Windows XP Professional
 Racket Version: 5.2.1
 Need to change hardwired paths.
 
@@ -6,7 +6,6 @@ Instructions:
 place the files on your desktop
 change the paths in COMPILER.rkt to match your system
 change the paths in ZED.txt to match your system
-(there can't be any spaces in the path names)
 
 Compiling ZED programs:
 Run ZED.rkt
