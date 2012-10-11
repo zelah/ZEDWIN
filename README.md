@@ -37,17 +37,17 @@ Sure! Here are two function definitions and a very short execution trace:
 ----------------------------------------
 
 (square) number   
-3   
+(square) 3   
 (always)   
 (*) number number   
 
 (abs) number   
--5   
-(<) number 0   
+(abs) -5   
+(negative?) number  
 (-) 0 number   
 
 (abs) number   
-5   
+(abs) 5   
 (always)   
 number   
 
