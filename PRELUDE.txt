@@ -1,143 +1,143 @@
 (2) list
-comment
+[1 2 ...]
 (always)
 (ref) 2 list
 
 (3) list
-comment
+[1 2 3 ...]
 (always)
 (ref) 3 list
 
 (4) list
-comment
+[1 2 3 4 ...]
 (always)
 (ref) 4 list
 
 (5) list
-comment
+[1 2 3 4 5 ...]
 (always)
 (ref) 5 list
 
 (6) list
-comment
+[1 2 3 4 5 6 ...]
 (always)
 (ref) 6 list
 
 (7) list
-comment
+[1 2 3 4 5 6 7 ...]
 (always)
 (ref) 7 list
 
 (8) list
-comment
+[1 2 3 4 5 6 7 8 ...]
 (always)
 (ref) 8 list
 
 (9) list
-comment
+[1 2 3 4 5 6 7 8 9 ...]
 (always)
 (ref) 9 list
 
 (10) list
-comment
+[1 2 3 4 5 6 7 8 9 10 ...]
 (always)
 (ref) 10 list
 
 (-2) list
-comment
+[1 2 ...]
 (always)
 (tails) 2 list
 
 (-3) list
-comment
+[1 2 3 ...]
 (always)
 (tails) 3 list
 
 (-4) list
-comment
+[1 2 3 4 ...]
 (always)
 (tails) 4 list
 
 (-5) list
-comment
+[1 2 3 4 5 ...]
 (always)
 (tails) 5 list
 
 (-6) list
-comment
+[1 2 3 4 5 6 ...]
 (always)
 (tails) 6 list
 
 (-7) list
-comment
+[1 2 3 4 5 6 7 ...]
 (always)
 (tails) 7 list
 
 (-8) list
-comment
+[1 2 3 4 5 6 7 8 ...]
 (always)
 (tails) 8 list
 
 (-9) list
-comment
+[1 2 3 4 5 6 7 8 9 ...]
 (always)
 (tails) 9 list
 
 (-10) list
-comment
+[1 2 3 4 5 6 7 8 9 10 ...]
 (always)
 (tails) 10 list
 
 (<) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "<" ("wrap2") one two
 
 (>) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") ">" ("wrap2") one two
 
 (-) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "-" ("wrap2") one two
 
 (+) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "+" ("wrap2") one two
 
 (*) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "*" ("wrap2") one two
 
 (/) one two
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "/" ("wrap2") one two
 
 (add1) number
-accessing the underlying Racket/Scheme function
+comment
 (always)
 ("apply") "add1" ("wrap") number
 
 (add-between) item list
 comment
-(null?) list 
+(null?) list
 nil
 
 (add-between) item list
 comment
 (null?) (!) list
-list 
+list
 
 (add-between) item list
 comment
 (not) (null?) (!) list
-(c) (1) list 
-    (c) item 
+(c) (1) list
+    (c) item
         (add-between) item (!) list
 
 (append) list1 list2
@@ -153,32 +153,60 @@ comment
 (append-output-file) output-file
 comment
 (always)
-("apply1") "open-output-file" 
+("apply1") "open-output-file"
            ("wrap") output-file
            "#:exists"
            "'append"
 
+(bit) generator
+a random boolean
+(always)
+(=) 2 (random) generator 2
+
+(bits) runs
+[1 2 3 2 ...]
+(always)
+(reduce-append) (ZEDbits) runs
+
+(ZEDbits) runs
+[ ]
+(null?) runs
+nil
+
+(ZEDbits) runs
+[1 2 3 2 ...]
+(always)
+(c) (append) (repeat) (sub1) (1) runs
+                      #true
+             (wrap) #false
+    (ZEDbits) (!) runs
+
 (bits->byte) bits
 comment
 (always)
-("ZEEbits->byte") bits 0
+(ZEDbits->byte) bits 0
 
-("ZEEbits->byte") bits accumulator
+(ZEDbits->byte) bits accumulator
 comment
 (null?) bits
 accumulator
 
-("ZEEbits->byte") bits accumulator
+(ZEDbits->byte) bits accumulator
 comment
 (1) bits
-("ZEEbits->byte") (!) bits
-                  (+) 1 (*) 2 accumulator
+(ZEDbits->byte) (!) bits
+                (+) 1 (*) 2 accumulator
 
-("ZEEbits->byte") bits accumulator
+(ZEDbits->byte) bits accumulator
 comment
 (always)
-("ZEEbits->byte") (!) bits
-                  (*) 2 accumulator
+(ZEDbits->byte) (!) bits
+                (*) 2 accumulator
+
+(bits->bytes) bits
+comment
+(always)
+(mp) bits->byte (group8) bits
 
 (boolean?) value
 accessing the underlying Racket/Scheme function
@@ -188,31 +216,36 @@ accessing the underlying Racket/Scheme function
 (byte->bits) byte
 comment
 (always)
-(append) (repeat) (-) 8 (length) ("ZEEbyte->bits") byte
+(append) (repeat) (-) 8 (length) (ZEDbyte->bits) byte
                   #false
-         (reverse) ("ZEEbyte->bits") byte
+         (reverse) (ZEDbyte->bits) byte
 
-("ZEEbyte->bits") byte
+(ZEDbyte->bits) byte
 comment
 (zero?) byte
 nil
 
-("ZEEbyte->bits") byte
+(ZEDbyte->bits) byte
 comment
 (odd?) byte
-(c) #true ("ZEEbyte->bits") (/) (-) byte 1 2
+(c) #true (ZEDbyte->bits) (/) (-) byte 1 2
 
-("ZEEbyte->bits") byte
+(ZEDbyte->bits) byte
 comment
 (even?) byte
-(c) #false ("ZEEbyte->bits") (/) byte 2
+(c) #false (ZEDbyte->bits) (/) byte 2
 
-(bytes->path) byte-string
+(bytes->bits) bytes
+[90 90 90 ...]
+(always)
+(reduce-append) (mp) byte->bits bytes
+
+(byte-string->path) byte-string
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "bytes->path" ("wrap") byte-string
 
-(bytes-append) byte-string1 byte-string2
+(byte-string-append) byte-string1 byte-string2
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "bytes-append" ("wrap2") byte-string1 byte-string2
@@ -221,6 +254,12 @@ accessing the underlying Racket/Scheme function
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "char?" ("wrap") value
+
+(character->integer) character
+accessing the underlying Racket/Scheme function
+(always)
+("apply") "char->integer"
+          ("wrap") character
 
 (character->string) character
 comment
@@ -241,6 +280,11 @@ accessing the underlying Racket/Scheme function
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "collect-garbage" nil
+
+(count) number
+comment
+(always)
+(c) number (count) (add1) number
 
 (current-memory-use)
 accessing the underlying Racket/Scheme function
@@ -267,6 +311,11 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "delete-file" ("wrap") file
 
+(delete-file-if-exists) file
+comment
+(file-exists?) file
+(delete-file) file
+
 (display) port item
 accessing the underlying Racket/Scheme function
 (always)
@@ -275,17 +324,17 @@ accessing the underlying Racket/Scheme function
 (dr) value
 comment
 (always)
-(sequence) (display) (default-output-port) (pr) ("ZEEdr") value
-           (sequence) (newline) (default-output-port)
-           (sequence) (newline) (default-output-port)
-           value 
+(se) (display) (default-output-port) (pr) (ZEDdr) value
+     (se) (newline) (default-output-port)
+     (se) (newline) (default-output-port)
+     value
 
-("ZEEdr") value
+(ZEDdr) value
 comment
 (pair?) value
-(mp) "ZEEdr" (first) 64 value
+(mp) ZEDdr (first) 64 value
 
-("ZEEdr") value
+(ZEDdr) value
 comment
 (always)
 value
@@ -293,10 +342,10 @@ value
 (drr) value
 comment
 (always)
-(sequence) (display) (default-output-port) (pr) value
-           (sequence) (newline) (default-output-port)
-           (sequence) (newline) (default-output-port)
-           value
+(se) (display) (default-output-port) (pr) value
+     (se) (newline) (default-output-port)
+     (se) (newline) (default-output-port)
+     value
 
 (end-of-file-object)
 accessing the underlying Racket/Scheme function
@@ -339,20 +388,20 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "exact->inexact" ("wrap") number
 
-(fi) one list
+(fi) function list
 comment
 (null?) list
 nil
 
-(fi) one list
+(fi) function list
 comment
-(one) (1) list
-(c) (1) list (fi) one (!) list
+(one) function (1) list
+(c) (1) list (fi) function (!) list
 
-(fi) one list
+(fi) function list
 comment
 (always)
-(fi) one (!) list
+(fi) function (!) list
 
 (file-exists?) file
 accessing the underlying Racket/Scheme function
@@ -371,14 +420,14 @@ list
 
 (first) number list
 comment
-(zero?) number 
+(zero?) number
 nil
 
 (first) number list
 comment
 (positive?) number
-(c) (1) list 
-    (first) (sub1) number 
+(c) (1) list
+    (first) (sub1) number
             (!) list
 
 (generate-symbol) base
@@ -391,21 +440,42 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "get-file" ("wrap") message
 
+(get-run) bits
+[#true #false #true ...]
+(1) bits
+(+) 1 (get-run) (!) bits
+
+(get-run) bits
+[#false #true #false ...]
+(always)
+1
+
 (get-text-from-user) title message
 accessing the underlying Racket/Scheme function
 (always)
-("apply") "get-text-from-user" 
+("apply") "get-text-from-user"
           ("wrap2") title message
 
 (gr) garbage value
 comment
 (always)
-(sequence) (dr) garbage value
+(se) (dr) garbage value
+
+(group8) list
+nil
+(null?) list
+nil
+
+(group8) list
+[#false #true #false #true #true #false #true #false ...]
+(always)
+(c) (first) 8 list
+    (group8) (-8) list
 
 (grr) garbage value
 comment
 (always)
-(sequence) (drr) garbage value
+(se) (drr) garbage value
 
 (last) list
 comment
@@ -460,37 +530,37 @@ comment
 (list->string) list
 comment
 (always)
-("apply") "string-append" ("apply") "flatten" ("wrap") ("ZEElist->string") list
+("apply") "string-append" ("apply") "flatten" ("wrap") (ZEDlist->string) list
 
-("ZEElist->string") list
+(ZEDlist->string) list
 comment
 (null?) list
 nil
 
-("ZEElist->string") list
+(ZEDlist->string) list
 comment
 (not) (pair?) list
-("ZEElist->string") (wrap2) "","" list
+(ZEDlist->string) (wrap2) "","" list
 
-("ZEElist->string") list
+(ZEDlist->string) list
 comment
 (null?) (1) list
-("ZEElist->string") (!) list
+(ZEDlist->string) (!) list
 
-("ZEElist->string") list
+(ZEDlist->string) list
 comment
 (pair?) (1) list
-("cons") ("ZEElist->string") (1) list
-         ("ZEElist->string") (!) list
+("cons") (ZEDlist->string) (1) list
+         (ZEDlist->string) (!) list
 
-("ZEElist->string") list
+(ZEDlist->string) list
 comment
 (always)
-("cons") ("apply") 
+("cons") ("apply")
            "call-with-output-string"
-           ("wrap") ("apply") ("apply") "curry" ("wrap") "curry" 
+           ("wrap") ("apply") ("apply") "curry" ("wrap") "curry"
                               ("wrap2") "display" (1) list
-         ("ZEElist->string") (!) list
+         (ZEDlist->string) (!) list
 
 (list->ZED) list
 comment
@@ -507,6 +577,16 @@ comment
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "make-pseudo-random-generator" nil
+
+(many) function count value
+core 0 [1 1 2 4 ...]
+(<) count 1
+value
+
+(many) function count value
+core 22 [1 2 5 2 ...]
+(always)
+(many) function (sub1) count (one) function value
 
 (maximum) number1 number2
 comment
@@ -543,21 +623,21 @@ comment
 (always)
 ("apply") "modulo" ("wrap2") large small
 
-(mp) one list
+(mp) function list
 comment
 (null?) list
 nil
 
-(mp) one list
+(mp) function list
 comment
 (pair?) list
-(c) (one) (1) list
-    (mp) one (!) list
+(c) (one) function (1) list
+    (mp) function (!) list
 
-(mp) one list
+(mp) function list
 comment
 (always)
-(one) list
+(one) function list
 
 (multiple?) small large
 comment
@@ -573,6 +653,16 @@ comment
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "newline" ("wrap") port
+
+(non) runs
+[1 2 3 2 ...]
+(=) 1 (1) runs
+(non) (!) runs
+
+(non) runs
+[2 3 2 1 ...]
+(always)
+(1) runs
 
 (not) boolean
 accessing the underlying Racket/Scheme function
@@ -599,6 +689,16 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "odd?" ("wrap") number
 
+(ones) runs
+[1 1 1 2 1 3 ...]
+(=) 1 (1) runs
+(add1) (ones) (!) runs
+
+(ones) runs
+[2 1 3 1 1 1 ...]
+(always)
+0
+
 (open-input-file) path
 accessing the underlying Racket/Scheme function
 (always)
@@ -614,7 +714,7 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "pair?" ("wrap") value
 
-(path->bytes) path
+(path->byte-string) path
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "path->bytes" ("wrap") path
@@ -627,17 +727,28 @@ comment
 (pr) list
 comment
 (always)
-(list->string) ("ZEEpr") list
+(list->string) (ZEDpr) list
 
-("ZEEpr") list
+(ZEDpr) list
 comment
 (list?) list
-(append) (append) (wrap) #[ (add-between) #space (mp) "ZEEpr" list (wrap) #]
+(append) (append) (wrap) #[ (add-between) #space (mp) ZEDpr list (wrap) #]
 
-("ZEEpr") list
+(ZEDpr) list
 comment
 (always)
 list
+
+(predictable-random-bits) seed
+333
+(always)
+(se) (random-seed) seed
+     (ZEDpredictable-random-bits) (current-random-number-generator)
+
+(ZEDpredictable-random-bits) generator
+all random bits
+(always)
+(c) (bit) generator (ZEDpredictable-random-bits) generator
 
 (random-number-generator->vector) generator
 accessing the underlying Racket/Scheme function
@@ -684,40 +795,45 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "read-byte" ("wrap") port
 
-(read-bytes) port
+(read-bytes) path
 comment
 (always)
-("ZEEread-bytes") port (read-byte) port
+(ZEDread-bytes) (open-input-file) path
 
-("ZEEread-bytes") port byte
+(ZEDread-bytes) port
+comment
+(always)
+(ZEDread-bytes1) port (read-byte) port
+
+(ZEDread-bytes1) port byte
 comment
 (end-of-file-object?) byte
-(sequence) (close-input-port) port nil
+(se) (close-input-port) port nil
 
-("ZEEread-bytes") port byte
+(ZEDread-bytes1) port byte
 comment
 (always)
-(c) byte (read-bytes) port
+(c) byte (ZEDread-bytes) port
 
-(reduce) final two list
+(reduce) final function list
 comment
 (null?) list
 final
 
-(reduce) final two list
+(reduce) final function list
 comment
 (always)
-("ZEEreduce") final two (!) list (1) list
+(ZEDreduce) final function (!) list (1) list
 
-("ZEEreduce") final two list accumulator
+(ZEDreduce) final function list accumulator
 comment
 (null?) list
-(two) accumulator final
+(two) function accumulator final
 
-("ZEEreduce") final two list accumulator
+(ZEDreduce) final function list accumulator
 comment
 (always)
-("ZEEreduce") final two (!) list (two) accumulator (1) list
+(ZEDreduce) final function (!) list (two) function accumulator (1) list
 
 (reduce-append) list
 comment
@@ -732,17 +848,17 @@ comment
 (reduce-append) list
 comment
 (always)
-("ZEEreduce-append") (1) list (!) list
+(ZEDreduce-append) (1) list (!) list
 
-("ZEEreduce-append") list1 list2
+(ZEDreduce-append) list1 list2
 comment
 (null?) list1
 (reduce-append) list2
 
-("ZEEreduce-append") list1 list2
+(ZEDreduce-append) list1 list2
 comment
 (always)
-(c) (1) list1 ("ZEEreduce-append") (!) list1 list2
+(c) (1) list1 (ZEDreduce-append) (!) list1 list2
 
 (ref) number list
 comment
@@ -792,26 +908,38 @@ comment
 (replace-output-file) output-file
 comment
 (always)
-("apply1") "open-output-file" 
+("apply1") "open-output-file"
            ("wrap") output-file
            "#:exists"
-           "'replace"                            
+           "'replace"                          
 
 (reverse) list
 comment
 (always)
-("ZEEreverse") list nil
+(ZEDreverse) list nil
 
-("ZEEreverse") list reverse
+(ZEDreverse) list reverse
 comment
 (null?) list
 reverse
 
-("ZEEreverse") list reverse
+(ZEDreverse) list reverse
 comment
 (always)
-("ZEEreverse") (!) list 
-               (c) (1) list reverse
+(ZEDreverse) (!) list
+             (c) (1) list reverse
+
+(runs) bits
+nil
+(null?) bits
+nil
+
+(runs) bits
+[#false #true #false ...]
+(always)
+(c) (get-run) bits
+    (runs) (tails) (get-run) bits
+                   bits
 
 (sort) less-than? list
 comment
@@ -829,10 +957,31 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "string?" ("wrap") value
 
+(string->list) string
+accessing the underlying Racket/Scheme function
+(always)
+(list->ZED) ("apply") "string->list"
+                      ("wrap") string
+
 (sub1) number
 accessing the underlying Racket/Scheme function
 (always)
 ("apply") "sub1" ("wrap") number
+
+(sum) numbers
+[1 2 5 3]
+(always)
+(ZEDsum) numbers 0
+
+(ZEDsum) numbers accumulator
+nil 55
+(null?) numbers
+accumulator
+
+(ZEDsum) numbers accumulator
+[1 2 5 3] 5
+(always)
+(ZEDsum) (!) numbers (+) accumulator (1) numbers
 
 (symbol?) value
 accessing the underlying Racket/Scheme function
@@ -846,7 +995,7 @@ accessing the underlying Racket/Scheme function
 
 (tails) number list
 comment
-(or) (null?) list 
+(or) (null?) list
      (=) number 0
 list
 
@@ -945,16 +1094,21 @@ accessing the underlying Racket/Scheme function
 (always)
 ("apply") "write-byte" ("wrap2") byte port
 
-(write-bytes) port list
+(write-bytes) path list
+comment
+(always)
+(ZEDwrite-bytes) (open-output-file) path list
+
+(ZEDwrite-bytes) port list
 comment
 (null?) list
 (close-output-port) port
 
-(write-bytes) port list
+(ZEDwrite-bytes) port list
 comment
 (always)
-(sequence) (write-byte) port (1) list
-           (write-bytes) port (!) list
+(se) (write-byte) port (1) list
+     (ZEDwrite-bytes) port (!) list
 
 (xor) bit1 bit2
 comment
@@ -966,3 +1120,14 @@ comment
 comment
 (always)
 (=) number 0
+
+(zip) bits1 bits2
+[ ] [#true #true #true ...]
+(or) (null?) bits1 (null?) bits2
+nil
+
+(zip) bits1 bits2
+[#false #true #false ...] [#true #true #true ...]
+(always)
+(c) (xor) (1) bits1 (1) bits2
+    (zip) (!) bits1 (!) bits2
