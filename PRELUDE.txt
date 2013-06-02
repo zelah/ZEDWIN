@@ -154,9 +154,9 @@ comment
 comment
 (always)
 ("apply1") "open-output-file"
-           ("wrap") output-file
-           "#:exists"
-           "'append"
+              ("wrap") output-file
+              "#:exists"
+              "'append"
 
 (bit) generator
 a random boolean
