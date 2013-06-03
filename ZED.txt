@@ -485,17 +485,17 @@ comment: program plus primitives
                 ("cons") "'ZED1" 1
                 ("cons") "'ZED!" 1
                 ("cons") "'ZEDc" 2
-                ("cons") "'ZEDone" 2
-                ("cons") "'ZEDtwo" 3
-                ("cons") "'ZEDthree" 4
+                ("cons") "'ZEDone" 1
+                ("cons") "'ZEDtwo" 2
+                ("cons") "'ZEDthree" 3
               ("append") ("wrap16")
-                ("cons") "'ZEDfour" 5
-                ("cons") "'ZEDfive" 6
-                ("cons") "'ZEDsix" 7
-                ("cons") "'ZEDseven" 8
-                ("cons") "'ZEDeight" 9
-                ("cons") "'ZEDnine" 10
-                ("cons") "'ZEDten" 11
+                ("cons") "'ZEDfour" 4
+                ("cons") "'ZEDfive" 5
+                ("cons") "'ZEDsix" 6
+                ("cons") "'ZEDseven" 7
+                ("cons") "'ZEDeight" 8
+                ("cons") "'ZEDnine" 9
+                ("cons") "'ZEDten" 10
                 ("cons") "'force" 1
                 ("cons") "'ZED=" 2
                 ("cons") "'caar" 1
@@ -507,29 +507,29 @@ comment: program plus primitives
                 ("cons") "'ZEDand" 2
               ("append") ("wrap16")
                 ("cons") "'ZEDor" 2
-                ("cons") "'ZEDeleven" 12
-                ("cons") "'ZEDtwelve" 13
-                ("cons") "'ZEDthirteen" 14
-                ("cons") "'ZEDfourteen" 15
-                ("cons") "'ZEDfifteen" 16
-                ("cons") "'ZEDsixteen" 17
-                ("cons") "'ZEDseventeen" 18
-                ("cons") "'ZEDeighteen" 19
-                ("cons") "'ZEDnineteen" 20
-                ("cons") "'ZEDtwenty" 21
-                ("cons") "'ZEDtwenty-one" 22
-                ("cons") "'ZEDtwenty-two" 23
-                ("cons") "'ZEDtwenty-three" 24
-                ("cons") "'ZEDtwenty-four" 25
-                ("cons") "'ZEDtwenty-five" 26
+                ("cons") "'ZEDeleven" 11
+                ("cons") "'ZEDtwelve" 12
+                ("cons") "'ZEDthirteen" 13
+                ("cons") "'ZEDfourteen" 14
+                ("cons") "'ZEDfifteen" 15
+                ("cons") "'ZEDsixteen" 16
+                ("cons") "'ZEDseventeen" 17
+                ("cons") "'ZEDeighteen" 18
+                ("cons") "'ZEDnineteen" 19
+                ("cons") "'ZEDtwenty" 20
+                ("cons") "'ZEDtwenty-one" 21
+                ("cons") "'ZEDtwenty-two" 22
+                ("cons") "'ZEDtwenty-three" 23
+                ("cons") "'ZEDtwenty-four" 24
+                ("cons") "'ZEDtwenty-five" 25
               ("append") ("wrap16") 
-                ("cons") "'ZEDtwenty-six" 27
-                ("cons") "'ZEDtwenty-seven" 28
-                ("cons") "'ZEDtwenty-eight" 29
-                ("cons") "'ZEDtwenty-nine" 30
-                ("cons") "'ZEDthirty" 31
-                ("cons") "'ZEDthirty-one" 32
-                ("cons") "'ZEDthirty-two" 33
+                ("cons") "'ZEDtwenty-six" 26
+                ("cons") "'ZEDtwenty-seven" 27
+                ("cons") "'ZEDtwenty-eight" 28
+                ("cons") "'ZEDtwenty-nine" 29
+                ("cons") "'ZEDthirty" 30
+                ("cons") "'ZEDthirty-one" 31
+                ("cons") "'ZEDthirty-two" 32
                 ("cons") "'get-file" 0
                 ("cons") "'make-hasheq" 1
                 ("cons") "'hash-ref" 2
@@ -539,11 +539,81 @@ comment: program plus primitives
                 ("cons") "'apply4" 10
                 ("cons") "'apply5" 12
                 ("cons") "'filter" 2
-              ("wrap4")
-                ("cons") "'ZEDzero" 1
+              ("append") ("wrap16")
                 ("cons") "'foldr" 3
                 ("cons") "'function-hack-2" 2
                 ("cons") "'write-char" 2
+                ("cons") "'ZEDthirty-three" 33
+                ("cons") "'ZEDthirty-four" 34
+                ("cons") "'ZEDthirty-five" 35
+                ("cons") "'ZEDthirty-six" 36
+                ("cons") "'ZEDthirty-seven" 37
+                ("cons") "'ZEDthirty-eight" 38
+                ("cons") "'ZEDthirty-nine" 39
+                ("cons") "'ZEDforty" 40
+                ("cons") "'ZEDforty-one" 41
+                ("cons") "'ZEDforty-two" 42
+                ("cons") "'ZEDforty-three" 43
+                ("cons") "'ZEDforty-four" 44
+                ("cons") "'ZEDforty-five" 45
+              ("append") ("wrap16")
+                ("cons") "'ZEDforty-six" 46
+                ("cons") "'ZEDforty-seven" 47
+                ("cons") "'ZEDforty-eight" 48
+                ("cons") "'ZEDforty-nine" 49
+                ("cons") "'ZEDfifty" 50
+                ("cons") "'ZEDfifty-one" 51
+                ("cons") "'ZEDfifty-two" 52
+                ("cons") "'ZEDfifty-three" 53
+                ("cons") "'ZEDfifty-four" 54
+                ("cons") "'ZEDfifty-five" 55
+                ("cons") "'ZEDfifty-six" 56
+                ("cons") "'ZEDfifty-seven" 57
+                ("cons") "'ZEDfifty-eight" 58
+                ("cons") "'ZEDfifty-nine" 59
+                ("cons") "'ZEDsixty" 60
+                ("cons") "'ZEDsixty-one" 61
+              ("append") ("wrap16")
+                ("cons") "'ZEDsixty-two" 62
+                ("cons") "'ZEDsixty-three" 63
+                ("cons") "'ZEDsixty-four" 64
+                ("cons") "'ZEDsixty-five" 65
+                ("cons") "'ZEDsixty-six" 66
+                ("cons") "'ZEDsixty-seven" 67
+                ("cons") "'ZEDsixty-eight" 68
+                ("cons") "'ZEDsixty-nine" 69
+                ("cons") "'ZEDseventy" 70
+                ("cons") "'ZEDseventy-one" 71
+                ("cons") "'ZEDseventy-two" 72
+                ("cons") "'ZEDseventy-three" 73
+                ("cons") "'ZEDseventy-four" 74
+                ("cons") "'ZEDseventy-five" 75
+                ("cons") "'ZEDseventy-six" 76
+                ("cons") "'ZEDseventy-seven" 77
+              ("append") ("wrap16")
+                ("cons") "'ZEDseventy-eight" 78
+                ("cons") "'ZEDseventy-nine" 79
+                ("cons") "'ZEDeighty" 80
+                ("cons") "'ZEDeighty-one" 81
+                ("cons") "'ZEDeighty-two" 82
+                ("cons") "'ZEDeighty-three" 83
+                ("cons") "'ZEDeighty-four" 84
+                ("cons") "'ZEDeighty-five" 85
+                ("cons") "'ZEDeighty-six" 86
+                ("cons") "'ZEDeighty-seven" 87
+                ("cons") "'ZEDeighty-eight" 88
+                ("cons") "'ZEDeighty-nine" 89
+                ("cons") "'ZEDninety" 90
+                ("cons") "'ZEDninety-one" 91
+                ("cons") "'ZEDninety-two" 92
+                ("cons") "'ZEDninety-three" 93
+              ("wrap6")
+                ("cons") "'ZEDninety-four" 94
+                ("cons") "'ZEDninety-five" 95
+                ("cons") "'ZEDninety-six" 96
+                ("cons") "'ZEDninety-seven" 97
+                ("cons") "'ZEDninety-eight" 98
+                ("cons") "'ZEDninety-nine" 99
 
 ("arity") "function" "arity-hash"
 'ZED= '((ZED* . 2) (ZED= . 2))
@@ -1216,11 +1286,6 @@ comment
 
 ("it") "candidate"
 comment
-("candidate-confirmed?") "candidate" ("wrap7") #Z #E #D #z #e #r #o
-("replace-candidate") "candidate"
-
-("it") "candidate"
-comment
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #o #n #e
 ("replace-candidate") "candidate"
 
@@ -1377,6 +1442,341 @@ comment
 ("it") "candidate"
 comment
 ("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #t #h #i #r #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #t #h #i #r #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #t #h #i #r #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #t #h #i #r #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #t #h #i #r #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #t #h #i #r #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #t #h #i #r #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #t #h #i #r #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap8") #Z #E #D #f #o #r #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #o #r #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #o #r #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #o #r #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #o #r #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #o #r #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #o #r #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #o #r #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #o #r #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #o #r #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap8") #Z #E #D #f #i #f #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #i #f #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #i #f #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #i #f #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #i #f #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #i #f #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #f #i #f #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #i #f #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #f #i #f #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #f #i #f #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap8") #Z #E #D #s #i #x #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #s #i #x #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #s #i #x #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #i #x #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #s #i #x #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #s #i #x #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap12") #Z #E #D #s #i #x #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #i #x #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #i #x #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #s #i #x #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap10") #Z #E #D #s #e #v #e #n #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #e #v #e #n #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #e #v #e #n #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap16") #Z #E #D #s #e #v #e #n #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #s #e #v #e #n #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #s #e #v #e #n #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #s #e #v #e #n #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap16") #Z #E #D #s #e #v #e #n #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap16") #Z #E #D #s #e #v #e #n #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #s #e #v #e #n #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap9") #Z #E #D #e #i #g #h #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #e #i #g #h #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #e #i #g #h #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #e #i #g #h #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #e #i #g #h #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #e #i #g #h #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #e #i #g #h #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #e #i #g #h #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #e #i #g #h #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #e #i #g #h #t #y #- #n #i #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap9") #Z #E #D #n #i #n #e #t #y
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #n #i #n #e #t #y #- #o #n #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #n #i #n #e #t #y #- #t #w #o
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #n #i #n #e #t #y #- #t #h #r #e #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #n #i #n #e #t #y #- #f #o #u #r
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #n #i #n #e #t #y #- #f #i #v #e
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap13") #Z #E #D #n #i #n #e #t #y #- #s #i #x
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #n #i #n #e #t #y #- #s #e #v #e #n
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap15") #Z #E #D #n #i #n #e #t #y #- #e #i #g #h #t
+("replace-candidate") "candidate"
+
+("it") "candidate"
+comment
+("candidate-confirmed?") "candidate" ("wrap14") #Z #E #D #n #i #n #e #t #y #- #n #i #n #e
 ("replace-candidate") "candidate"
 
 ("it") "candidate"

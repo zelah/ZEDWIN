@@ -395,7 +395,7 @@ nil
 
 (fi) function list
 comment
-(one) function (1) list
+(two) function (1) list
 (c) (1) list (fi) function (!) list
 
 (fi) function list
@@ -586,7 +586,7 @@ value
 (many) function count value
 core 22 [1 2 5 2 ...]
 (always)
-(many) function (sub1) count (one) function value
+(many) function (sub1) count (two) function value
 
 (maximum) number1 number2
 comment
@@ -631,13 +631,13 @@ nil
 (mp) function list
 comment
 (pair?) list
-(c) (one) function (1) list
+(c) (two) function (1) list
     (mp) function (!) list
 
 (mp) function list
 comment
 (always)
-(one) function list
+(two) function list
 
 (multiple?) small large
 comment
@@ -828,12 +828,12 @@ comment
 (ZEDreduce) final function list accumulator
 comment
 (null?) list
-(two) function accumulator final
+(three) function accumulator final
 
 (ZEDreduce) final function list accumulator
 comment
 (always)
-(ZEDreduce) final function (!) list (two) function accumulator (1) list
+(ZEDreduce) final function (!) list (three) function accumulator (1) list
 
 (reduce-append) list
 comment
