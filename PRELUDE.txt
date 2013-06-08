@@ -536,14 +536,14 @@ comment: value is not a pair -> is value a list?
 #false
 
 (list->racket) list
-comment: empty list -> returns a Racket list
-(null?) list
-nil
+comment: empty list or atom -> returns a Racket list
+(not) (pair?) list
+list
 
 (list->racket) list
 comment: non empty list -> returns a Racket list
 (always)
-("cons") (1) list (list->racket) (!) list
+("cons") (list->racket) (1) list (list->racket) (!) list
 
 (list->string) list
 comment: takes a list -> returns a string representation
@@ -574,7 +574,7 @@ comment: the first element of list is a pair -> returns almost the same list str
 (ZEDlist->string) list
 comment: the first element of list is not a pair -> returns almost the same list structure but with strings replacing the atoms
 (always)
-("cons") (two) "call-with-output-string" (two) (two) "curry" "display" (1) list
+("cons") (call-with-output-string) (two) (curry) "display" (1) list
          (ZEDlist->string) (!) list
 
 (make-random-number-generator)
@@ -729,19 +729,9 @@ comment: any number -> is it positive?
 (>) number 0
 
 (pr) value
-comment: any value -> outputs a string representation
+comment: any value -> returns a string representation
 (always)
-(list->string) (ZEDpr) value
-
-(ZEDpr) value
-comment: value is a list -> recursively adds in brackets and spaces
-(list?) value
-(append) (append) (wrap) #[ (add-between) #space (mp) ZEDpr value (wrap) #]
-
-(ZEDpr) value
-comment: value is not a list -> recursively adds in brackets and spaces
-(always)
-value
+(call-with-output-string) (two) (curry) "display" (list->racket) value
 
 (predictable-random-bits) seed
 comment: takes a seed for the random number generator -> produces an infinite list of rsndom bits
@@ -761,381 +751,354 @@ comment: takes a bit and a random number generator -> produces an infinite list 
 (c) bit (ZEDpredictable-random-bits1) generator
 
 (random-number-generator->vector) generator
-accessing the underlying Racket/Scheme function
+comment: takes a random number generator -> returns a vector of its internal state
 (always)
-("apply") "pseudo-random-generator->vector" ("wrap") generator
+(two) "pseudo-random-generator->vector" generator
 
 (random-number-generator?) value
-accessing the underlying Racket/Scheme function
+comment: any value -> is it a random number generator?
 (always)
-("apply") "pseudo-random-generator?" ("wrap") value
+(two) "pseudo-random-generator?" value
 
 (put-file) message
-accessing the underlying Racket/Scheme function
+comment: takes a message -> returns a path to a filename which may or may not exist
 (always)
-("apply") "put-file" ("wrap") message
+(two) "put-file" message
 
-(quotient) numerator denominator
-accessing the underlying Racket/Scheme function
+(quotient) integer1 integer2
+comment: takes two integers -> returns the quotient
 (always)
-("apply") "quotient" ("wrap2") numerator denominator
+(three) "quotient" integer1 integer2
 
-(random) generator range
-accessing the underlying Racket/Scheme function
+(random) generator integer
+comment: takes a random number generator and an integer -> produces a positive integer
 (always)
-(add1) ("apply") "random" ("wrap2") range generator
+(add1) (three) "random" integer generator
 
 (random-number-generator-vector?) value
-accessing the underlying Racket/Scheme function
+comment: any value -> is it a valid state of the random number generator?
 (always)
-("apply") "pseudo-random-generator-vector?" ("wrap") value
+(two) "pseudo-random-generator-vector?" value
 
-(random-seed) number
-accessing the underlying Racket/Scheme function
+(random-seed) integer
+comment: takes a positive integer less than the power two to the thirty-one -> seeds the current random number generator
 (always)
-("apply") "random-seed" ("wrap") number
+(two) "random-seed" integer
 
 (read) port
-accessing the underlying Racket/Scheme function
+comment: an input port -> reads in a single datum
 (always)
-("apply") "read" ("wrap") port
+(two) "read" port
 
 (read-byte) port
-accessing the underlying Racket/Scheme function
+comment: an input port -> reads in a single byte
 (always)
-("apply") "read-byte" ("wrap") port
+(two) "read-byte" port
 
 (read-bytes) path
-comment
+comment: takes a file path -> opens the file and reads in the bytes
 (always)
-(ZEDread-bytes) (open-input-file) path
+(ZEDread-bytes1) (open-input-file) path
 
-(ZEDread-bytes) port
-comment
+(ZEDread-bytes1) port
+comment: takes an input port -> reads in the bytes until end of file
 (always)
-(ZEDread-bytes1) port (read-byte) port
+(ZEDread-bytes2) port (read-byte) port
 
-(ZEDread-bytes1) port byte
-comment
+(ZEDread-bytes2) port byte
+comment: reached end of file -> read in the bytes
 (end-of-file-object?) byte
 (se) (close-input-port) port nil
 
-(ZEDread-bytes1) port byte
-comment
+(ZEDread-bytes2) port byte
+comment: haven't reached end of file -> read in the bytes
 (always)
-(c) byte (ZEDread-bytes) port
+(c) byte (ZEDread-bytes1) port
 
 (reduce) final function list
-comment
-(null?) list
-final
-
-(reduce) final function list
-comment
+comment: takes a list and a two argument function -> accumulates the final value using function
 (always)
-(ZEDreduce) final function (!) list (1) list
-
-(ZEDreduce) final function list accumulator
-comment
-(null?) list
-(three) function accumulator final
-
-(ZEDreduce) final function list accumulator
-comment
-(always)
-(ZEDreduce) final function (!) list (three) function accumulator (1) list
+(four) "foldr" function final (list->racket) list
 
 (reduce-append) list
-comment
-(null?) list
-nil
-
-(reduce-append) list
-comment
-(null?) (1) list
-(reduce-append) (!) list
-
-(reduce-append) list
-comment
+comment: takes a list -> accumulates a value by appending the sub lists together
 (always)
-(ZEDreduce-append) (1) list (!) list
+(reduce) nil append list
 
-(ZEDreduce-append) list1 list2
-comment
-(null?) list1
-(reduce-append) list2
-
-(ZEDreduce-append) list1 list2
-comment
-(always)
-(c) (1) list1 (ZEDreduce-append) (!) list1 list2
-
-(ref) number list
-comment
-(=) number 1
+(ref) integer list
+comment: integer equals one -> selects the specified element of list
+(=) integer 1
 (1) list
 
-(ref) number list
-comment
-(>) number 1
-(ref) (sub1) number (!) list
+(ref) integer list
+comment: integer is greater than one -> selects the specified element of list
+(>) integer 1
+(ref) (sub1) integer (!) list
 
 (remove) value list
-comment
+comment: empty list -> removes the first occurrence of value in list
 (null?) list
 nil
 
 (remove) value list
-comment
+comment: first element of list is value -> removes the first occurrence of value in list
 (=) value (1) list
 (!) list
 
 (remove) value list
-comment
+comment: first element of list is not value -> removes the first occurrence of value in list
 (always)
 (c) (1) list (remove) value (!) list
 
 (remove-with-equal) value list
-comment
+comment: empty list -> removes the first occurrence of value in list
+(null?) list
+nil
+
+(remove-with-equal) value list
+comment: first element of list is value by comparison (equal?) -> removes the first occurrence of value in list
 (equal?) value (1) list
 (!) list
 
 (remove-with-equal) value list
-comment
+comment: first element of list is not value by comparison (equal?) -> removes the first occurrence of value in list
 (always)
 (c) (1) list (remove-with-equal) value (!) list
 
-(repeat) number item
-comment
-(zero?) number
+(repeat) integer item
+comment: integer is zero -> returns the list of repeated items
+(zero?) integer
 nil
 
-(repeat) number item
-comment
-(positive?) number
-(c) item (repeat) (sub1) number item
+(repeat) integer item
+comment: integer is positive -> returns the list of repeated items
+(positive?) integer
+(c) item (repeat) (sub1) integer item
 
-(replace-output-file) output-file
-comment
+(replace-output-file) path
+comment: takes a file path -> opens a file for output in replace mode
 (always)
-("apply1") "open-output-file"
-           ("wrap") output-file
-           "#:exists"
-           "'replace"                          
+(four) "open-output-file"
+       path
+       "#:exists"
+       "'replace"                          
 
 (reverse) list
-comment
+comment: a finite list -> returns the list in reverse order
 (always)
 (ZEDreverse) list nil
 
 (ZEDreverse) list reverse
-comment
+comment: empty list -> returns list in reverse
 (null?) list
 reverse
 
 (ZEDreverse) list reverse
-comment
+comment: non empty list -> returns list in reverse
 (always)
 (ZEDreverse) (!) list
              (c) (1) list reverse
 
 (runs) bits
-nil
+comment: takes a sequence of bits (#true or #false) -> returns run lengths to #false
+(always)
+(runs1) bits (get-run) bits
+
+(runs1) bits run
+comment: empty bits -> returns run lengths to #false
 (null?) bits
 nil
 
-(runs) bits
-[#false #true #false ...]
+(runs1) bits run
+comment: non empty bits -> returns run lengths to #false
 (always)
-(c) (get-run) bits
-    (runs) (tails) (get-run) bits
-                   bits
+(c) run (runs) (tails) run bits
 
-(sort) less-than? list
-comment
+(sort) comparator list
+comment: takes a comparator function and a list -> sorts the list using the comparator
 (always)
-("apply") "sort" ("wrap2") (list->racket) list less-than?
+(three) "sort" (list->racket) list comparator
 
 (space) port
-comment
+comment: takes an output port -> sends the #space character
 (always)
 (display) port #space
 
 (string?) value
-accessing the underlying Racket/Scheme function
+comment: takes a value -> is it a string?
 (always)
-("apply") "string?" ("wrap") value
+(two) "string?" value
 
 (string->list) string
-accessing the underlying Racket/Scheme function
+comment: takes a string -> returns a list of characters
 (always)
-("apply") "string->list" ("wrap") string
+(two) "string->list" string
 
 (sub1) number
-accessing the underlying Racket/Scheme function
+comment: takes a number -> returns the quantity number minus one
 (always)
-("apply") "sub1" ("wrap") number
+(two) "sub1" number
 
 (sum) numbers
-[1 2 5 3]
+comment: takes a list of numbers -> adds them up
 (always)
-(ZEDsum) numbers 0
-
-(ZEDsum) numbers accumulator
-nil 55
-(null?) numbers
-accumulator
-
-(ZEDsum) numbers accumulator
-[1 2 5 3] 5
-(always)
-(ZEDsum) (!) numbers (+) accumulator (1) numbers
+(reduce) 0 + numbers
 
 (symbol?) value
-accessing the underlying Racket/Scheme function
+comment: any value -> is it a symbol?
 (always)
-("apply") "symbol?" ("wrap") value
+(two) "symbol?" value
 
 (symbol->string) symbol
-accessing the underlying Racket/Scheme function
+comment: any symbol -> returns an equivalent string
 (always)
-("apply") "symbol->string" ("wrap") symbol
+(two) "symbol->string" symbol
 
-(tails) number list
-comment
+(tails) integer list
+comment: empty list or integer is zero ->  the nth tail of list
 (or) (null?) list
-     (=) number 0
+     (=) integer 0
 list
 
-(tails) number list
-comment
-(>) number 0
-(tails) (sub1) number (!) list
+(tails) integer list
+comment: integer is positive -> the nth tail of list
+(>) integer 0
+(tails) (sub1) integer (!) list
 
 (vector->random-number-generator) vector
-accessing the underlying Racket/Scheme function
+comment: takes an appropriate vector -> returns a random number generator
 (always)
-("apply") "vector->pseudo-random-generator" ("wrap") vector
+(two) "vector->pseudo-random-generator" vector
 
-(wrap) a
-comment
+(wrap) value
+comment: takes a value -> makes a list
 (always)
-(c) a nil
+(two) "list" value
 
-(wrap2) a b
-comment
+(wrap2) value1 value2
+comment: takes two values -> makes a list
 (always)
-(c) a (wrap) b
+(three) "list" value1 value2
 
-(wrap3) a b d
-comment
+(wrap3) value1 value2 value3
+comment: takes three values -> makes a list
 (always)
-(c) a (wrap2) b d
+(four) "list" value1 value2 value3
 
-(wrap4) a b d e
-comment
+(wrap4) value1 value2 value3 value4
+comment: takes four values -> makes a list
 (always)
-(c) a (wrap3) b d e
+(five) "list" value1 value2 value3 value4
 
-(wrap5) a b d e f
-comment
+(wrap5) value1 value2 value3 value4 value5
+comment: takes five values -> makes a list
 (always)
-(c) a (wrap4) b d e f
+(six) "list" value1 value2 value3 value4 value5
 
-(wrap6) a b d e f g
-comment
+(wrap6) value1 value2 value3 value4 value5 value6
+comment: takes six values -> makes a list
 (always)
-(c) a (wrap5) b d e f g
+(seven) "list" value1 value2 value3 value4 value5 value6
 
-(wrap7) a b d e f g h
-comment
+(wrap7) value1 value2 value3 value4 value5 value6 value7
+comment: takes seven values -> makes a list
 (always)
-(c) a (wrap6) b d e f g h
+(eight) "list" value1 value2 value3 value4 value5 value6 value7
 
-(wrap8) a b d e f g h i
-comment
+(wrap8) value1 value2 value3 value4 value5 value6 value7 value8
+comment: takes eight values -> makes a list
 (always)
-(c) a (wrap7) b d e f g h i
+(nine) "list" value1 value2 value3 value4 value5 value6 value7 value8
 
-(wrap9) a b d e f g h i j
-comment
+(wrap9) value1 value2 value3 value4 value5 value6 value7 value8 value9
+comment: takes nine values -> makes a list
 (always)
-(c) a (wrap8) b d e f g h i j
+(ten) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9
 
-(wrap10) a b d e f g h i j k
-comment
+(wrap10) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
+comment: takes ten values -> makes a list
 (always)
-(c) a (wrap9) b d e f g h i j k
+(eleven) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
 
-(wrap11) a b d e f g h i j k l
-comment
+(wrap11) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
+comment: takes eleven values -> makes a list
 (always)
-(c) a (wrap10) b d e f g h i j k l
+(twelve) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
 
-(wrap12) a b d e f g h i j k l m
-comment
+(wrap12) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
+comment: takes twelve values -> makes a list
 (always)
-(c) a (wrap11) b d e f g h i j k l m
+(thirteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
 
-(wrap13) a b d e f g h i j k l m n
-comment
+(wrap13) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
+comment: takes thirteen values -> makes a list
 (always)
-(c) a (wrap12) b d e f g h i j k l m n
+(fourteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
 
-(wrap14) a b d e f g h i j k l m n o
-comment
+(wrap14) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
+comment: takes fourteen values -> makes a list
 (always)
-(c) a (wrap13) b d e f g h i j k l m n o
+(fifteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
 
-(wrap15) a b d e f g h i j k l m n o p
-comment
+(wrap15) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
+comment: takes fifteen values -> makes a list
 (always)
-(c) a (wrap14) b d e f g h i j k l m n o p
+(sixteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
 
-(wrap16) a b d e f g h i j k l m n o p q
-comment
+(wrap16) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
+comment: takes sixteen values -> makes a list
 (always)
-(c) a (wrap15) b d e f g h i j k l m n o p q
+(seventeen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
 
 (write-byte) port byte
-accessing the underlying Racket/Scheme function
+comment: takes a byte and an output port -> writes the byte to the output port
 (always)
-("apply") "write-byte" ("wrap2") byte port
+(three) "write-byte" byte port
 
-(write-bytes) path list
-comment
+(write-bytes) path bytes
+comment: takes a file path and a list of bytes -> writes the bytes out to file
 (always)
-(ZEDwrite-bytes) (open-output-file) path list
+(ZEDwrite-bytes) (open-output-file) path bytes
 
-(ZEDwrite-bytes) port list
-comment
-(null?) list
+(ZEDwrite-bytes) port bytes
+comment: empty bytes -> writes the bytes out to the output port
+(null?) bytes
 (close-output-port) port
 
-(ZEDwrite-bytes) port list
-comment
+(ZEDwrite-bytes) port bytes
+comment: non empty bytes -> writes the bytes out to the output port
 (always)
-(se) (write-byte) port (1) list
-     (ZEDwrite-bytes) port (!) list
+(se) (write-byte) port (1) bytes
+     (ZEDwrite-bytes) port (!) bytes
 
 (xor) bit1 bit2
-comment
+comment: takes two bits -> performs the exclusive or operation
 (and) (boolean?) bit1
       (boolean?) bit2
 (not) (=) bit1 bit2
 
 (zero?) number
-comment
+comment: any number -> is it zero?
 (always)
 (=) number 0
 
 (zip) bits1 bits2
-[ ] [#true #true #true ...]
+comment: empty bits1 or empty bits2 -> returns the result of doing a bit by bit exclusive or
 (or) (null?) bits1 (null?) bits2
 nil
 
 (zip) bits1 bits2
-[#false #true #false ...] [#true #true #true ...]
+comment: matching bits -> returns the result of doing a bit by bit exclusive or
 (always)
 (c) (xor) (1) bits1 (1) bits2
     (zip) (!) bits1 (!) bits2
+
+(curry) function
+comment: takes a function -> returns the curried function
+(always)
+(two) "curry" function
+
+(call-with-output-string) function-of-an-output-port
+comment: takes a function of an output port -> returns the string resulting from applying the function
+(always)
+(two) "call-with-output-string" function-of-an-output-port
