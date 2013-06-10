@@ -134,7 +134,7 @@ comment: multi element list -> construct a list with item inserted between the m
 (c) (1) list
     (c) item
         (add-between) item (!) list
-        
+
 (add1) number
 comment: any number -> mathematical increment function
 (always)
@@ -208,17 +208,17 @@ comment: bits is a list of booleans -> output is the bytes
 (always)
 (mp) bits->byte (ZEDbits->bytes) bits
 
-(ZEDbits->bytes) list
-comment: empty list ->  return the empty list
-(null?) list
+(ZEDbits->bytes) bits
+comment: empty bits ->  return the empty list
+(null?) bits
 nil
 
-(ZEDbits->bytes) list
-comment: non empty list -> output is a list of eight element lists of booleans
+(ZEDbits->bytes) bits
+comment: non empty bits -> output is a list of eight element lists of booleans
 (always)
-(c) (first) 8 list
-    (ZEDbits->bytes) (-8) list
-    
+(c) (first) 8 bits
+    (ZEDbits->bytes) (-8) bits
+
 (boolean?) value
 comment: any value -> is the value a boolean?
 (always)
@@ -260,6 +260,11 @@ comment: takes two byte-strings -> outputs the concatenation
 comment: bytes is a list of integers in the range 0-255 -> output is a list of booleans
 (always)
 (reduce-append) (mp) byte->bits bytes
+
+(call-with-output-string) function-of-an-output-port
+comment: takes a function of an output port -> returns the string resulting from applying the function
+(always)
+(two) "call-with-output-string" function-of-an-output-port
 
 (character->integer) character
 comment: any character -> outputs an integer that is the Unicode code-point number
@@ -305,6 +310,11 @@ comment: returns a count of the bytes of memory occupied by reachable data
 comment: the current random number generator
 (always)
 (one) "current-pseudo-random-generator"
+
+(curry) function
+comment: takes a function -> returns the curried function
+(always)
+(two) "curry" function
 
 (default-input-port)
 comment: the default input port
@@ -433,28 +443,28 @@ comment: any valid path -> returns the file size in bytes
 (always)
 (two) "file-size" path
 
-(first) number list
-comment: list is not a list -> selects the first number elements from the beginning of list
+(first) integer list
+comment: list is not a list -> selects the first integer elements from the beginning of list
 (not) (pair?) list
 list
 
-(first) number list
-comment: number is zero -> selects the first number elements from the beginning of list
-(zero?) number
+(first) integer list
+comment: integer is zero -> selects the first integer elements from the beginning of list
+(zero?) integer
 nil
 
-(first) number list
-comment: number is positive -> selects the first number elements from the beginning of list
-(positive?) number
+(first) integer list
+comment: integer is positive -> selects the first integer elements from the beginning of list
+(positive?) integer
 (c) (1) list
-    (first) (sub1) number
+    (first) (sub1) integer
             (!) list
 
 (force) value
 comment: takes a value -> forces a promise or returns the value
 (always)
 (two) "force" value
-			
+
 (generate-symbol) base
 comment: takes a string or symbol base -> generates a symbol gaurenteed to be unique for the purpose of comparisons
 (always)
@@ -491,7 +501,7 @@ comment: takes a value and a garbage value -> returns the value after displaying
 (se) (drr) garbage value
 
 (halve) number
-comment: 
+comment: any number -> returns half
 (always)
 (/) number 2
 
@@ -520,38 +530,13 @@ comment: non empty list -> returns the length of the list
 (always)
 (add1) (length) (!) list
 
-(list?) value
-comment: empty list -> is value a list?
-(null?) value
-#true
-
-(list?) value
-comment: value is a pair -> is value a list?
-(pair?) value
-(list?) (!) value
-
-(list?) value
-comment: value is not a pair -> is value a list?
-(always)
-#false
-
-(list->racket) list
-comment: empty list or atom -> returns a Racket list
-(not) (pair?) list
-list
-
-(list->racket) list
-comment: non empty list -> returns a Racket list
-(always)
-("cons") (list->racket) (1) list (list->racket) (!) list
-
 (list->string) list
-comment: takes a list -> returns a string representation
+comment: takes a list -> returns a string representation of the non list parts
 (always)
 ("apply") "string-append" (two) "flatten" (ZEDlist->string) list
 
 (ZEDlist->string) list
-comment: empty list -> returns the same list structure but with strings replacing the atoms
+comment: empty list -> returns almost the same list structure but with strings replacing the atoms
 (null?) list
 nil
 
@@ -576,6 +561,21 @@ comment: the first element of list is not a pair -> returns almost the same list
 (always)
 ("cons") (call-with-output-string) (two) (curry) "display" (1) list
          (ZEDlist->string) (!) list
+
+(list?) value
+comment: empty list -> is value a list?
+(null?) value
+#true
+
+(list?) value
+comment: value is a pair -> is value a list?
+(pair?) value
+(list?) (!) value
+
+(list?) value
+comment: value is not a pair -> is value a list?
+(always)
+#false
 
 (make-random-number-generator)
 comment: makes a random number generator object
@@ -673,20 +673,20 @@ comment: takes a boolean value -> gives the compliment
 (always)
 (two) "not" boolean
 
-(null?) list
-comment: any list -> is the list empty?
+(null?) value
+comment: any value -> is it the empty list?
 (always)
-(two) "null?" list
-
-(number?) value
-comment: any value -> is value a number?
-(always)
-(two) "number?" value
+(two) "null?" value
 
 (number->string) number
 comment: any number -> returns a string representation
 (always)
 (two) "number->string" number
+
+(number?) value
+comment: any value -> is value a number?
+(always)
+(two) "number?" value
 
 (odd?) integer
 comment: takes an integer -> is it odd?
@@ -731,7 +731,7 @@ comment: any number -> is it positive?
 (pr) value
 comment: any value -> returns a string representation
 (always)
-(call-with-output-string) (two) (curry) "display" (list->racket) value
+(call-with-output-string) (two) (curry) "display" (zed->racket) value
 
 (predictable-random-bits) seed
 comment: takes a seed for the random number generator -> produces an infinite list of rsndom bits
@@ -750,16 +750,6 @@ comment: takes a bit and a random number generator -> produces an infinite list 
 (always)
 (c) bit (ZEDpredictable-random-bits1) generator
 
-(random-number-generator->vector) generator
-comment: takes a random number generator -> returns a vector of its internal state
-(always)
-(two) "pseudo-random-generator->vector" generator
-
-(random-number-generator?) value
-comment: any value -> is it a random number generator?
-(always)
-(two) "pseudo-random-generator?" value
-
 (put-file) message
 comment: takes a message -> returns a path to a filename which may or may not exist
 (always)
@@ -770,15 +760,30 @@ comment: takes two integers -> returns the quotient
 (always)
 (three) "quotient" integer1 integer2
 
+(raise) number1 number2
+comment: takes a base and a power -> returns number1 raised to the number2 power
+(always)
+(three) "expt" number1 number2
+
 (random) generator integer
 comment: takes a random number generator and an integer -> produces a positive integer
 (always)
 (add1) (three) "random" integer generator
 
+(random-number-generator->vector) generator
+comment: takes a random number generator -> returns a vector of its internal state
+(always)
+(two) "pseudo-random-generator->vector" generator
+
 (random-number-generator-vector?) value
 comment: any value -> is it a valid state of the random number generator?
 (always)
 (two) "pseudo-random-generator-vector?" value
+
+(random-number-generator?) value
+comment: any value -> is it a random number generator?
+(always)
+(two) "pseudo-random-generator?" value
 
 (random-seed) integer
 comment: takes a positive integer less than the power two to the thirty-one -> seeds the current random number generator
@@ -818,7 +823,7 @@ comment: haven't reached end of file -> read in the bytes
 (reduce) final function list
 comment: takes a list and a two argument function -> accumulates the final value using function
 (always)
-(four) "foldr" function final (list->racket) list
+(four) "foldr" function final (zed->racket) list
 
 (reduce-append) list
 comment: takes a list -> accumulates a value by appending the sub lists together
@@ -902,14 +907,14 @@ comment: non empty list -> returns list in reverse
 (runs) bits
 comment: takes a sequence of bits (#true or #false) -> returns run lengths to #false
 (always)
-(runs1) bits (get-run) bits
+(ZEDruns) bits (get-run) bits
 
-(runs1) bits run
+(ZEDruns) bits run
 comment: empty bits -> returns run lengths to #false
 (null?) bits
 nil
 
-(runs1) bits run
+(ZEDruns) bits run
 comment: non empty bits -> returns run lengths to #false
 (always)
 (c) run (runs) (tails) run bits
@@ -917,22 +922,32 @@ comment: non empty bits -> returns run lengths to #false
 (sort) comparator list
 comment: takes a comparator function and a list -> sorts the list using the comparator
 (always)
-(three) "sort" (list->racket) list comparator
+(three) "sort" (zed->racket) list comparator
 
 (space) port
 comment: takes an output port -> sends the #space character
 (always)
 (display) port #space
 
-(string?) value
-comment: takes a value -> is it a string?
+(square) number
+comment: any number -> the mathematical square
 (always)
-(two) "string?" value
+(*) number number
+
+(square-root) number
+comment: any number -> mathematical square root
+(always)
+(two) "sqrt" number
 
 (string->list) string
 comment: takes a string -> returns a list of characters
 (always)
 (two) "string->list" string
+
+(string?) value
+comment: takes a value -> is it a string?
+(always)
+(two) "string?" value
 
 (sub1) number
 comment: takes a number -> returns the quantity number minus one
@@ -944,15 +959,15 @@ comment: takes a list of numbers -> adds them up
 (always)
 (reduce) 0 + numbers
 
-(symbol?) value
-comment: any value -> is it a symbol?
-(always)
-(two) "symbol?" value
-
 (symbol->string) symbol
 comment: any symbol -> returns an equivalent string
 (always)
 (two) "symbol->string" symbol
+
+(symbol?) value
+comment: any value -> is it a symbol?
+(always)
+(two) "symbol?" value
 
 (tails) integer list
 comment: empty list or integer is zero ->  the nth tail of list
@@ -974,6 +989,41 @@ comment: takes an appropriate vector -> returns a random number generator
 comment: takes a value -> makes a list
 (always)
 (two) "list" value
+
+(wrap10) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
+comment: takes ten values -> makes a list
+(always)
+(eleven) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
+
+(wrap11) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
+comment: takes eleven values -> makes a list
+(always)
+(twelve) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
+
+(wrap12) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
+comment: takes twelve values -> makes a list
+(always)
+(thirteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
+
+(wrap13) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
+comment: takes thirteen values -> makes a list
+(always)
+(fourteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
+
+(wrap14) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
+comment: takes fourteen values -> makes a list
+(always)
+(fifteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
+
+(wrap15) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
+comment: takes fifteen values -> makes a list
+(always)
+(sixteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
+
+(wrap16) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
+comment: takes sixteen values -> makes a list
+(always)
+(seventeen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
 
 (wrap2) value1 value2
 comment: takes two values -> makes a list
@@ -1015,41 +1065,6 @@ comment: takes nine values -> makes a list
 (always)
 (ten) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9
 
-(wrap10) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
-comment: takes ten values -> makes a list
-(always)
-(eleven) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
-
-(wrap11) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
-comment: takes eleven values -> makes a list
-(always)
-(twelve) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
-
-(wrap12) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
-comment: takes twelve values -> makes a list
-(always)
-(thirteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
-
-(wrap13) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
-comment: takes thirteen values -> makes a list
-(always)
-(fourteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
-
-(wrap14) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
-comment: takes fourteen values -> makes a list
-(always)
-(fifteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
-
-(wrap15) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
-comment: takes fifteen values -> makes a list
-(always)
-(sixteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
-
-(wrap16) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
-comment: takes sixteen values -> makes a list
-(always)
-(seventeen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
-
 (write-byte) port byte
 comment: takes a byte and an output port -> writes the byte to the output port
 (always)
@@ -1077,6 +1092,16 @@ comment: takes two bits -> performs the exclusive or operation
       (boolean?) bit2
 (not) (=) bit1 bit2
 
+(zed->racket) value
+comment: value is empty list or atom -> returns a Racket value
+(not) (pair?) value
+value
+
+(zed->racket) value
+comment: value is non empty list -> returns a Racket value
+(always)
+("cons") (zed->racket) (1) value (zed->racket) (!) value
+
 (zero?) number
 comment: any number -> is it zero?
 (always)
@@ -1092,13 +1117,4 @@ comment: matching bits -> returns the result of doing a bit by bit exclusive or
 (always)
 (c) (xor) (1) bits1 (1) bits2
     (zip) (!) bits1 (!) bits2
-
-(curry) function
-comment: takes a function -> returns the curried function
-(always)
-(two) "curry" function
-
-(call-with-output-string) function-of-an-output-port
-comment: takes a function of an output port -> returns the string resulting from applying the function
-(always)
-(two) "call-with-output-string" function-of-an-output-port
+	
