@@ -10,7 +10,7 @@ The basis for all ZED programs is the function declaration.
 So what is involved in declaring a function?
 
 (square) number
-(square) 3
+comment: any number -> returns the mathematical square of the input
 (always)
 (*) number number
 
@@ -26,7 +26,7 @@ This line is called the "signature" of the function declaration and it mimics th
 
 The second line is:
 
-(square) 3
+comment: any number -> returns the mathematical square of the input
 
 This line is documentation only but is required in every "clause". As you will see later a clause always has exactly four parts. This line is called the "documentation section" of the clause.
 
@@ -34,7 +34,7 @@ The third line is:
 
 (always)
 
-This section of the clause is called the "clause guard". "(always)" always evaluates to the boolean value #true. Because of this, the fourth part of the clause is always evaluated and returned as the value of the function.
+This section of the clause is called the "clause guard". The expression "(always)" always evaluates to the boolean value #true. Because of this, the fourth part of the clause is always evaluated and returned as the value of the function.
 
 The fourth line is:
 
