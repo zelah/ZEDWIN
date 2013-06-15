@@ -1,9 +1,9 @@
-Compiles under Windows XP Professional
-Racket Version: 5.2.1
+Compiles under Windows 8
+Racket Version: 5.3.4
 Need to change hardwired paths.
 
 Instructions:
-place the files on your desktop
+place the folder on your desktop
 change the paths in COMPILER.rkt to match your system
 change the paths in ZED.txt to match your system
 
