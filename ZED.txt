@@ -1,42 +1,42 @@
 ("my-flatten") "tree"
-nil
+comment: "tree" is not a pair -> flattens "tree"
 ("not") ("pair?") "tree"
 "tree"
 
 ("my-flatten") "tree"
-'(() (1 2 (3)))
+comment: first element of "tree" is the empty list -> flattens "tree"
 ("null?") ("car") "tree"
 ("my-flatten") ("cdr") "tree"
 
 ("my-flatten") "tree"
-'((1 (2)) 3 (4))
+comment: first element of "tree" is a pair -> flattens "tree"
 ("pair?") ("car") "tree"
 ("append") ("my-flatten") ("car") "tree"
            ("my-flatten") ("cdr") "tree"
 
 ("my-flatten") "tree"
-'(3 (4) 5)
+comment: first element of "tree" is not a pair -> flattens "tree"
 ("not") ("pair?") ("car") "tree"
 ("cons") ("car") "tree" ("my-flatten") ("cdr") "tree"
 
-("my-remove") "number" "list"
-3 nil
+("remove-leading") "number" "list"
+comment: empty "list" -> removes "number" elements from the head of "list"
 ("null?") "list"
 nil
 
-("my-remove") "number" "list"
-0 '(3 4 5)
+("remove-leading") "number" "list"
+comment: "number" is zero -> removes "number" elements from the head of "list"
 ("=") "number" 0
 "list"
 
-("my-remove") "number" "list"
-1 '(2 3 4 5)
+("remove-leading") "number" "list"
+comment: number is positive -> removes "number" elements from the head of "list"
 (">") "number" 0
-("my-remove") ("-") "number" 1
-              ("cdr") "list"
+("remove-leading") ("-") "number" 1
+                   ("cdr") "list"
 
-("string->ZED") "string"
-"name"
+("ZEDefy") "string"
+comment: takes "string" -> prepends ""ZED"" and returns a symbol
 (always)
 ("string->symbol")
   ("list->string")
@@ -47,360 +47,148 @@ nil
                 ("string->list") "string"
 
 ("symbol-character") "character"
-#\nul
-(=) "character" #nul
-("wrap2") #@ #!
+comment: "character" is #[ -> returns characters for constructing an identifier
+(=) "character" #[
+("wrap2") #@ #1
 
 ("symbol-character") "character"
-#\u0001
-(=) "character" #01
-("wrap2") #@ #$
+comment: "character" is #] -> returns characters for constructing an identifier
+(=) "character" #]
+("wrap2") #@ #2
 
 ("symbol-character") "character"
-#\u0002
-(=) "character" #02
-("wrap2") #@ #%
+comment: "character" is #{ -> returns characters for constructing an identifier
+(=) "character" #{
+("wrap2") #@ #3
 
 ("symbol-character") "character"
-#\u0003
-(=) "character" #03
-("wrap2") #@ #&
+comment: "character" is #} -> returns characters for constructing an identifier
+(=) "character" #}
+("wrap2") #@ #4
 
 ("symbol-character") "character"
-#\u0004
-(=) "character" #04
-("wrap2") #@ #*
+comment: "character" is #' -> returns characters for constructing an identifier
+(=) "character" #'
+("wrap2") #@ #q
 
 ("symbol-character") "character"
-#\u0005
-(=) "character" #05
-("wrap2") #@ #+
-
-("symbol-character") "character"
-#\u0006
-(=) "character" #06
-("wrap2") #@ #-
-
-("symbol-character") "character"
-#\u0007
-(=) "character" #07
-("wrap2") #@ #.
-
-("symbol-character") "character"
-#\backspace
-(=) "character" #backspace
-("wrap2") #@ #/
-
-("symbol-character") "character"
-#\tab
-(=) "character" #tab
-("wrap2") #@ #:
-
-("symbol-character") "character"
-#\newline
-(=) "character" #newline
-("wrap2") #@ #<
-
-("symbol-character") "character"
-#\vtab
-(=) "character" #vtab
-("wrap2") #@ #=
-
-("symbol-character") "character"
-#\page
-(=) "character" #page
-("wrap2") #@ #>
-
-("symbol-character") "character"
-#\return
-(=) "character" #return
-("wrap2") #@ #?
-
-("symbol-character") "character"
-#\u000E
-(=) "character" #0E
-("wrap2") #@ #A
-
-("symbol-character") "character"
-#\u000F
-(=) "character" #0F
-("wrap2") #@ #B
-
-("symbol-character") "character"
-#\u0010
-(=) "character" #010
-("wrap2") #@ #C
-
-("symbol-character") "character"
-#\u0011
-(=) "character" #011
-("wrap2") #@ #D
-
-("symbol-character") "character"
-#\u0012
-(=) "character" #012
-("wrap2") #@ #E
-
-("symbol-character") "character"
-#\u0013
-(=) "character" #013
-("wrap2") #@ #F
-
-("symbol-character") "character"
-#\u0014
-(=) "character" #014
-("wrap2") #@ #G
-
-("symbol-character") "character"
-#\u0015
-(=) "character" #015
-("wrap2") #@ #H
-
-("symbol-character") "character"
-#\u0016
-(=) "character" #016
-("wrap2") #@ #I
-
-("symbol-character") "character"
-#\u0017
-(=) "character" #017
-("wrap2") #@ #J
-
-("symbol-character") "character"
-#\u0018
-(=) "character" #018
-("wrap2") #@ #K
-
-("symbol-character") "character"
-#\u0019
-(=) "character" #019
-("wrap2") #@ #L
-
-("symbol-character") "character"
-#\u001A
-(=) "character" #01A
-("wrap2") #@ #M
-
-("symbol-character") "character"
-#\u001B
-(=) "character" #01B
-("wrap2") #@ #N
-
-("symbol-character") "character"
-#\u001C
-(=) "character" #01C
-("wrap2") #@ #O
-
-("symbol-character") "character"
-#\u001D
-(=) "character" #01D
-("wrap2") #@ #P
-
-("symbol-character") "character"
-#\u001E
-(=) "character" #01E
+comment: "character" is #` -> returns characters for constructing an identifier
+(=) "character" #`
 ("wrap2") #@ #Q
 
 ("symbol-character") "character"
-#\u001F
-(=) "character" #01F
-("wrap2") #@ #R
-
-("symbol-character") "character"
-#\space
-(=) "character" #space
-("wrap2") #@ #S
-
-("symbol-character") "character"
-#\@
-(=) "character" #@
-("wrap2") #@ #@
-
-("symbol-character") "character"
-#\"
-(=) "character" #"
-("wrap2") #@ #T
-
-("symbol-character") "character"
-#\'
-(=) "character" #'
-("wrap2") #@ #U
-
-("symbol-character") "character"
-#\(
-(=) "character" #(
-("wrap2") #@ #V
-
-("symbol-character") "character"
-#\)
-(=) "character" #)
-("wrap2") #@ #W
-
-("symbol-character") "character"
-#\,
+comment: "character" is #, -> returns characters for constructing an identifier
 (=) "character" #,
-("wrap2") #@ #X
-
-("symbol-character") "character"
-#\;
-(=) "character" #;
-("wrap2") #@ #Y
-
-("symbol-character") "character"
-#\[
-(=) "character" #[
-("wrap2") #@ #Z
-
-("symbol-character") "character"
-#\\
-(=) "character" #\
-("wrap2") #@ #^
-
-("symbol-character") "character"
-#\]
-(=) "character" #]
-("wrap2") #@ #_
-
-("symbol-character") "character"
-#\`
-(=) "character" #`
-("wrap2") #@ #a
-
-("symbol-character") "character"
-#\{
-(=) "character" #{
-("wrap2") #@ #b
-
-("symbol-character") "character"
-#\|
-(=) "character" #|
 ("wrap2") #@ #c
 
 ("symbol-character") "character"
-#\}
-(=) "character" #}
-("wrap2") #@ #d
+comment: "character" is #; -> returns characters for constructing an identifier
+(=) "character" #;
+("wrap2") #@ #s
 
 ("symbol-character") "character"
-#\rubout
-(=) "character" #rubout
-("wrap2") #@ #e
+comment: "character" is #\ -> returns characters for constructing an identifier
+(=) "character" #\
+("wrap2") #@ #b
 
 ("symbol-character") "character"
-#\u009F
+comment: "character" does not have a graphical representation -> returns characters for constructing an identifier
 ("not") ("char-graphic?") "character"
-("wrap2") #@ #f
+("wrap2") #@ #w
 
 ("symbol-character") "character"
-#\Z
+comment: "character" has a graphical representation -> returns characters for constructing an identifier
 ("char-graphic?") "character"
 "character"
 
 ("clause-name") "clause"
-'(abs (number) ((=) number 0) (0))
+comment: (abs (number) ((=) number 0) (0))
 (always)
 ("car") "clause"
 
 ("clause-arguments") "clause"
-'(abs (number) ((=) number 0) (0))
+comment: (abs (number) ((=) number 0) (0))
 (always)
 ("cadr") "clause"
 
 ("clause-arity") "clause"
-'(abs (number) ((=) number 0) (0))
+comment: (abs (number) ((=) number 0) (0))
 (always)
 ("length") ("clause-arguments") "clause"
 
 ("clause-body") "clause"
-'(abs (number) ((=) number 0) (0))
+comment: (abs (number) ((=) number 0) (0))
 (always)
 ("cddr") "clause"
 
-("clause-name-agree") "a" "b"
-;;;'(abs (number) ((=) number 0) (0))
-   '(abs (number) ((>) number 0) (number))
-("eq?") ("clause-name") "a"
-        ("clause-name") "b"
-("clause-name") "a"
+("clause-name-agree") "clause1" "clause2"
+comment: takes two clauses -> returns the common clause name or signals err
+("eq?") ("clause-name") "clause1"
+        ("clause-name") "clause2"
+("clause-name") "clause1"
 
-("clause-arguments-agree") "a" "b"
-;;;'(abs (number) ((=) number 0) (0))
-   '(abs (number) ((>) number 0) (number))
-("equal?") ("clause-arguments") "a"
-           ("clause-arguments") "b"
-("clause-arguments") "a"
+("clause-arguments-agree") "clause1" "clause2"
+comment: takes two clauses -> returns the common clause arguments or signals err
+("equal?") ("clause-arguments") "clause1"
+           ("clause-arguments") "clause2"
+("clause-arguments") "clause1"
 
-("combine-clauses") "a" "b"
-;;;'(abs (number) ((=) number 0) (0))
-   '(abs (number) ((>) number 0) (number))
+("combine-clauses") "clause1" "clause2"
+comment: takes two clauses -> combines them
 (always)
-("cons") ("clause-name-agree") "a" "b"
-         ("cons") ("clause-arguments-agree") "a" "b"
-                  ("append") ("clause-body") "a"
-                             ("clause-body") "b"
+("cons") ("clause-name-agree") "clause1" "clause2"
+         ("cons") ("clause-arguments-agree") "clause1" "clause2"
+                  ("append") ("clause-body") "clause1"
+                             ("clause-body") "clause2"
 
 ("combine-head-clauses") "program"
-;;;'((abs (number) ((=) number 0) (0))
-     (abs (number) ((>) number 0) (number))
-     (abs (number) ((<) number 0) ((-) 0 number)))
+comment: "program" is a list of clauses -> combines the first two
 (always)
 ("cons") ("combine-clauses") ("car") "program" ("cadr") "program"
          ("cddr") "program"
 
 ("ready-clause") "clause"
-'(((abs) number) ((=) number 0) (0))
+comment: (((abs) number) ((=) number 0) (0))
 (always)
 ("cons") ("caaar") "clause"
          ("cons") ("cdar") "clause"
                   ("cdr") "clause"
 
 ("ready-program") "program"
-;;;'((((abs) number) ((=) number 0) (0))
-     (((abs) number) ((>) number 0) (number))
-     (((abs) number) ((<) number 0) ((-) 0 number)))
+comment: "program" is a list of clauses -> readies the program
 (always)
 ("map") "ready-clause" "program"
 
 ("combine-all") "program"
-nil
+comment: empty "program" -> returns the fully combined program
 ("null?") "program"
 nil
 
 ("combine-all") "program"
-'((square (number) ((always)) ((*) number number)))
+comment: one clause "program" -> returns the fully combined program
 ("null?") ("cdr") "program"
 "program"
 
 ("combine-all") "program"
-;;;'((abs (number) ((=) number 0) (0))
-     (abs (number) ((>) number 0) (number))
-     (abs (number) ((<) number 0) ((-) 0 number)))
+comment: head clause names in "program" agree -> returns the fully combined program
 (=) ("clause-name") ("car") "program"
     ("clause-name") ("cadr") "program"
 ("combine-all") ("combine-head-clauses") "program"
 
 ("combine-all") "program"
-;;;'((square (number) ((always)) ((*) number number))
-     (negate (number) ((always)) ((-) 0 number)))
+comment: head clause names in "program" do not agree -> returns the fully combined program
 ("not") (=) ("clause-name") ("car") "program"
             ("clause-name") ("cadr") "program"
 ("cons") ("car") "program"
          ("combine-all") ("cdr") "program"
 
 ("combine-program-clauses") "program"
-;;;'((((square) number) ((always)) ((*) number number))
-     (((negate) number) ((always)) ((-) 0 number)))
+comment: "program" is a list of clauses -> returns the fully combined program after readying the clauses
 (always)
 ("combine-all") ("ready-program") "program"
 
-("arity-hash1") "clause"
-'(abs (number) ((=) number 0) (0))
-(always)
-("cons") ("clause-name") "clause"
-         ("clause-arity") "clause"
-
 ("arity-hash") "program"
-comment: program plus primitives
+comment: "program" is a list of combined clauses -> returns a symbol-arity hash table
 (always)
 ("make-hasheq") ("append") ("map") "arity-hash1" "program"
                 ("append") ("wrap16")
@@ -614,14 +402,20 @@ comment: program plus primitives
                 ("cons") "'ZEDninety-seven" 97
                 ("cons") "'ZEDninety-eight" 98
                 ("cons") "'ZEDninety-nine" 99
-
-("arity") "function" "arity-hash"
-'ZED= '((ZED* . 2) (ZED= . 2))
+                
+("arity-hash1") "clause"
+comment: (abs (number) ((=) number 0) (0))
+(always)
+("cons") ("clause-name") "clause"
+         ("clause-arity") "clause"
+         
+("arity") "arity-hash" "function"
+comment: takes a hash-table and a symbol -> returns the arity of the named function
 (always)
 ("hash-ref") "arity-hash" "function"
 
 ("primitives")
-comment: new primitives
+comment: makes a begin with definitions for the primitives
 (always)
 ("append") ("wrap16")
              "'begin"
@@ -694,7 +488,7 @@ comment: new primitives
                ("wrap2")
                  "'quote"
                  nil
-             ("quote") ("define") ("ZEDalways") #true
+             ("quote") ("define") ("ZEDalways") "#true"
              ("wrap3")
                 "'define-syntax"
                 "'apply1"
@@ -742,53 +536,58 @@ comment: new primitives
                     ("wrap13") "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j" "'k" "'l"           
 
 ("application?") "expression"
-'((+) 1 2)
+comment: ((+) 1 2)
 (always)
 ("and") ("not") ("null?") "expression"
         ("pair?") ("car") "expression"
 
 ("function") "expression"
-'((+) 1 2)
+comment: ((+) 1 2)
 (always)
 ("caar") "expression"
 
 ("double-application?") "expression"
-nil
+comment: empty "expression" -> is the expression a double application?
 ("null?") "expression"
-#false
+"#false"
 
 ("double-application?") "expression"
-'((always))
+comment: "expression" just has one element -> is the expression a double application?
 ("null?") ("cdr") "expression"
-#false
+"#false"
 
 ("double-application?") "expression"
-'((+) (+) 1 2 3)
-("not") ("null?") ("cdr") "expression"
+comment: "expression" has at least two elements -> is the expression a double application?
+(always)
 ("and") ("pair?") ("car") "expression"
         ("pair?") ("cadr") "expression"
+        
+("schemefy") "expression" "arity-hash"
+comment: takes a ZED expresssion and the arity hash-table -> returns a Scheme expression
+(always)
+("wrap") ("schemefy1") "expression" "arity-hash"
 
 ("schemefy1") "expression" "arity-hash"
-'(1 2 3) ((+ . 2))
+comment: (1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("not") ("application?") "expression"
 ("car") "expression"
 
 ("schemefy1") "expression" "arity-hash"
-'((zero) (one) 1) '((zero . 0) (one . 1))
-(=) 0 ("arity") ("function") "expression" "arity-hash"
+comment: ((current-directory) (square) 1) ((+ . 2) (square . 1) (current-directory . 0))
+(=) 0 ("arity") "arity-hash" ("function") "expression"
 ("car") "expression"
 
 ("schemefy1") "expression" "arity-hash"
-'((+) (+) 1 2 3) '((+ . 2))
+comment: ((+) (+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("double-application?") "expression"
 ("cons") ("function") "expression"
          ("cons") ("schemefy1") ("cdr") "expression" "arity-hash"
                   ("gather")
                     ("-") ("arity")
-                            ("function") "expression"
                             "arity-hash"
+                            ("function") "expression"
                           1
-                    ("my-remove")
+                    ("remove-leading")
                       ("+") 1 ("length")
                                 ("my-flatten")
                                   ("schemefy1")
@@ -798,31 +597,26 @@ nil
                     "arity-hash"
 
 ("schemefy1") "expression" "arity-hash"
-'((+) 1 2 3) '((+ . 2))
+comment: ((+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("application?") "expression"
 ("cons") ("function") "expression"
          ("gather") ("arity")
-                      ("function") "expression"
                       "arity-hash"
+                      ("function") "expression"
                     ("cdr") "expression"
                     "arity-hash"
 
-("schemefy") "expression" "arity-hash"
-'((+) (+) 1 2 3) '((+ . 2))
-(always)
-("wrap") ("schemefy1") "expression" "arity-hash"
-
 ("gather") "how-many" "expression" "arity-hash"
-0 '(3) '((+ . 2))
+comment: 0 (3) ((+ . 2) (square . 1) (current-directory . 0))
 ("=") "how-many" 0
 nil
 
 ("gather") "how-many" "expression" "arity-hash"
-2 '((+) 1 2 3) '((+ . 2))
+comment: 2 ((+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("application?") "expression"
 ("append") ("schemefy") "expression" "arity-hash"
            ("gather") ("-") "how-many" 1
-                      ("my-remove")
+                      ("remove-leading")
                         ("length")
                           ("my-flatten")
                             ("schemefy")
@@ -832,129 +626,117 @@ nil
                       "arity-hash"
 
 ("gather") "how-many" "expression" "arity-hash"
-1 '(2 3) '((+ . 2))
+comment: 1 (2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("not") ("application?") "expression"
 ("cons") ("car") "expression"
          ("gather") ("-") "how-many" 1
                     ("cdr") "expression"
                     "arity-hash"
 
-("map-with") "function-hack-2" "list" "extra"
-+ nil 1
+("map-with") "function" "list" "extra"
+comment: empty "list" -> map over the list with an extra value
 ("null?") "list"
 nil
 
-("map-with") "function-hack-2" "list" "extra"
-+ '(1 3 5 7) 1
+("map-with") "function" "list" "extra"
+comment: non empty "list" -> map over the list with an extra value
 ("not") ("null?") "list"
-("cons") ("function-hack-2") ("car") "list" "extra"
-         ("map-with") "function-hack-2" ("cdr") "list" "extra"
+("cons") (three) "function" ("car") "list" "extra"
+         ("map-with") "function" ("cdr") "list" "extra"
 
-("functionize") "function" "arity-hash"
-;;;'(abs (number) ((<) number 0)
-                  ((-) 0 number)
-                  ((not) (<) number 0)
-                  (number))
-   '((< . 2) (- . 2) (not . 1))
+("functionize") "clause" "arity-hash"
+comment: takes an already combined "clause" and the "arity-hash" -> produces a scheme function
 (always)
 ("wrap3") "'define"
-          ("cons") ("car") "function" ("cadr") "function"
+          ("cons") ("clause-name") "clause" ("clause-arguments") "clause"
           ("cons") "'cond"
                    ("append")
                      ("condefy")
                        ("map-with")
                          "schemefy"
-                         ("cddr") "function"
+                         ("clause-body") "clause"
                          "arity-hash"
                      ("wrap") ("wrap2") "'else" "'ZEDerr"
 
-("condefy") "clauses"
-nil
-("null?") "clauses"
+("condefy") "expressions"
+comment: empty "expressions" -> constructs the list structure of a cond
+("null?") "expressions"
 nil
 
-("condefy") "clauses"
-'(((< number 0)) ((- 0 number)) ((not (< number 0))) (number))
-("not") ("null?") "clauses"
-("cons") ("append") ("car") "clauses"
-                    ("cadr") "clauses"
-         ("condefy") ("cddr") "clauses"
+("condefy") "expressions"
+comment: (((< number 0)) ((- 0 number)) ((not (< number 0))) (number))
+(always)
+("cons") ("append") ("car") "expressions"
+                    ("cadr") "expressions"
+         ("condefy") ("cddr") "expressions"
 
 ("programize") "program" "arity-hash"
-;;;'((abs (number) ((<) number 0)
-                   ((-) 0 number)
-                   ((not) (<) number 0)
-                   (number))
-     (square (number) ((always))
-                      ((*) number number)))
-   '((< . 2) (- . ) (not . 1) (always . 0) (* . 2))
+comment: takes the already combined clauses of "program" -> generates a Scheme program
 (always)
-("cons") "'begin"
-         ("map-with") "functionize" "program" "arity-hash"
+("cons") "'begin" ("map-with") "functionize" "program" "arity-hash"
 
-("namefy") "expression"
+("namefy") "part-of-expression"
+comment: empty "part-of-expression" -> rewrites parts of an expression
+("null?") "part-of-expression"
 nil
-("null?") "expression"
-nil
 
-("namefy") "expression"
-'(square)
-("pair?") "expression"
-("wrap") ("symbolize") ("car") "expression"
+("namefy") "part-of-expression"
+comment: (square)
+("pair?") "part-of-expression"
+("wrap") ("symbolize") ("car") "part-of-expression"
 
-("namefy") "expression"
-'number
-("not") ("pair?") "expression"
-("flexify") "expression"
+("namefy") "part-of-expression"
+comment: .25
+("not") ("pair?") "part-of-expression"
+("flexefy") "part-of-expression"
 
-("symbolize") "expression"
-'hey
-("symbol?") "expression"
-("string->ZED") ("symbol->string") "expression"
+("symbolize") "part"
+comment: hey
+("symbol?") "part"
+("ZEDefy") ("symbol->string") "part"
 
-("symbolize") "expression"
-"hey"
-("string?") "expression"
-("string->symbol") "expression"
+("symbolize") "part"
+comment: "hey"
+("string?") "part"
+("string->symbol") "part"
 
-("symbolize") "expression"
-42
-("number?") "expression"
-("string->ZED") ("number->string") "expression"
+("symbolize") "part"
+comment: 42
+("number?") "part"
+("ZEDefy") ("number->string") "part"
 
-("flexify") "expression"
-'hey
-("symbol?") "expression"
-("flexify1") ("string->list") ("symbol->string") "expression"
+("flexefy") "part"
+comment: hey
+("symbol?") "part"
+("flexefy1") ("string->list") ("symbol->string") "part"
 
-("flexify") "expression"
-"hey"
-("string?") "expression"
-("string->symbol") "expression"
+("flexefy") "part"
+comment: "hey"
+("string?") "part"
+("string->symbol") "part"
 
-("flexify") "expression"
-#true
-("boolean?") "expression"
-"expression"
+("flexefy") "part"
+comment: #true
+("boolean?") "part"
+"part"
 
-("flexify") "expression"
-#\Z
-("char?") "expression"
-"expression"
+("flexefy") "part"
+comment: #Z
+("char?") "part"
+"part"
 
-("flexify") "expression"
-42
-("exact?") "expression"
-"expression"
+("flexefy") "part"
+comment: 42
+("exact?") "part"
+"part"
 
-("flexify") "expression"
-.25
-("inexact?") "expression"
-("string->number")
-  ("string-append") ""#e"" ("number->string") "expression"
+("flexefy") "part"
+comment: .25
+("inexact?") "part"
+("string->number") ("string-append") ""#e"" ("number->string") "part"
 
-("flexify1") "list"
-'(#\# #\0 #\1)
+("flexefy1") "list"
+comment: (## #0 #1)
 ("and") (=) ## ("car") "list"
         ("and") (=) #0 ("cadr") "list"
                 ("not") ("null?") ("cddr") "list"
@@ -962,202 +744,206 @@ nil
   ("list->string") ("append") ("wrap3") ## #\ #u
                               ("cddr") "list"
 
-("flexify1") "list"
-'(#\# #\t #\r #\u #\e)
-("or") ("equal?") "list" ("wrap5") ## #t #r #u #e
-       ("equal?") "list" ("wrap6") ## #f #a #l #s #e
-("string->symbol") ("list->string") "list"
-
-("flexify1") "list"
-'(#\# #\n #\u #\l)
+("flexefy1") "list"
+comment: (## #t #r #u #e)
+(three) "equal?" "list" ("wrap5") ## #t #r #u #e
+"#true"
+             
+("flexefy1") "list"
+comment: (## #f #a #l #s #e)
+(three) "equal?" "list" ("wrap6") ## #f #a #l #s #e
+"#false"
+             
+("flexefy1") "list"
+comment: (## #n #u #l)
 (=) ("car") "list" ##
 ("string->symbol") ("list->string") ("append") ("wrap2") ## #\
                                                ("cdr") "list"
 
-("flexify1") "list"
-'(#\h #\e #\y)
+("flexefy1") "list"
+comment: (#h #e #y)
 ("not") (=) ("car") "list" ##
-("string->ZED") ("list->string") "list"
+("ZEDefy") ("list->string") "list"
 
 ("read-all!") "port"
-comment: reads in from port
+comment: any input port -> reads in all the characters
 (always)
 ("read-all1") "port" ("read-char") "port"
 
 ("read-all1") "port" "character"
-comment: termination condition
+comment: character is the end of file object -> reads in all the characters
 ("eof-object?") "character"
 ("begin") ("close-input-port") "port"
           nil
 
 ("read-all1") "port" "character"
-comment: save the character and read more
+comment: not at end of file -> reads in all the characters
 ("not") ("eof-object?") "character"
 ("cons") "character" ("read-all!") "port"
 
+("newline-space") "program"
+comment: takes a "program" -> repeatedly removes newlines preceding #space or #tab
+(always)
+("append") ("newline-space-again") "program"
+           ("wrap") #newline
+
 ("newline-space1") "program"
-nil
+comment: empty "program" -> removes newlines before #space or #tab
 ("null?") "program"
 nil
 
 ("newline-space1") "program"
-'(#\Z)
+comment: (#Z)
 ("null?") ("cdr") "program"
 "program"
 
 ("newline-space1") "program"
-'(#\newline #\tab #\Z #\E #\D)
+comment: (#newline #tab #Z #E #D)
 ("and") (=) #newline ("car") "program"
         ("or") (=) #space ("cadr") "program"
                (=) #tab ("cadr") "program"
 ("newline-space1") ("cdr") "program"
 
 ("newline-space1") "program"
-'(#\newline #\newline #space #\Z)
+comment: (#newline #newline #space #Z)
 (=) #newline ("car") "program"
 ("cons") #newline ("newline-space1") ("cdr") "program"
 
 ("newline-space1") "program"
-'(#\Z #\newline #newline #\space)
+comment: (#Z #newline #newline #space)
 ("not") (=) #newline ("car") "program"
 ("cons") ("car") "program" ("newline-space1") ("cdr") "program"
 
-("again") "program"
-'(#\Z #\newline #\newline #\space)
+("newline-space-again") "program"
+comment: takes a "program" -> repeatedly removes newlines preceding #space or #tab
 (always)
-("again1") "program" ("newline-space1") "program"
+("newline-space-again1") "program" ("newline-space1") "program"
 
-("again1") "program" "newline-space1"
-'(#\Z #\space) '(#\Z #\space)
-("equal?") "program" "newline-space1"
+("newline-space-again1") "program" "transformed-program"
+comment: (#Z #space) (#Z #space)
+("equal?") "program" "transformed-program"
 "program"
 
-("again1") "program" "newline-space1"
-'(#\Z #\newline #\space) '(#\Z #\space)
-("not") ("equal?") "program" "newline-space1"
-("again") "newline-space1"
-
-("newline-space") "program"
-'(#\Z #\newline #\newline #\space)
+("newline-space-again1") "program" "transformed-program"
+comment: (#Z #newline #space) '(#Z #space)
 (always)
-("append") ("again") "program"
-           ("wrap") #newline
+("newline-space-again") "transformed-program"
 
-("repeats") "program"
-nil
+("newline-space-tab-repeats") "program"
+comment: empty "program" -> returns program with no consecutive #newline and no consecutive #tab #space
 ("null?") "program"
 nil
 
-("repeats") "program"
-'(#\Z)
+("newline-space-tab-repeats") "program"
+comment: (#Z)
 ("null?") ("cdr") "program"
 "program"
 
-("repeats") "program"
-'(#\newline #\newline #\newline #\Z)
+("newline-space-tab-repeats") "program"
+comment: (#newline #newline #newline #Z)
 ("and") (=) #newline ("car") "program"
         (=) #newline ("cadr") "program"
-("repeats") ("cdr") "program"
+("newline-space-tab-repeats") ("cdr") "program"
 
-("repeats") "program"
-'(#\tab #\space #\tab #\Z)
+("newline-space-tab-repeats") "program"
+comment: (#tab #space #tab #Z)
 ("and") ("or") (=) #space ("car") "program"
                (=) #tab ("car") "program"
         ("or") (=) #space ("cadr") "program"
                (=) #tab ("cadr") "program"
-("repeats") ("cdr") "program"
+("newline-space-tab-repeats") ("cdr") "program"
 
-("repeats") "program"
-'(#\tab #\Z)
+("newline-space-tab-repeats") "program"
+comment: (#tab #Z)
 (always)
-("cons") ("car") "program" ("repeats") ("cdr") "program"
+("cons") ("car") "program" ("newline-space-tab-repeats") ("cdr") "program"
 
-("space-tab") "program"
-nil
+("tab-replace") "program"
+comment: empty program -> replaces #tab with #space
 ("null?") "program"
 nil
 
-("space-tab") "program"
-'(#\tab #\Z #\space)
+("tab-replace") "program"
+comment: (#tab #Z #space)
 (=) #tab ("car") "program"
-("cons") #space ("space-tab") ("cdr") "program"
+("cons") #space ("tab-replace") ("cdr") "program"
 
-("space-tab") "program"
-'(#\Z #\tab)
+("tab-replace") "program"
+comment: (#Z #tab)
 (always)
-("cons") ("car") "program" ("space-tab") ("cdr") "program"
+("cons") ("car") "program" ("tab-replace") ("cdr") "program"
 
 ("space-newline") "program"
-nil
+comment: empty "program" -> remove #space before #newline
 ("null?") "program"
 nil
 
 ("space-newline") "program"
-'(#\newline)
+comment: (#newline)
 ("null?") ("cdr") "program"
 "program"
 
 ("space-newline") "program"
-'(#\space #\newline #\Z)
+comment: (#space #newline #Z)
 ("and") (=) #space ("car") "program"
         (=) #newline ("cadr") "program"
 ("space-newline") ("cdr") "program"
 
 ("space-newline") "program"
-'(#\newline #\Z #\space #\newline)
+comment: (#newline #Z #space #newline)
 (always)
 ("cons") ("car") "program" ("space-newline") ("cdr") "program"
 
-("leading") "program"
-nil
+("leading-newlines") "program"
+comment: empty "program" -> program without leading newlines
 ("null?") "program"
 nil
 
-("leading") "program"
-'(#\newline #\Z)
+("leading-newlines") "program"
+comment: (#newline #Z)
 (=) #newline ("car") "program"
 ("cdr") "program"
 
-("leading") "program"
-'(#\Z #\newline #\E #\newline)
+("leading-newlines") "program"
+comment: (#Z #newline #E #newline)
 (always)
 "program"
 
 ("sentences") "program"
-'(#\o #\n #\e #\newline #\t #\w #\o #\newline)
+comment: (#o #n #e #space #t #w #o #newline #t #h #r #e #e #newline)
 (always)
 ("sentences1") "program" nil
 
 ("sentences1") "program" "accumulator"
-nil
+comment: empty "program" -> returns the program broken up into sentences
 ("null?") "program"
 nil
 
 ("sentences1") "program" "accumulator"
-'(#\newline #\t #\w #\o #\newline) '(#\e #\n #\o)
+comment: (#newline #t #h #r #e #e #newline) (#o #w #t #space #e #n #o)
 (=) #newline ("car") "program"
 ("cons") ("reverse") "accumulator"
          ("sentences1") ("cdr") "program" nil
 
 ("sentences1") "program" "accumulator"
-'(#\e #\newline #\t #\w #\o #\newline) '(#\n #\o)
+comment: (#o #newline #t #h #r #e #e #newline) (#w #t #space #e #n #o)
 (always)
 ("sentences1") ("cdr") "program"
                ("cons") ("car") "program"
                         "accumulator"
 
-("discard") "program"
-nil
+("discard-comments") "program"
+comment: empty "program" -> throws out the comments
 ("null?") "program"
 nil
 
-("discard") "program"
-'(1 2 3 4 5 6 7 8)
+("discard-comments") "program"
+comment: non empty "program" -> throws out the comments
 (always)
 ("cons") ("car") "program"
          ("cons") ("caddr") "program"
                   ("cons") ("cadddr") "program"
-                           ("discard") ("cddddr") "program"
+                           ("discard-comments") ("cddddr") "program"
 
 ("read-sentence") "sentence"
 nil
@@ -1175,17 +961,17 @@ nil
 ("cons")
   ("namefy") ("wrap") ("verb") ("gather-verb") ("cdr") "sentence"
   ("read-sentence")
-    ("my-remove") ("+") 2 ("length")
-                          ("gather-verb")
-                            ("cdr") "sentence"
-                  "sentence"
+    ("remove-leading") ("+") 2 ("length")
+                               ("gather-verb")
+                                 ("cdr") "sentence"
+                       "sentence"
 
 ("read-sentence") "sentence"
 '(#\n #\u #\m #\b #\e #\r)
 (always)
 ("cons") ("noun") ("list->string") ("gather-noun") "sentence"
          ("read-sentence")
-           ("my-remove")
+           ("remove-leading")
              ("length")
                ("gather-noun") "sentence"
              "sentence"
@@ -1809,7 +1595,7 @@ comment
 ("candidate-confirmed?") "candidate" "confirmed"
 comment
 ("null?") "candidate"
-#false
+"#false"
 
 ("candidate-confirmed?") "candidate" "confirmed"
 comment
@@ -1888,7 +1674,7 @@ nil
 comment
 (always)
 ("cons") "candidate" 
-         ("strip1") ("my-remove") ("length") "candidate" "program"
+         ("strip1") ("remove-leading") ("length") "candidate" "program"
 
 ("write-all!") "output-file" "program"
 comment
@@ -1939,7 +1725,7 @@ comment: ensure file can be written
 ("file-exists?") "path"
 ("delete-file") "path"
 
-(not-return?) character
+("not-return?") character
 #Z
 (always)
 ("not") (=) #return character
@@ -1955,14 +1741,14 @@ comment: generate combined
                 ("combine-program-clauses")
                   ("by-three")
                     ("read-sentences")
-                      ("discard")
+                      ("discard-comments")
                         ("sentences")
-                          ("leading")
+                          ("leading-newlines")
                             ("space-newline")
-                              ("space-tab")
-                                ("repeats")
+                              ("tab-replace")
+                                ("newline-space-tab-repeats")
                                   ("newline-space")
-                                    ("filter") not-return?
+                                    ("filter") "not-return?"
                                                ("append") ("append")
                                                  ("read-all!") "PRELUDE"
                                                  ("wrap2") #newline #newline

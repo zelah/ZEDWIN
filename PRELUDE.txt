@@ -301,6 +301,11 @@ comment: start with a number -> the infinite list of numbers counting up by one
 (always)
 (c) number (count) (add1) number
 
+(current-directory)
+comment: returns the current directory path of the running program
+(always)
+(one) "current-directory"
+
 (current-memory-use)
 comment: returns a count of the bytes of memory occupied by reachable data
 (always)
