@@ -929,6 +929,11 @@ comment: takes a comparator function and a list -> sorts the list using the comp
 (always)
 (three) "sort" (zed->racket) list comparator
 
+(sp)
+comment: returns the string with one space in it
+(always)
+(character->string) #space
+
 (space) port
 comment: takes an output port -> sends the #space character
 (always)
@@ -1122,4 +1127,3 @@ comment: matching bits -> returns the result of doing a bit by bit exclusive or
 (always)
 (c) (xor) (1) bits1 (1) bits2
     (zip) (!) bits1 (!) bits2
-	
