@@ -1,17 +1,17 @@
 (*) number1 number2
 comment: any two numbers -> mathematical multiplication function
 (always)
-(three) "*" number1 number2
+(003) "*" number1 number2
 
 (+) number1 number2
 comment: any two numbers -> mathematical addition function
 (always)
-(three) "+" number1 number2
+(003) "+" number1 number2
 
 (-) number1 number2
 comment: any two numbers -> mathematical subtraction function
 (always)
-(three) "-" number1 number2
+(003) "-" number1 number2
 
 (-10) list
 comment: any list -> selects the tenth tail of list
@@ -61,7 +61,7 @@ comment: any list -> selects the ninth tail of list
 (/) number1 number2
 comment: any two numbers -> mathematical division function
 (always)
-(three) "/" number1 number2
+(003) "/" number1 number2
 
 (10) list
 comment: any list -> selects the tenth item of list
@@ -111,12 +111,12 @@ comment: any list -> selects the ninth item of list
 (<) number1 number2
 comment: any two numbers -> mathematical less-than function
 (always)
-(three) "<" number1 number2
+(003) "<" number1 number2
 
 (>) number1 number2
 comment: any two numbers -> mathematical greater-than function
 (always)
-(three) ">" number1 number2
+(003) ">" number1 number2
 
 (add-between) item list
 comment: empty list -> construct a list with item inserted between the members of the input list
@@ -138,7 +138,7 @@ comment: multi element list -> construct a list with item inserted between the m
 (add1) number
 comment: any number -> mathematical increment function
 (always)
-(two) "add1" number
+(002) "add1" number
 
 (append) list1 list2
 comment: empty list1 -> concatenate two lists
@@ -153,10 +153,10 @@ comment: non empty list1 -> concatenate two lists
 (append-output-file) path
 comment: a valid path -> open a file for output in append mode
 (always)
-(four) "open-output-file"
-       path
-       "#:exists"
-       "'append"
+(004) "open-output-file"
+      path
+      "#:exists"
+      "'append"
 
 (bit) generator
 comment: generator encapsulates a state of the random number generator -> output is a random boolean
@@ -222,7 +222,7 @@ comment: non empty bits -> output is a list of eight element lists of booleans
 (boolean?) value
 comment: any value -> is the value a boolean?
 (always)
-(two) "boolean?" value
+(002) "boolean?" value
 
 (byte->bits) byte
 comment: byte is an integer in the range 0-255 -> output is an eight element list of booleans  
@@ -249,12 +249,12 @@ comment: byte is even -> cons #false and recur appropriately
 (byte-string->path) byte-string
 comment: any byte-string that is a valid path -> a path object
 (always)
-(two) "bytes->path" byte-string
+(002) "bytes->path" byte-string
 
 (byte-string-append) byte-string1 byte-string2
 comment: takes two byte-strings -> outputs the concatenation
 (always)
-(three) "bytes-append" byte-string1 byte-string2
+(003) "bytes-append" byte-string1 byte-string2
 
 (bytes->bits) bytes
 comment: bytes is a list of integers in the range 0-255 -> output is a list of booleans
@@ -264,37 +264,37 @@ comment: bytes is a list of integers in the range 0-255 -> output is a list of b
 (call-with-output-string) function-of-an-output-port
 comment: takes a function of an output port -> returns the string resulting from applying the function
 (always)
-(two) "call-with-output-string" function-of-an-output-port
+(002) "call-with-output-string" function-of-an-output-port
 
 (character->integer) character
 comment: any character -> outputs an integer that is the Unicode code-point number
 (always)
-(two) "char->integer" character
+(002) "char->integer" character
 
 (character->string) character
 comment: any character -> outputs a one character string
 (always)
-(two) "list->string" ("wrap") character
+(002) "list->string" ("wrap") character
 
 (character?) value
 comment: any value -> is it a character?
 (always)
-(two) "char?" value
+(002) "char?" value
 
 (close-input-port) port
 comment: takes an input port -> closes it
 (always)
-(two) "close-input-port" port
+(002) "close-input-port" port
 
 (close-output-port) port
 comment: takes an output port -> closes it
 (always)
-(two) "close-output-port" port
+(002) "close-output-port" port
 
 (collect-garbage)
 comment: force garbage collection
 (always)
-(one) "collect-garbage"
+(001) "collect-garbage"
 
 (count) number
 comment: start with a number -> the infinite list of numbers counting up by one
@@ -304,42 +304,42 @@ comment: start with a number -> the infinite list of numbers counting up by one
 (current-directory)
 comment: returns the current directory path of the running program
 (always)
-(one) "current-directory"
+(001) "current-directory"
 
 (current-memory-use)
 comment: returns a count of the bytes of memory occupied by reachable data
 (always)
-(one) "current-memory-use"
+(001) "current-memory-use"
 
 (current-random-number-generator)
 comment: the current random number generator
 (always)
-(one) "current-pseudo-random-generator"
+(001) "current-pseudo-random-generator"
 
 (curry) function
 comment: takes a function -> returns the curried function
 (always)
-(two) "curry" function
+(002) "curry" function
 
 (default-input-port)
 comment: the default input port
 (always)
-(one) "current-input-port"
+(001) "current-input-port"
 
 (default-output-port)
 comment: the default output port
 (always)
-(one) "current-output-port"
+(001) "current-output-port"
 
 (delay) value
 comment: takes a value -> delays computation
 (always)
-(two) "delay" value
+(002) "delay" value
 
 (delete-file) path
 comment: a valid path -> file is deleted
 (always)
-(two) "delete-file" path
+(002) "delete-file" path
 
 (delete-file-if-exists) path
 comment: a valid path -> file is deleted if it exists
@@ -349,12 +349,12 @@ comment: a valid path -> file is deleted if it exists
 (denominator) number
 comment: takes an exact number -> returns the denominator
 (always)
-(two) "denominator" number
+(002) "denominator" number
 
 (display) port item
 comment: takes an output port and an item -> displays item on the output port
 (always)
-(three) "display" item port
+(003) "display" item port
 
 (dr) value
 comment: any value -> display it to the default output port and then return it as a value
@@ -390,12 +390,12 @@ comment: end of file object
 (end-of-file-object?) value
 comment: any value -> is it the end of file object?
 (always)
-(two) "eof-object?" value
+(002) "eof-object?" value
 
 (eq?) symbol1 symbol2
 comment: any two symbols -> are they the same symbol?
 (always)
-(three) "eq?" symbol1 symbol2
+(003) "eq?" symbol1 symbol2
 
 (equal?) list1 list2
 comment: either list empty -> are the two lists displayed the same?
@@ -416,12 +416,12 @@ comment: the first elements of list1 and list2 are recursively (equal?) -> are t
 (even?) integer
 comment: any integer -> is the integer even?
 (always)
-(two) "even?" integer
+(002) "even?" integer
 
 (exact->inexact) number
 comment: an exact number -> returns the inexact representation
 (always)
-(two) "exact->inexact" number
+(002) "exact->inexact" number
 
 (fi) function list
 comment: empty list -> returns the list of elements that satisfy the function
@@ -430,7 +430,7 @@ nil
 
 (fi) function list
 comment: first element of list satisfies function -> returns the list of elements that satisfy the function
-(two) function (1) list
+(002) function (1) list
 (c) (1) list (fi) function (!) list
 
 (fi) function list
@@ -441,12 +441,12 @@ comment: first element of list does not satisfy function -> returns the list of 
 (file-exists?) path
 comment: any path -> does the file exist?
 (always)
-(two) "file-exists?" path
+(002) "file-exists?" path
 
 (file-size) path
 comment: any valid path -> returns the file size in bytes
 (always)
-(two) "file-size" path
+(002) "file-size" path
 
 (first) integer list
 comment: list is not a list -> selects the first integer elements from the beginning of list
@@ -468,17 +468,17 @@ comment: integer is positive -> selects the first integer elements from the begi
 (force) value
 comment: takes a value -> forces a promise or returns the value
 (always)
-(two) "force" value
+(002) "force" value
 
 (generate-symbol) base
 comment: takes a string or symbol base -> generates a symbol gaurenteed to be unique for the purpose of comparisons
 (always)
-(two) "gensym" base
+(002) "gensym" base
 
 (get-file) message
 comment: takes a message string -> returns a file path object
 (always)
-(two) "get-file" message
+(002) "get-file" message
 
 (get-run) bits
 comment: first bit is #true -> returns the first run in bits
@@ -493,7 +493,7 @@ comment: first bit is #false -> returns the first run in bits
 (get-text-from-user) title message
 comment: provide a title and a message -> returns a string of the user input
 (always)
-(three) "get-text-from-user" title message
+(003) "get-text-from-user" title message
 
 (gr) garbage value
 comment: takes a value and a garbage value -> returns the value after displaying the garbage value with (dr)
@@ -538,7 +538,7 @@ comment: non empty list -> returns the length of the list
 (list->string) list
 comment: takes a list -> returns a string representation of the non list parts
 (always)
-("apply") "string-append" (two) "flatten" (ZEDlist->string) list
+("apply") "string-append" (002) "flatten" (ZEDlist->string) list
 
 (ZEDlist->string) list
 comment: empty list -> returns almost the same list structure but with strings replacing the atoms
@@ -564,7 +564,7 @@ comment: the first element of list is a pair -> returns almost the same list str
 (ZEDlist->string) list
 comment: the first element of list is not a pair -> returns almost the same list structure but with strings replacing the atoms
 (always)
-("cons") (call-with-output-string) (two) (curry) "display" (1) list
+("cons") (call-with-output-string) (002) (curry) "display" (1) list
          (ZEDlist->string) (!) list
 
 (list?) value
@@ -585,7 +585,7 @@ comment: value is not a pair -> is value a list?
 (make-random-number-generator)
 comment: makes a random number generator object
 (always)
-(one) "make-pseudo-random-generator"
+(001) "make-pseudo-random-generator"
 
 (many) function count value
 comment: count is less than one -> returns the value after applying function count times
@@ -595,12 +595,12 @@ value
 (many) function count value
 comment: count is not less than one -> returns the value after applying function count times
 (always)
-(many) function (sub1) count (two) function value
+(many) function (sub1) count (002) function value
 
 (maximum) number1 number2
 comment: any two numbers -> returns the maximum of the two
 (always)
-(three) "max" number1 number2
+(003) "max" number1 number2
 
 (member?) value list
 comment: empty list -> is value a member of the list?
@@ -625,12 +625,12 @@ comment: list is the words of a message -> returns the string which is the words
 (message-box) title message
 comment: given a title and message -> produces a message box
 (always)
-(three) "message-box" title message
+(003) "message-box" title message
 
 (modulo) integer1 integer2
 comment: given integer1 and integer2 -> returns integer1 modulo integer2
 (always)
-(three) "modulo" integer1 integer2
+(003) "modulo" integer1 integer2
 
 (mp) function list
 comment: empty list -> returns the list with every element transformed by function
@@ -640,13 +640,13 @@ nil
 (mp) function list
 comment: list is a pair -> returns the list with every element transformed by function
 (pair?) list
-(c) (two) function (1) list
+(c) (002) function (1) list
     (mp) function (!) list
 
 (mp) function list
 comment: list is not a pair -> returns the list with every element transformed by function
 (always)
-(two) function list
+(002) function list
 
 (multiple?) number1 number2
 comment: given number1 and number2 -> is number2 an exact multiple of number1?
@@ -661,7 +661,7 @@ comment: any number -> is it negative?
 (newline) port
 comment: takes an output port -> sends a newline to it
 (always)
-(two) "newline" port
+(002) "newline" port
 
 (non) runs
 comment: the first run is one -> produces the first integer not equal to one
@@ -676,27 +676,27 @@ comment: the first run is greater than one -> produces the first integer not equ
 (not) boolean
 comment: takes a boolean value -> gives the compliment
 (always)
-(two) "not" boolean
+(002) "not" boolean
 
 (null?) value
 comment: any value -> is it the empty list?
 (always)
-(two) "null?" value
+(002) "null?" value
 
 (number->string) number
 comment: any number -> returns a string representation
 (always)
-(two) "number->string" number
+(002) "number->string" number
 
 (number?) value
 comment: any value -> is value a number?
 (always)
-(two) "number?" value
+(002) "number?" value
 
 (odd?) integer
 comment: takes an integer -> is it odd?
 (always)
-(two) "odd?" integer
+(002) "odd?" integer
 
 (ones) runs
 comment: the first run is one -> returns count of leading ones
@@ -711,22 +711,22 @@ comment: the first run is not a one -> returns count of leading ones
 (open-input-file) path
 comment: path to a file -> opens an input port
 (always)
-(two) "open-input-file" path
+(002) "open-input-file" path
 
 (open-output-file) path
 comment: path to a file that does not exist -> opens an output port
 (always)
-(two) "open-output-file" path
+(002) "open-output-file" path
 
 (pair?) value
 comment: any value -> is it a pair?
 (always)
-(two) "pair?" value
+(002) "pair?" value
 
 (path->byte-string) path
 comment: takes a path object -> produces a byte-string
 (always)
-(two) "path->bytes" path
+(002) "path->bytes" path
 
 (positive?) number
 comment: any number -> is it positive?
@@ -736,12 +736,12 @@ comment: any number -> is it positive?
 (pr) value
 comment: any value -> returns a string representation
 (always)
-(call-with-output-string) (two) (curry) "display" (zed->racket) value
+(call-with-output-string) (002) (curry) "display" (zed->racket) value
 
 (predictable-random-bits) seed
 comment: takes a seed for the random number generator -> produces an infinite list of rsndom bits
 (always)
-(se) (two) "current-pseudo-random-generator" (make-random-number-generator)
+(se) (002) "current-pseudo-random-generator" (make-random-number-generator)
      (se) (random-seed) seed
      (ZEDpredictable-random-bits1) (current-random-number-generator)
 
@@ -758,52 +758,52 @@ comment: takes a bit and a random number generator -> produces an infinite list 
 (put-file) message
 comment: takes a message -> returns a path to a filename which may or may not exist
 (always)
-(two) "put-file" message
+(002) "put-file" message
 
 (quotient) integer1 integer2
 comment: takes two integers -> returns the quotient
 (always)
-(three) "quotient" integer1 integer2
+(003) "quotient" integer1 integer2
 
 (raise) number1 number2
 comment: takes a base and a power -> returns number1 raised to the number2 power
 (always)
-(three) "expt" number1 number2
+(003) "expt" number1 number2
 
 (random) generator integer
 comment: takes a random number generator and an integer -> produces a positive integer
 (always)
-(add1) (three) "random" integer generator
+(add1) (003) "random" integer generator
 
 (random-number-generator->vector) generator
 comment: takes a random number generator -> returns a vector of its internal state
 (always)
-(two) "pseudo-random-generator->vector" generator
+(002) "pseudo-random-generator->vector" generator
 
 (random-number-generator-vector?) value
 comment: any value -> is it a valid state of the random number generator?
 (always)
-(two) "pseudo-random-generator-vector?" value
+(002) "pseudo-random-generator-vector?" value
 
 (random-number-generator?) value
 comment: any value -> is it a random number generator?
 (always)
-(two) "pseudo-random-generator?" value
+(002) "pseudo-random-generator?" value
 
 (random-seed) integer
 comment: takes a positive integer less than the power two to the thirty-one -> seeds the current random number generator
 (always)
-(two) "random-seed" integer
+(002) "random-seed" integer
 
 (read) port
 comment: an input port -> reads in a single datum
 (always)
-(two) "read" port
+(002) "read" port
 
 (read-byte) port
 comment: an input port -> reads in a single byte
 (always)
-(two) "read-byte" port
+(002) "read-byte" port
 
 (read-bytes) path
 comment: takes a file path -> opens the file and reads in the bytes
@@ -828,7 +828,7 @@ comment: haven't reached end of file -> read in the bytes
 (reduce) final function list
 comment: takes a list and a two argument function -> accumulates the final value using function
 (always)
-(four) "foldr" function final (zed->racket) list
+(004) "foldr" function final (zed->racket) list
 
 (reduce-append) list
 comment: takes a list -> accumulates a value by appending the sub lists together
@@ -888,10 +888,10 @@ comment: integer is positive -> returns the list of repeated items
 (replace-output-file) path
 comment: takes a file path -> opens a file for output in replace mode
 (always)
-(four) "open-output-file"
-       path
-       "#:exists"
-       "'replace"                          
+(004) "open-output-file"
+      path
+      "#:exists"
+      "'replace"                          
 
 (reverse) list
 comment: a finite list -> returns the list in reverse order
@@ -927,7 +927,7 @@ comment: non empty bits -> returns run lengths to #false
 (sort) comparator list
 comment: takes a comparator function and a list -> sorts the list using the comparator
 (always)
-(three) "sort" (zed->racket) list comparator
+(003) "sort" (zed->racket) list comparator
 
 (sp)
 comment: returns the string with one space in it
@@ -947,22 +947,22 @@ comment: any number -> the mathematical square
 (square-root) number
 comment: any number -> mathematical square root
 (always)
-(two) "sqrt" number
+(002) "sqrt" number
 
 (string->list) string
 comment: takes a string -> returns a list of characters
 (always)
-(two) "string->list" string
+(002) "string->list" string
 
 (string?) value
 comment: takes a value -> is it a string?
 (always)
-(two) "string?" value
+(002) "string?" value
 
 (sub1) number
 comment: takes a number -> returns the quantity number minus one
 (always)
-(two) "sub1" number
+(002) "sub1" number
 
 (sum) numbers
 comment: takes a list of numbers -> adds them up
@@ -972,12 +972,12 @@ comment: takes a list of numbers -> adds them up
 (symbol->string) symbol
 comment: any symbol -> returns an equivalent string
 (always)
-(two) "symbol->string" symbol
+(002) "symbol->string" symbol
 
 (symbol?) value
 comment: any value -> is it a symbol?
 (always)
-(two) "symbol?" value
+(002) "symbol?" value
 
 (tails) integer list
 comment: empty list or integer is zero ->  the nth tail of list
@@ -993,92 +993,92 @@ comment: integer is positive -> the nth tail of list
 (vector->random-number-generator) vector
 comment: takes an appropriate vector -> returns a random number generator
 (always)
-(two) "vector->pseudo-random-generator" vector
+(002) "vector->pseudo-random-generator" vector
 
 (wrap) value
 comment: takes a value -> makes a list
 (always)
-(two) "list" value
+(002) "list" value
 
 (wrap10) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
 comment: takes ten values -> makes a list
 (always)
-(eleven) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
+(011) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
 
 (wrap11) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
 comment: takes eleven values -> makes a list
 (always)
-(twelve) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
+(012) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
 
 (wrap12) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
 comment: takes twelve values -> makes a list
 (always)
-(thirteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
+(013) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
 
 (wrap13) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
 comment: takes thirteen values -> makes a list
 (always)
-(fourteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
+(014) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
 
 (wrap14) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
 comment: takes fourteen values -> makes a list
 (always)
-(fifteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
+(015) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
 
 (wrap15) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
 comment: takes fifteen values -> makes a list
 (always)
-(sixteen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
+(016) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
 
 (wrap16) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
 comment: takes sixteen values -> makes a list
 (always)
-(seventeen) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
+(017) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
 
 (wrap2) value1 value2
 comment: takes two values -> makes a list
 (always)
-(three) "list" value1 value2
+(003) "list" value1 value2
 
 (wrap3) value1 value2 value3
 comment: takes three values -> makes a list
 (always)
-(four) "list" value1 value2 value3
+(004) "list" value1 value2 value3
 
 (wrap4) value1 value2 value3 value4
 comment: takes four values -> makes a list
 (always)
-(five) "list" value1 value2 value3 value4
+(005) "list" value1 value2 value3 value4
 
 (wrap5) value1 value2 value3 value4 value5
 comment: takes five values -> makes a list
 (always)
-(six) "list" value1 value2 value3 value4 value5
+(006) "list" value1 value2 value3 value4 value5
 
 (wrap6) value1 value2 value3 value4 value5 value6
 comment: takes six values -> makes a list
 (always)
-(seven) "list" value1 value2 value3 value4 value5 value6
+(007) "list" value1 value2 value3 value4 value5 value6
 
 (wrap7) value1 value2 value3 value4 value5 value6 value7
 comment: takes seven values -> makes a list
 (always)
-(eight) "list" value1 value2 value3 value4 value5 value6 value7
+(008) "list" value1 value2 value3 value4 value5 value6 value7
 
 (wrap8) value1 value2 value3 value4 value5 value6 value7 value8
 comment: takes eight values -> makes a list
 (always)
-(nine) "list" value1 value2 value3 value4 value5 value6 value7 value8
+(009) "list" value1 value2 value3 value4 value5 value6 value7 value8
 
 (wrap9) value1 value2 value3 value4 value5 value6 value7 value8 value9
 comment: takes nine values -> makes a list
 (always)
-(ten) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9
+(010) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9
 
 (write-byte) port byte
 comment: takes a byte and an output port -> writes the byte to the output port
 (always)
-(three) "write-byte" byte port
+(003) "write-byte" byte port
 
 (write-bytes) path bytes
 comment: takes a file path and a list of bytes -> writes the bytes out to file
