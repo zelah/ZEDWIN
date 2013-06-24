@@ -972,7 +972,7 @@ comment: takes a number -> returns the quantity number minus one
 (sum) numbers
 comment: takes a list of numbers -> adds them up
 (always)
-(rd) 0 + numbers
+(reduce) 0 + numbers
 
 (symbol->string) symbol
 comment: any symbol -> returns an equivalent string
