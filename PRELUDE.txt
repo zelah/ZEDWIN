@@ -148,7 +148,7 @@ list2
 (append) list1 list2
 comment: non empty list1 -> concatenate two lists
 (always)
-(c) (1) list1 (append) (!) list1 list2   
+(c) (1) list1 (append) (!) list1 list2
 
 (append-output-file) path
 comment: a valid path -> open a file for output in append mode
@@ -225,7 +225,7 @@ comment: any value -> is the value a boolean?
 (002) "boolean?" value
 
 (byte->bits) byte
-comment: byte is an integer in the range 0-255 -> output is an eight element list of booleans  
+comment: byte is an integer in the range 0-255 -> output is an eight element list of booleans
 (always)
 (append) (repeat) (-) 8 (length) (ZEDbyte->bits) byte
                   #false
@@ -795,6 +795,11 @@ comment: takes a positive integer less than the power two to the thirty-one -> s
 (always)
 (002) "random-seed" integer
 
+(rd) final function list
+comment: takes a list and a two argument function -> accumulates the final value using function
+(always)
+(004) "foldr" function final (zed->racket) list
+
 (read) port
 comment: an input port -> reads in a single datum
 (always)
@@ -891,7 +896,7 @@ comment: takes a file path -> opens a file for output in replace mode
 (004) "open-output-file"
       path
       "#:exists"
-      "'replace"                          
+      "'replace"
 
 (reverse) list
 comment: a finite list -> returns the list in reverse order
@@ -967,7 +972,7 @@ comment: takes a number -> returns the quantity number minus one
 (sum) numbers
 comment: takes a list of numbers -> adds them up
 (always)
-(reduce) 0 + numbers
+(rd) 0 + numbers
 
 (symbol->string) symbol
 comment: any symbol -> returns an equivalent string
