@@ -405,7 +405,7 @@ comment: either list empty -> are the two lists displayed the same?
 (equal?) list1 list2
 comment: list1 is not a pair -> are the two lists displayed the same?
 (or) (not) (pair?) list1 (not) (pair?) list2
-(=) list1 list2
+("equal?") list1 list2
 
 (equal?) list1 list2
 comment: the first elements of list1 and list2 are recursively (equal?) -> are the two lists displayed the same?
