@@ -102,22 +102,22 @@ comment: "character" has a graphical representation -> returns characters for co
 "character"
 
 ("clause-name") "clause"
-comment: (abs (number) ((=) number 0) (0))
+comment: abs (number) ((=) number 0) (0)
 (always)
 ("car") "clause"
 
 ("clause-arguments") "clause"
-comment: (abs (number) ((=) number 0) (0))
+comment: abs (number) ((=) number 0) (0)
 (always)
 ("cadr") "clause"
 
 ("clause-arity") "clause"
-comment: (abs (number) ((=) number 0) (0))
+comment: abs (number) ((=) number 0) (0)
 (always)
 ("length") ("clause-arguments") "clause"
 
 ("clause-body") "clause"
-comment: (abs (number) ((=) number 0) (0))
+comment: abs (number) ((=) number 0) (0)
 (always)
 ("cddr") "clause"
 
@@ -148,7 +148,7 @@ comment: "program" is a list of clauses -> combines the first two
          ("cddr") "program"
 
 ("ready-clause") "clause"
-comment: (((abs) number) ((=) number 0) (0))
+comment: ((abs) number) ((=) number 0) (0)
 (always)
 ("cons") ("caaar") "clause"
          ("cons") ("cdar") "clause"
@@ -405,7 +405,7 @@ comment: "program" is a list of combined clauses -> returns a symbol-arity hash 
                 ("cons") "'ZEDquote" 1
                 
 ("arity-hash1") "clause"
-comment: (abs (number) ((=) number 0) (0))
+comment: abs (number) ((=) number 0) (0)
 (always)
 ("cons") ("clause-name") "clause"
          ("clause-arity") "clause"
@@ -547,13 +547,13 @@ comment: makes a begin with definitions for the primitives
                     ("wrap2") "'quote" "'a"
 
 ("application?") "expression"
-comment: ((+) 1 2)
+comment: (+) 1 2
 (always)
 ("and") ("not") ("null?") "expression"
         ("pair?") ("car") "expression"
 
 ("function") "expression"
-comment: ((+) 1 2)
+comment: (+) 1 2
 (always)
 ("caar") "expression"
 
@@ -675,7 +675,7 @@ comment: empty "expressions" -> constructs the list structure of a cond
 nil
 
 ("condefy") "expressions"
-comment: (((< number 0)) ((- 0 number)) ((not (< number 0))) (number))
+comment: ((< number 0)) ((- 0 number)) ((not (< number 0))) (number)
 (always)
 ("cons") ("append") ("car") "expressions"
                     ("cadr") "expressions"
@@ -727,7 +727,7 @@ comment: .25
 ("string->number") ("string-append") ""#e"" ("number->string") "part"
 
 ("flexefy1") "list"
-comment: (## #0 #1)
+comment: ## #0 #1
 ("and") (=) ## ("car") "list"
         ("and") (=) #0 ("cadr") "list"
                 ("not") ("null?") ("cddr") "list"
@@ -736,23 +736,23 @@ comment: (## #0 #1)
                               ("cddr") "list"
 
 ("flexefy1") "list"
-comment: (## #t #r #u #e)
+comment: ## #t #r #u #e
 (003) "equal?" "list" ("wrap5") ## #t #r #u #e
 "#true"
              
 ("flexefy1") "list"
-comment: (## #f #a #l #s #e)
+comment: ## #f #a #l #s #e
 (003) "equal?" "list" ("wrap6") ## #f #a #l #s #e
 "#false"
              
 ("flexefy1") "list"
-comment: (## #n #u #l)
+comment: ## #n #u #l
 (=) ("car") "list" ##
 ("string->symbol") ("list->string") ("append") ("wrap2") ## #\
                                                ("cdr") "list"
 
 ("flexefy1") "list"
-comment: (#h #e #y)
+comment: #h #e #y
 ("not") (=) ("car") "list" ##
 ("ZEDefy") ("list->string") "list"
 
@@ -789,19 +789,19 @@ comment: (#Z)
 "program"
 
 ("newline-space1") "program"
-comment: (#newline #tab #Z #E #D)
+comment: #newline #tab #Z #E #D
 ("and") (=) #newline ("car") "program"
         ("or") (=) #space ("cadr") "program"
                (=) #tab ("cadr") "program"
 ("newline-space1") ("cdr") "program"
 
 ("newline-space1") "program"
-comment: (#newline #newline #space #Z)
+comment: #newline #newline #space #Z
 (=) #newline ("car") "program"
 ("cons") #newline ("newline-space1") ("cdr") "program"
 
 ("newline-space1") "program"
-comment: (#Z #newline #newline #space)
+comment: #Z #newline #newline #space
 ("not") (=) #newline ("car") "program"
 ("cons") ("car") "program" ("newline-space1") ("cdr") "program"
 
@@ -831,13 +831,13 @@ comment: (#Z)
 "program"
 
 ("newline-space-tab-repeats") "program"
-comment: (#newline #newline #newline #Z)
+comment: #newline #newline #newline #Z
 ("and") (=) #newline ("car") "program"
         (=) #newline ("cadr") "program"
 ("newline-space-tab-repeats") ("cdr") "program"
 
 ("newline-space-tab-repeats") "program"
-comment: (#tab #space #tab #Z)
+comment: #tab #space #tab #Z
 ("and") ("or") (=) #space ("car") "program"
                (=) #tab ("car") "program"
         ("or") (=) #space ("cadr") "program"
@@ -845,7 +845,7 @@ comment: (#tab #space #tab #Z)
 ("newline-space-tab-repeats") ("cdr") "program"
 
 ("newline-space-tab-repeats") "program"
-comment: (#tab #Z)
+comment: #tab #Z
 (always)
 ("cons") ("car") "program" ("newline-space-tab-repeats") ("cdr") "program"
 
@@ -855,12 +855,12 @@ comment: empty program -> replaces #tab with #space
 nil
 
 ("tab-replace") "program"
-comment: (#tab #Z #space)
+comment: #tab #Z #space
 (=) #tab ("car") "program"
 ("cons") #space ("tab-replace") ("cdr") "program"
 
 ("tab-replace") "program"
-comment: (#Z #tab)
+comment: #Z #tab
 (always)
 ("cons") ("car") "program" ("tab-replace") ("cdr") "program"
 
@@ -875,13 +875,13 @@ comment: (#newline)
 "program"
 
 ("space-newline") "program"
-comment: (#space #newline #Z)
+comment: #space #newline #Z
 ("and") (=) #space ("car") "program"
         (=) #newline ("cadr") "program"
 ("space-newline") ("cdr") "program"
 
 ("space-newline") "program"
-comment: (#newline #Z #space #newline)
+comment: #newline #Z #space #newline
 (always)
 ("cons") ("car") "program" ("space-newline") ("cdr") "program"
 
@@ -891,17 +891,17 @@ comment: empty "program" -> program without leading newlines
 nil
 
 ("leading-newlines") "program"
-comment: (#newline #Z)
+comment: #newline #Z
 (=) #newline ("car") "program"
 ("cdr") "program"
 
 ("leading-newlines") "program"
-comment: (#Z #newline #E #newline)
+comment: #Z #newline #E #newline
 (always)
 "program"
 
 ("sentences") "program"
-comment: (#o #n #e #space #t #w #o #newline #t #h #r #e #e #newline)
+comment: #o #n #e #space #t #w #o #newline #t #h #r #e #e #newline
 (always)
 ("sentences1") "program" nil
 
@@ -942,12 +942,12 @@ comment: takes a "sentence" of characters -> generates a Racket list structure
 nil
 
 ("read-sentence") "sentence"
-comment: (#space #n #u #m #b #e #r)
+comment: #space #n #u #m #b #e #r
 (=) #space ("car") "sentence"
 ("read-sentence") ("cdr") "sentence"
 
 ("read-sentence") "sentence"
-comment: (#( #a #b #s #) #space #n #u #m #b #e #r))
+comment: #( #a #b #s #) #space #n #u #m #b #e #r)
 (=) #( ("car") "sentence"
 ("cons")
   ("namefy") ("wrap") ("verb") ("gather-verb") ("cdr") "sentence"
@@ -958,7 +958,7 @@ comment: (#( #a #b #s #) #space #n #u #m #b #e #r))
                        "sentence"
 
 ("read-sentence") "sentence"
-comment: (#n #u #m #b #e #r)
+comment: #n #u #m #b #e #r
 (always)
 ("cons") ("namefy") ("noun") ("gather-noun") "sentence"
          ("read-sentence")
@@ -968,7 +968,7 @@ comment: (#n #u #m #b #e #r)
              "sentence"
 
 ("verb") "gather-verb"
-comment: (#" #q #u #o #t #e #")
+comment: #" #q #u #o #t #e #"
 ("and") ("not") ("null?") ("cdr") "gather-verb"
         ("and") (=) #" ("car") "gather-verb"
                 (=) #" ("car") ("reverse") "gather-verb"
@@ -976,12 +976,12 @@ comment: (#" #q #u #o #t #e #")
   ("cdr") ("reverse") ("cdr") ("reverse") "gather-verb"
 
 ("verb") "gather-verb"
-comment: (#q #u #o #t #e)
+comment: #q #u #o #t #e
 (always)
 ("string->symbol") ("list->string") "gather-verb"
 
 ("noun") "gather-noun"
-comment: (#. #5)
+comment: #. #5
 (always)
 ("noun-number") (list->string) "gather-noun" ("string->number") (list->string) "gather-noun"
 
@@ -996,7 +996,7 @@ comment: ".5" 0.5
 "number"
 
 ("noun-number1") "noun" "number"
-comment: "\"square\"" #false
+comment: ""square"" #false
 ("and") (=) #" ("car") ("string->list") "noun"
         (=) #" ("car") ("reverse") ("string->list") "noun"
 ("list->string")
@@ -1008,17 +1008,17 @@ comment: "square" #false
 ("string->symbol") "noun"
 
 ("read-sentences") "sentences"
-comment: ((#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x))
+comment: (#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x)
 (always)
 ("map") "read-sentence" "sentences"
 
 ("gather-verb") "sentence"
-comment: (#) #space #x)
+comment: #) #space #x
 (=) #) ("car") "sentence"
 nil
 
 ("gather-verb") "sentence"
-comment: (#s #q #u #a #r #e #) #space #x)
+comment: #s #q #u #a #r #e #) #space #x
 (always)
 ("cons") ("car") "sentence"
          ("gather-verb") ("cdr") "sentence"
@@ -1029,12 +1029,12 @@ comment: nil
 nil
 
 ("gather-noun") "sentence"
-comment: (#space #n #u #m #b #e #r #2)
+comment: #space #n #u #m #b #e #r #2
 (=) #space ("car") "sentence"
 nil
 
 ("gather-noun") "sentence"
-comment: (#n #u #m #b #e #r #1 #space #n #u #m #b #e #r #2)
+comment: #n #u #m #b #e #r #1 #space #n #u #m #b #e #r #2
 (always)
 ("cons") ("car") "sentence"
          ("gather-noun") ("cdr") "sentence"
@@ -1055,626 +1055,616 @@ comment: non empty "program" -> gathers sentences into groups of three
   ("by-three") ("cdddr") "program"
 
 ("replace-candidate") "candidate"
-comment
+comment: empty candidate -> get rid of non parentheses part
 ("null?") "candidate"
 nil
 
 ("replace-candidate") "candidate"
-comment
+comment: #( #s #q #u #a #r #e #space #tab
 (=) #( ("car") "candidate"
 ("cons") #( ("replace-candidate") ("cdr") "candidate"
 
 ("replace-candidate") "candidate"
-comment
+comment: #s #q #u #a #r #e #space #tab
 (always)
 nil
 
-("candidate-confirmed?") "candidate" "confirmed"
-comment
-("null?") "confirmed"
+("candidate-confirmed?") "candidate" "exemplar"
+comment: empty "exemplar" -> returns #true if "candidate" matches the "exemplar"
+("null?") "exemplar"
 ("or") ("null?") "candidate"
        ("or") (=) #space ("car") "candidate"
               (=) #tab ("car") "candidate"
 
-("candidate-confirmed?") "candidate" "confirmed"
-comment
+("candidate-confirmed?") "candidate" "exemplar"
+comment: empty "candidate" -> returns #true if "candidate" matches the "exemplar"
 ("null?") "candidate"
 "#false"
 
-("candidate-confirmed?") "candidate" "confirmed"
-comment
+("candidate-confirmed?") "candidate" "exemplar"
+comment: "candidate" has leading parentheses -> returns #true if "candidate" matches the "exemplar"
 (=) #( ("car") "candidate"
-("candidate-confirmed?") ("cdr") "candidate" "confirmed"
+("candidate-confirmed?") ("cdr") "candidate" "exemplar"
 
-("candidate-confirmed?") "candidate" "confirmed"
-comment
+("candidate-confirmed?") "candidate" "exemplar"
+comment: first characters agree -> returns #true if "candidate" matches the "exemplar"
 (always)
-("and") (=) ("car") "candidate" ("car") "confirmed"
-        ("candidate-confirmed?") ("cdr") "candidate" ("cdr") "confirmed"
+("and") (=) ("car") "candidate" ("car") "exemplar"
+        ("candidate-confirmed?") ("cdr") "candidate" ("cdr") "exemplar"
+        
+("grab-candidate") "program"
+comment: empty "program" -> grabs a candidate to be stripped away
+("null?") "program"
+nil
+
+("grab-candidate") "program"
+comment: character of "program" is #space or #tab -> grabs a candidate to be stripped away
+("or") (=) #space ("car") "program"
+       (=) #tab ("car") "program"
+("grab-candidate1") "program"
+
+("grab-candidate") "program"
+comment: character of "program" is not #space or #tab -> grabs a candidate to be stripped away
+(always)
+("cons") ("car") "program" ("grab-candidate") ("cdr") "program"
+
+("grab-candidate1") "program"
+comment: empty program -> grabs a candidate to be stripped away
+("null?") "program"
+nil
+
+("grab-candidate1") "program"
+comment: character is #space -> grabs a candidate to be stripped away
+(=) #space ("car") "program"
+("cons") #space ("grab-candidate1") ("cdr") "program"
+
+("grab-candidate1") "program"
+comment: character is #tab -> grabs a candidate to be stripped away
+(=) #tab ("car") "program"
+("cons") #tab ("grab-candidate1") ("cdr") "program"
+
+("grab-candidate1") "program"
+comment: character is non white space -> grabs a candidate to be stripped away
+(always)
+nil
 
 ("strip") "program"
-comment
+comment: takes a Racket "program" of characters -> strips out 001 through 099
 (always)
-("foldr") "append" nil ("strip3") ("strip1") "program"
+("foldr") "append" nil ("map") "strip3" ("strip1") "program"
 
 ("strip1") "program"
-comment
+comment: empty "program" -> gathers up the candidates
 ("null?") "program"
 nil
 
 ("strip1") "program"
-comment
+comment: #( #0 #0 #1 #space #a #l #w #a #y #s
 (=) ("car") "program" #(
 ("strip2") ("grab-candidate") "program" "program"
 
 ("strip1") "program"
-comment
+comment: #a #l #w #a #y #s
 (always)
 ("cons") ("wrap") ("car") "program"
          ("strip1") ("cdr") "program"
          
 ("strip2") "candidate" "program"
-comment
+comment: conses up the list of candidates
 (always)
 ("cons") "candidate" 
          ("strip1") ("remove-leading") ("length") "candidate" "program"
-         
-("strip3") "candidates"
-comment: 
-(always)
-("map") "strip4" "candidates"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 001
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 002
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 003
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 004
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 005
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 006
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 007
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 008
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 009
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 010
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 011
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 012
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 013
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 014
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 015
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 016
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 017
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 018
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 019
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 020
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 021
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 022
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 023
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 024
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 025
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 026
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 027
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 028
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 029
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 030
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 031
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 032
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 033
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 034
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 035
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 036
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 037
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 038
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 039
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 040
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 041
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 042
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 043
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 044
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 045
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 046
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 047
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 048
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 049
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 050
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 051
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 052
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 053
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 054
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 055
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 056
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 057
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 058
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 059
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 060
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 061
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 062
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 063
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 064
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 065
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 066
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 067
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 068
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 069
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 070
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 071
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 072
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 073
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 074
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 075
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 076
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 077
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 078
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 079
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 080
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 081
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 082
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 083
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 084
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 085
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 086
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 087
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 088
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 089
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 090
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #0
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 091
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #1
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 092
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #2
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 093
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #3
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 094
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #4
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 095
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #5
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 096
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #6
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 097
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #7
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 098
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #8
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: remove 099
 ("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #9
 ("replace-candidate") "candidate"
 
-("strip4") "candidate"
-comment
+("strip3") "candidate"
+comment: "candidate" did not match
 (always)
 "candidate"
 
-("grab-candidate") "program"
-comment
-(always)
-("cons") #( ("grab-candidate1") ("cdr") "program"
-
-("grab-candidate1") "program"
+("write-all!") "output-port" "program"
 comment
 ("null?") "program"
-nil
+("close-output-port") "output-port"
 
-("grab-candidate1") "program"
-comment
-("or") (=) #space ("car") "program"
-       (=) #tab ("car") "program"
-("grab-candidate2") "program"
-
-("grab-candidate1") "program"
+("write-all!") "output-port" "program"
 comment
 (always)
-("cons") ("car") "program" ("grab-candidate1") ("cdr") "program"
-
-("grab-candidate2") "program"
-comment
-("null?") "program"
-nil
-
-("grab-candidate2") "program"
-comment
-(=) #space ("car") "program"
-("cons") #space ("grab-candidate2") ("cdr") "program"
-
-("grab-candidate2") "program"
-comment
-(=) #tab ("car") "program"
-("cons") #tab ("grab-candidate2") ("cdr") "program"
-
-("grab-candidate2") "program"
-comment
-(always)
-nil
-
-("write-all!") "output-file" "program"
-comment
-("null?") "program"
-("close-output-port") "output-file"
-
-("write-all!") "output-file" "program"
-comment
-(always)
-("begin") ("write-char") ("car") "program" "output-file"
-          ("write-all!") "output-file" ("cdr") "program"
+("begin") ("write-char") ("car") "program" "output-port"
+          ("write-all!") "output-port" ("cdr") "program"
 
 ("my-compile")
 comment: compile it
