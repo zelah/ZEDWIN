@@ -274,7 +274,7 @@ comment: any character -> outputs an integer that is the Unicode code-point numb
 (character->string) character
 comment: any character -> outputs a one character string
 (always)
-(002) "list->string" ("wrap") character
+(002) "list->string" (wrap) character
 
 (character?) value
 comment: any value -> is it a character?
@@ -999,86 +999,6 @@ comment: integer is positive -> the nth tail of list
 comment: takes an appropriate vector -> returns a random number generator
 (always)
 (002) "vector->pseudo-random-generator" vector
-
-(wrap) value
-comment: takes a value -> makes a list
-(always)
-(002) "list" value
-
-(wrap10) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
-comment: takes ten values -> makes a list
-(always)
-(011) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10
-
-(wrap11) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
-comment: takes eleven values -> makes a list
-(always)
-(012) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11
-
-(wrap12) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
-comment: takes twelve values -> makes a list
-(always)
-(013) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12
-
-(wrap13) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
-comment: takes thirteen values -> makes a list
-(always)
-(014) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13
-
-(wrap14) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
-comment: takes fourteen values -> makes a list
-(always)
-(015) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14
-
-(wrap15) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
-comment: takes fifteen values -> makes a list
-(always)
-(016) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15
-
-(wrap16) value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
-comment: takes sixteen values -> makes a list
-(always)
-(017) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9 value10 value11 value12 value13 value14 value15 value16
-
-(wrap2) value1 value2
-comment: takes two values -> makes a list
-(always)
-(003) "list" value1 value2
-
-(wrap3) value1 value2 value3
-comment: takes three values -> makes a list
-(always)
-(004) "list" value1 value2 value3
-
-(wrap4) value1 value2 value3 value4
-comment: takes four values -> makes a list
-(always)
-(005) "list" value1 value2 value3 value4
-
-(wrap5) value1 value2 value3 value4 value5
-comment: takes five values -> makes a list
-(always)
-(006) "list" value1 value2 value3 value4 value5
-
-(wrap6) value1 value2 value3 value4 value5 value6
-comment: takes six values -> makes a list
-(always)
-(007) "list" value1 value2 value3 value4 value5 value6
-
-(wrap7) value1 value2 value3 value4 value5 value6 value7
-comment: takes seven values -> makes a list
-(always)
-(008) "list" value1 value2 value3 value4 value5 value6 value7
-
-(wrap8) value1 value2 value3 value4 value5 value6 value7 value8
-comment: takes eight values -> makes a list
-(always)
-(009) "list" value1 value2 value3 value4 value5 value6 value7 value8
-
-(wrap9) value1 value2 value3 value4 value5 value6 value7 value8 value9
-comment: takes nine values -> makes a list
-(always)
-(010) "list" value1 value2 value3 value4 value5 value6 value7 value8 value9
 
 (write-byte) port byte
 comment: takes a byte and an output port -> writes the byte to the output port

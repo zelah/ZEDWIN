@@ -41,7 +41,7 @@ comment: takes "string" -> prepends ""ZED"" and returns a symbol
 ("string->symbol")
   ("list->string")
     ("append")
-      ("wrap3") #Z #E #D
+      (wrap3) #Z #E #D
       ("my-flatten")
         ("map") "symbol-character"
                 ("string->list") "string"
@@ -49,52 +49,52 @@ comment: takes "string" -> prepends ""ZED"" and returns a symbol
 ("symbol-character") "character"
 comment: "character" is #[ -> returns characters for constructing an identifier
 (=) "character" #[
-("wrap2") #@ #1
+(wrap2) #@ #1
 
 ("symbol-character") "character"
 comment: "character" is #] -> returns characters for constructing an identifier
 (=) "character" #]
-("wrap2") #@ #2
+(wrap2) #@ #2
 
 ("symbol-character") "character"
 comment: "character" is #{ -> returns characters for constructing an identifier
 (=) "character" #{
-("wrap2") #@ #3
+(wrap2) #@ #3
 
 ("symbol-character") "character"
 comment: "character" is #} -> returns characters for constructing an identifier
 (=) "character" #}
-("wrap2") #@ #4
+(wrap2) #@ #4
 
 ("symbol-character") "character"
 comment: "character" is #' -> returns characters for constructing an identifier
 (=) "character" #'
-("wrap2") #@ #q
+(wrap2) #@ #q
 
 ("symbol-character") "character"
 comment: "character" is #` -> returns characters for constructing an identifier
 (=) "character" #`
-("wrap2") #@ #Q
+(wrap2) #@ #Q
 
 ("symbol-character") "character"
 comment: "character" is #, -> returns characters for constructing an identifier
 (=) "character" #,
-("wrap2") #@ #c
+(wrap2) #@ #c
 
 ("symbol-character") "character"
 comment: "character" is #; -> returns characters for constructing an identifier
 (=) "character" #;
-("wrap2") #@ #s
+(wrap2) #@ #s
 
 ("symbol-character") "character"
 comment: "character" is #\ -> returns characters for constructing an identifier
 (=) "character" #\
-("wrap2") #@ #b
+(wrap2) #@ #b
 
 ("symbol-character") "character"
 comment: "character" does not have a graphical representation -> returns characters for constructing an identifier
 ("not") ("char-graphic?") "character"
-("wrap2") #@ #w
+(wrap2) #@ #w
 
 ("symbol-character") "character"
 comment: "character" has a graphical representation -> returns characters for constructing an identifier
@@ -191,218 +191,218 @@ comment: "program" is a list of clauses -> returns the fully combined program af
 comment: "program" is a list of combined clauses -> returns a symbol-arity hash table
 (always)
 ("make-hasheq") ("append") ("map") "arity-hash1" "program"
-                ("append") ("wrap16")
-                ("cons") "'wrap" 1
-                ("cons") "'wrap2" 2
-                ("cons") "'wrap3" 3
-                ("cons") "'wrap4" 4
-                ("cons") "'wrap5" 5
-                ("cons") "'wrap6" 6
-                ("cons") "'wrap7" 7
-                ("cons") "'wrap8" 8
-                ("cons") "'wrap9" 9
-                ("cons") "'wrap10" 10
-                ("cons") "'wrap11" 11
-                ("cons") "'wrap12" 12
-                ("cons") "'wrap13" 13
-                ("cons") "'wrap14" 14
-                ("cons") "'wrap15" 15
-                ("cons") "'wrap16" 16
-              ("append") ("wrap16")
-                ("cons") "'and" 2
-                ("cons") "'append" 2
-                ("cons") "'assoc" 2
-                ("cons") "'begin" 2
-                ("cons") "'boolean?" 1
-                ("cons") "'caaar" 1
-                ("cons") "'cadr" 1
-                ("cons") "'caddr" 1
-                ("cons") "'cadddr" 1
-                ("cons") "'car" 1
-                ("cons") "'cdar" 1
-                ("cons") "'cddddr" 1
-                ("cons") "'cddr" 1
-                ("cons") "'cdr" 1
-                ("cons") "'char?" 1
-                ("cons") "'char-numeric?" 1
-              ("append") ("wrap16")
-                ("cons") "'char-graphic?" 1
-                ("cons") "'close-input-port" 1
-                ("cons") "'close-output-port" 1
-                ("cons") "'cons" 2
-                ("cons") "'define" 2
-                ("cons") "'delete-file" 1
-                ("cons") "'display" 2
-                ("cons") "'eq?" 2
-                ("cons") "'equal?" 2
-                ("cons") "'eof-object?" 1
-                ("cons") "'exact?" 1
-                ("cons") "'file-exists?" 1
-                ("cons") "'inexact?" 1
-                ("cons") "'length" 1
-                ("cons") "'list->string" 1
-                ("cons") "'map" 2
-              ("append") ("wrap16")
-                ("cons") "'not" 1
-                ("cons") "'null?" 1
-                ("cons") "'number?" 1
-                ("cons") "'newline" 1
-                ("cons") "'number->string" 1
-                ("cons") "'or" 2
-                ("cons") "'open-input-file" 1
-                ("cons") "'open-output-file" 1
-                ("cons") "'pair?" 1
-                ("cons") "'quote" 1
-                ("cons") "'reverse" 1
-                ("cons") "'read-char" 1
-                ("cons") "'symbol?" 1
-                ("cons") "'string?" 1
-                ("cons") "'string-append" 2
-                ("cons") "'string->symbol" 1
-              ("append") ("wrap16")
-                ("cons") "'symbol->string" 1
-                ("cons") "'string->list" 1
-                ("cons") "'string->number" 1
-                ("cons") "'=" 2
-                ("cons") "'<" 2
-                ("cons") "'>" 2
-                ("cons") "'-" 2
-                ("cons") "'+" 2
-                ("cons") "'*" 2
-                ("cons") "'/" 2
-                ("cons") "'ZED1" 1
-                ("cons") "'ZED!" 1
-                ("cons") "'ZEDc" 2
-                ("cons") "'ZED001" 1
-                ("cons") "'ZED002" 2
-                ("cons") "'ZED003" 3
-              ("append") ("wrap16")
-                ("cons") "'ZED004" 4
-                ("cons") "'ZED005" 5
-                ("cons") "'ZED006" 6
-                ("cons") "'ZED007" 7
-                ("cons") "'ZED008" 8
-                ("cons") "'ZED009" 9
-                ("cons") "'ZED010" 10
-                ("cons") "'force" 1
-                ("cons") "'ZED=" 2
-                ("cons") "'caar" 1
-                ("cons") "'cdddr" 1
-                ("cons") "'list" 0
-                ("cons") "'ZEDalways" 0
-                ("cons") "'apply" 2
-                ("cons") "'ZEDse" 2
-                ("cons") "'ZEDand" 2
-              ("append") ("wrap16")
-                ("cons") "'ZEDor" 2
-                ("cons") "'ZED011" 11
-                ("cons") "'ZED012" 12
-                ("cons") "'ZED013" 13
-                ("cons") "'ZED014" 14
-                ("cons") "'ZED015" 15
-                ("cons") "'ZED016" 16
-                ("cons") "'ZED017" 17
-                ("cons") "'ZED018" 18
-                ("cons") "'ZED019" 19
-                ("cons") "'ZED020" 20
-                ("cons") "'ZED021" 21
-                ("cons") "'ZED022" 22
-                ("cons") "'ZED023" 23
-                ("cons") "'ZED024" 24
-                ("cons") "'ZED025" 25
-              ("append") ("wrap16") 
-                ("cons") "'ZED026" 26
-                ("cons") "'ZED027" 27
-                ("cons") "'ZED028" 28
-                ("cons") "'ZED029" 29
-                ("cons") "'ZED030" 30
-                ("cons") "'ZED031" 31
-                ("cons") "'ZED032" 32
-                ("cons") "'get-file" 0
-                ("cons") "'make-hasheq" 1
-                ("cons") "'hash-ref" 2
-                ("cons") "'apply1" 4
-                ("cons") "'apply2" 6
-                ("cons") "'apply3" 8
-                ("cons") "'apply4" 10
-                ("cons") "'apply5" 12
-                ("cons") "'filter" 2
-              ("append") ("wrap16")
-                ("cons") "'foldr" 3
-                ("cons") "'function-hack-2" 2
-                ("cons") "'write-char" 2
-                ("cons") "'ZED033" 33
-                ("cons") "'ZED034" 34
-                ("cons") "'ZED035" 35
-                ("cons") "'ZED036" 36
-                ("cons") "'ZED037" 37
-                ("cons") "'ZED038" 38
-                ("cons") "'ZED039" 39
-                ("cons") "'ZED040" 40
-                ("cons") "'ZED041" 41
-                ("cons") "'ZED042" 42
-                ("cons") "'ZED043" 43
-                ("cons") "'ZED044" 44
-                ("cons") "'ZED045" 45
-              ("append") ("wrap16")
-                ("cons") "'ZED046" 46
-                ("cons") "'ZED047" 47
-                ("cons") "'ZED048" 48
-                ("cons") "'ZED049" 49
-                ("cons") "'ZED050" 50
-                ("cons") "'ZED051" 51
-                ("cons") "'ZED052" 52
-                ("cons") "'ZED053" 53
-                ("cons") "'ZED054" 54
-                ("cons") "'ZED055" 55
-                ("cons") "'ZED056" 56
-                ("cons") "'ZED057" 57
-                ("cons") "'ZED058" 58
-                ("cons") "'ZED059" 59
-                ("cons") "'ZED060" 60
-                ("cons") "'ZED061" 61
-              ("append") ("wrap16")
-                ("cons") "'ZED062" 62
-                ("cons") "'ZED063" 63
-                ("cons") "'ZED064" 64
-                ("cons") "'ZED065" 65
-                ("cons") "'ZED066" 66
-                ("cons") "'ZED067" 67
-                ("cons") "'ZED068" 68
-                ("cons") "'ZED069" 69
-                ("cons") "'ZED070" 70
-                ("cons") "'ZED071" 71
-                ("cons") "'ZED072" 72
-                ("cons") "'ZED073" 73
-                ("cons") "'ZED074" 74
-                ("cons") "'ZED075" 75
-                ("cons") "'ZED076" 76
-                ("cons") "'ZED077" 77
-              ("append") ("wrap16")
-                ("cons") "'ZED078" 78
-                ("cons") "'ZED079" 79
-                ("cons") "'ZED080" 80
-                ("cons") "'ZED081" 81
-                ("cons") "'ZED082" 82
-                ("cons") "'ZED083" 83
-                ("cons") "'ZED084" 84
-                ("cons") "'ZED085" 85
-                ("cons") "'ZED086" 86
-                ("cons") "'ZED087" 87
-                ("cons") "'ZED088" 88
-                ("cons") "'ZED089" 89
-                ("cons") "'ZED090" 90
-                ("cons") "'ZED091" 91
-                ("cons") "'ZED092" 92
-                ("cons") "'ZED093" 93
-              ("wrap7")
-                ("cons") "'ZED094" 94
-                ("cons") "'ZED095" 95
-                ("cons") "'ZED096" 96
-                ("cons") "'ZED097" 97
-                ("cons") "'ZED098" 98
-                ("cons") "'ZED099" 99
-                ("cons") "'ZEDquote" 1
+                ("append") (wrap16)
+                  ("cons") "'and" 2
+                  ("cons") "'append" 2
+                  ("cons") "'assoc" 2
+                  ("cons") "'begin" 2
+                  ("cons") "'boolean?" 1
+                  ("cons") "'caaar" 1
+                  ("cons") "'cadr" 1
+                  ("cons") "'caddr" 1
+                  ("cons") "'cadddr" 1
+                  ("cons") "'car" 1
+                  ("cons") "'cdar" 1
+                  ("cons") "'cddddr" 1
+                  ("cons") "'cddr" 1
+                  ("cons") "'cdr" 1
+                  ("cons") "'char?" 1
+                  ("cons") "'char-numeric?" 1
+                ("append") (wrap16)
+                  ("cons") "'char-graphic?" 1
+                  ("cons") "'close-input-port" 1
+                  ("cons") "'close-output-port" 1
+                  ("cons") "'cons" 2
+                  ("cons") "'define" 2
+                  ("cons") "'delete-file" 1
+                  ("cons") "'display" 2
+                  ("cons") "'eq?" 2
+                  ("cons") "'equal?" 2
+                  ("cons") "'eof-object?" 1
+                  ("cons") "'exact?" 1
+                  ("cons") "'file-exists?" 1
+                  ("cons") "'inexact?" 1
+                  ("cons") "'length" 1
+                  ("cons") "'list->string" 1
+                  ("cons") "'map" 2
+                ("append") (wrap16)
+                  ("cons") "'not" 1
+                  ("cons") "'null?" 1
+                  ("cons") "'number?" 1
+                  ("cons") "'newline" 1
+                  ("cons") "'number->string" 1
+                  ("cons") "'or" 2
+                  ("cons") "'open-input-file" 1
+                  ("cons") "'open-output-file" 1
+                  ("cons") "'pair?" 1
+                  ("cons") "'quote" 1
+                  ("cons") "'reverse" 1
+                  ("cons") "'read-char" 1
+                  ("cons") "'symbol?" 1
+                  ("cons") "'string?" 1
+                  ("cons") "'string-append" 2
+                  ("cons") "'string->symbol" 1
+                ("append") (wrap16)
+                  ("cons") "'symbol->string" 1
+                  ("cons") "'string->list" 1
+                  ("cons") "'string->number" 1
+                  ("cons") "'=" 2
+                  ("cons") "'<" 2
+                  ("cons") "'>" 2
+                  ("cons") "'-" 2
+                  ("cons") "'+" 2
+                  ("cons") "'*" 2
+                  ("cons") "'/" 2
+                  ("cons") "'ZED1" 1
+                  ("cons") "'ZED!" 1
+                  ("cons") "'ZEDc" 2
+                  ("cons") "'ZED001" 1
+                  ("cons") "'ZED002" 2
+                  ("cons") "'ZED003" 3
+                ("append") (wrap16)
+                  ("cons") "'ZED004" 4
+                  ("cons") "'ZED005" 5
+                  ("cons") "'ZED006" 6
+                  ("cons") "'ZED007" 7
+                  ("cons") "'ZED008" 8
+                  ("cons") "'ZED009" 9
+                  ("cons") "'ZED010" 10
+                  ("cons") "'force" 1
+                  ("cons") "'ZED=" 2
+                  ("cons") "'caar" 1
+                  ("cons") "'cdddr" 1
+                  ("cons") "'list" 0
+                  ("cons") "'ZEDalways" 0
+                  ("cons") "'apply" 2
+                  ("cons") "'ZEDse" 2
+                  ("cons") "'ZEDand" 2
+                ("append") (wrap16)
+                  ("cons") "'ZEDor" 2
+                  ("cons") "'ZED011" 11
+                  ("cons") "'ZED012" 12
+                  ("cons") "'ZED013" 13
+                  ("cons") "'ZED014" 14
+                  ("cons") "'ZED015" 15
+                  ("cons") "'ZED016" 16
+                  ("cons") "'ZED017" 17
+                  ("cons") "'ZED018" 18
+                  ("cons") "'ZED019" 19
+                  ("cons") "'ZED020" 20
+                  ("cons") "'ZED021" 21
+                  ("cons") "'ZED022" 22
+                  ("cons") "'ZED023" 23
+                  ("cons") "'ZED024" 24
+                  ("cons") "'ZED025" 25
+                ("append") (wrap16) 
+                  ("cons") "'ZED026" 26
+                  ("cons") "'ZED027" 27
+                  ("cons") "'ZED028" 28
+                  ("cons") "'ZED029" 29
+                  ("cons") "'ZED030" 30
+                  ("cons") "'ZED031" 31
+                  ("cons") "'ZED032" 32
+                  ("cons") "'get-file" 0
+                  ("cons") "'make-hasheq" 1
+                  ("cons") "'hash-ref" 2
+                  ("cons") "'apply1" 4
+                  ("cons") "'apply2" 6
+                  ("cons") "'apply3" 8
+                  ("cons") "'apply4" 10
+                  ("cons") "'apply5" 12
+                  ("cons") "'filter" 2
+                ("append") (wrap16)
+                  ("cons") "'foldr" 3
+                  ("cons") "'function-hack-2" 2
+                  ("cons") "'write-char" 2
+                  ("cons") "'ZED033" 33
+                  ("cons") "'ZED034" 34
+                  ("cons") "'ZED035" 35
+                  ("cons") "'ZED036" 36
+                  ("cons") "'ZED037" 37
+                  ("cons") "'ZED038" 38
+                  ("cons") "'ZED039" 39
+                  ("cons") "'ZED040" 40
+                  ("cons") "'ZED041" 41
+                  ("cons") "'ZED042" 42
+                  ("cons") "'ZED043" 43
+                  ("cons") "'ZED044" 44
+                  ("cons") "'ZED045" 45
+                ("append") (wrap16)
+                  ("cons") "'ZED046" 46
+                  ("cons") "'ZED047" 47
+                  ("cons") "'ZED048" 48
+                  ("cons") "'ZED049" 49
+                  ("cons") "'ZED050" 50
+                  ("cons") "'ZED051" 51
+                  ("cons") "'ZED052" 52
+                  ("cons") "'ZED053" 53
+                  ("cons") "'ZED054" 54
+                  ("cons") "'ZED055" 55
+                  ("cons") "'ZED056" 56
+                  ("cons") "'ZED057" 57
+                  ("cons") "'ZED058" 58
+                  ("cons") "'ZED059" 59
+                  ("cons") "'ZED060" 60
+                  ("cons") "'ZED061" 61
+                ("append") (wrap16)
+                  ("cons") "'ZED062" 62
+                  ("cons") "'ZED063" 63
+                  ("cons") "'ZED064" 64
+                  ("cons") "'ZED065" 65
+                  ("cons") "'ZED066" 66
+                  ("cons") "'ZED067" 67
+                  ("cons") "'ZED068" 68
+                  ("cons") "'ZED069" 69
+                  ("cons") "'ZED070" 70
+                  ("cons") "'ZED071" 71
+                  ("cons") "'ZED072" 72
+                  ("cons") "'ZED073" 73
+                  ("cons") "'ZED074" 74
+                  ("cons") "'ZED075" 75
+                  ("cons") "'ZED076" 76
+                  ("cons") "'ZED077" 77
+                ("append") (wrap16)
+                  ("cons") "'ZED078" 78
+                  ("cons") "'ZED079" 79
+                  ("cons") "'ZED080" 80
+                  ("cons") "'ZED081" 81
+                  ("cons") "'ZED082" 82
+                  ("cons") "'ZED083" 83
+                  ("cons") "'ZED084" 84
+                  ("cons") "'ZED085" 85
+                  ("cons") "'ZED086" 86
+                  ("cons") "'ZED087" 87
+                  ("cons") "'ZED088" 88
+                  ("cons") "'ZED089" 89
+                  ("cons") "'ZED090" 90
+                  ("cons") "'ZED091" 91
+                  ("cons") "'ZED092" 92
+                  ("cons") "'ZED093" 93
+                ("append") (wrap16)
+                  ("cons") "'ZEDwrap" 1
+                  ("cons") "'ZEDwrap2" 2
+                  ("cons") "'ZEDwrap3" 3
+                  ("cons") "'ZEDwrap4" 4
+                  ("cons") "'ZEDwrap5" 5
+                  ("cons") "'ZEDwrap6" 6
+                  ("cons") "'ZEDwrap7" 7
+                  ("cons") "'ZEDwrap8" 8
+                  ("cons") "'ZEDwrap9" 9
+                  ("cons") "'ZEDwrap10" 10
+                  ("cons") "'ZEDwrap11" 11
+                  ("cons") "'ZEDwrap12" 12
+                  ("cons") "'ZEDwrap13" 13
+                  ("cons") "'ZEDwrap14" 14
+                  ("cons") "'ZEDwrap15" 15
+                  ("cons") "'ZEDwrap16" 16
+                (wrap7)
+                  ("cons") "'ZED094" 94
+                  ("cons") "'ZED095" 95
+                  ("cons") "'ZED096" 96
+                  ("cons") "'ZED097" 97
+                  ("cons") "'ZED098" 98
+                  ("cons") "'ZED099" 99
+                  ("cons") "'ZEDquote" 1
                 
 ("arity-hash1") "clause"
 comment: abs (number) ((=) number 0) (0)
@@ -418,63 +418,63 @@ comment: takes a hash-table and a symbol -> returns the arity of the named funct
 ("primitives")
 comment: makes a begin with definitions for the primitives
 (always)
-("append") ("wrap16")
+("append") (wrap16)
              "'begin"
-             ("quote") ("define") "wrap" "list"
-             ("quote") ("define") "wrap2" "list"
-             ("quote") ("define") "wrap3" "list"
-             ("quote") ("define") "wrap4" "list"
-             ("quote") ("define") "wrap5" "list"
-             ("quote") ("define") "wrap6" "list"
-             ("quote") ("define") "wrap7" "list"
-             ("quote") ("define") "wrap8" "list"
-             ("quote") ("define") "wrap9" "list"
-             ("quote") ("define") "wrap10" "list"
-             ("quote") ("define") "wrap11" "list"
-             ("quote") ("define") "wrap12" "list"
-             ("quote") ("define") "wrap13" "list"
-             ("quote") ("define") "wrap14" "list"
-             ("quote") ("define") "wrap15" "list"
-           ("append") ("wrap16")
-             ("quote") ("define") "wrap16" "list"
-             ("wrap3")
+             ("quote") ("define") "ZEDwrap" "list"
+             ("quote") ("define") "ZEDwrap2" "list"
+             ("quote") ("define") "ZEDwrap3" "list"
+             ("quote") ("define") "ZEDwrap4" "list"
+             ("quote") ("define") "ZEDwrap5" "list"
+             ("quote") ("define") "ZEDwrap6" "list"
+             ("quote") ("define") "ZEDwrap7" "list"
+             ("quote") ("define") "ZEDwrap8" "list"
+             ("quote") ("define") "ZEDwrap9" "list"
+             ("quote") ("define") "ZEDwrap10" "list"
+             ("quote") ("define") "ZEDwrap11" "list"
+             ("quote") ("define") "ZEDwrap12" "list"
+             ("quote") ("define") "ZEDwrap13" "list"
+             ("quote") ("define") "ZEDwrap14" "list"
+             ("quote") ("define") "ZEDwrap15" "list"
+           ("append") (wrap16)
+             ("quote") ("define") "ZEDwrap16" "list"
+             (wrap3)
                 "'define-syntax"
                 "'ZEDand"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap3") "'_" "'a" "'b"
-                    ("wrap3") "'and" "'a" "'b"
-             ("wrap3")
+                  (wrap2)
+                    (wrap3) "'_" "'a" "'b"
+                    (wrap3) "'and" "'a" "'b"
+             (wrap3)
                 "'define-syntax"
                 "'ZEDor"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap3") "'_" "'a" "'b"
-                    ("wrap3") "'or" "'a" "'b"
-             ("wrap3")
+                  (wrap2)
+                    (wrap3) "'_" "'a" "'b"
+                    (wrap3) "'or" "'a" "'b"
+             (wrap3)
                 "'define-syntax"
                 "'ZEDse"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap3") "'_" "'a" "'b"
-                    ("wrap3") "'begin" "'a" "'b"
-             ("wrap3")
+                  (wrap2)
+                    (wrap3) "'_" "'a" "'b"
+                    (wrap3) "'begin" "'a" "'b"
+             (wrap3)
                 "'define-syntax"
                 "'ZEDc"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap3") "'_" "'a" "'b"
-                    ("wrap3") "'cons"
-                              ("wrap2") "'delay" "'a"
-                              ("wrap2") "'delay" "'b"
+                  (wrap2)
+                    (wrap3) "'_" "'a" "'b"
+                    (wrap3) "'cons"
+                            (wrap2) "'delay" "'a"
+                            (wrap2) "'delay" "'b"
              ("quote")
                ("define")
                  ("ZED1") "pair" ("force") ("car") "pair"
@@ -483,68 +483,68 @@ comment: makes a begin with definitions for the primitives
                  ("ZED!") "pair" ("force") ("cdr") "pair"
              ("quote") ("define") "ZED=" "eqv?"
              ("quote") ("define") "ZEDerr" "'err"
-             ("wrap3")
+             (wrap3)
                "'define"
                "'ZEDnil"
-               ("wrap2")
+               (wrap2)
                  "'quote"
                  nil
              ("quote") ("define") ("ZEDalways") "#true"
-             ("wrap3")
+             (wrap3)
                 "'define-syntax"
                 "'apply1"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap5") "'_" "'a" "'b" "'c" "'d"
-                    ("wrap5") "'apply" "'a" "'b" "'c" "'d"
-             ("wrap3")
+                  (wrap2)
+                    (wrap5) "'_" "'a" "'b" "'c" "'d"
+                    (wrap5) "'apply" "'a" "'b" "'c" "'d"
+             (wrap3)
                 "'define-syntax"
                 "'apply2"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap7") "'_" "'a" "'b" "'c" "'d" "'e" "'f"
-                    ("wrap7") "'apply" "'a" "'b" "'c" "'d" "'e" "'f"
-             ("wrap3")
+                  (wrap2)
+                    (wrap7) "'_" "'a" "'b" "'c" "'d" "'e" "'f"
+                    (wrap7) "'apply" "'a" "'b" "'c" "'d" "'e" "'f"
+             (wrap3)
                 "'define-syntax"
                 "'apply3"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap9") "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h"
-                    ("wrap9") "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h"
-             ("wrap3")
+                  (wrap2)
+                    (wrap9) "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h"
+                    (wrap9) "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h"
+             (wrap3)
                 "'define-syntax"
                 "'apply4"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap11") "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j"
-                    ("wrap11") "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j"
-             ("wrap3")
+                  (wrap2)
+                    (wrap11) "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j"
+                    (wrap11) "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j"
+             (wrap3)
                 "'define-syntax"
                 "'apply5"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap13") "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j" "'k" "'l"
-                    ("wrap13") "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j" "'k" "'l"  
-           ("wrap")
-             ("wrap3")
+                  (wrap2)
+                    (wrap13) "'_" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j" "'k" "'l"
+                    (wrap13) "'apply" "'a" "'b" "'c" "'d" "'e" "'f" "'g" "'h" "'i" "'j" "'k" "'l"  
+           (wrap)
+             (wrap3)
                 "'define-syntax"
                 "'ZEDquote"
-                ("wrap3")
+                (wrap3)
                   "'syntax-rules"
                   nil
-                  ("wrap2")
-                    ("wrap2") "'_" "'a"
-                    ("wrap2") "'quote" "'a"
+                  (wrap2)
+                    (wrap2) "'_" "'a"
+                    (wrap2) "'quote" "'a"
 
 ("application?") "expression"
 comment: (+) 1 2
@@ -576,7 +576,7 @@ comment: "expression" has at least two elements -> is the expression a double ap
 ("schemefy") "expression" "arity-hash"
 comment: takes a ZED expresssion and the arity hash-table -> returns a Scheme expression
 (always)
-("wrap") ("schemefy1") "expression" "arity-hash"
+(wrap) ("schemefy1") "expression" "arity-hash"
 
 ("schemefy1") "expression" "arity-hash"
 comment: (1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
@@ -658,16 +658,16 @@ comment: non empty "list" -> map over the list with an extra value
 ("functionize") "clause" "arity-hash"
 comment: takes an already combined "clause" and the "arity-hash" -> produces a scheme function
 (always)
-("wrap3") "'define"
-          ("cons") ("clause-name") "clause" ("clause-arguments") "clause"
-          ("cons") "'cond"
-                   ("append")
-                     ("condefy")
-                       ("map-with")
-                         "schemefy"
-                         ("clause-body") "clause"
-                         "arity-hash"
-                     ("wrap") ("wrap2") "'else" "'ZEDerr"
+(wrap3) "'define"
+            ("cons") ("clause-name") "clause" ("clause-arguments") "clause"
+            ("cons") "'cond"
+                     ("append")
+                       ("condefy")
+                         ("map-with")
+                           "schemefy"
+                           ("clause-body") "clause"
+                           "arity-hash"
+                       (wrap) (wrap2) "'else" "'ZEDerr"
 
 ("condefy") "expressions"
 comment: empty "expressions" -> constructs the list structure of a cond
@@ -689,7 +689,7 @@ comment: takes the already combined clauses of "program" -> generates a Scheme p
 ("namefy") "part"
 comment: (square)
 ("pair?") "part"
-("wrap") ("symbolize") ("car") "part"
+(wrap) ("symbolize") ("car") "part"
 
 ("namefy") "part"
 comment: .25
@@ -732,23 +732,23 @@ comment: ## #0 #1
         ("and") (=) #0 ("cadr") "list"
                 ("not") ("null?") ("cddr") "list"
 ("string->symbol")
-  ("list->string") ("append") ("wrap3") ## #\ #u
+  ("list->string") ("append") (wrap3) ## #\ #u
                               ("cddr") "list"
 
 ("flexefy1") "list"
 comment: ## #t #r #u #e
-(003) "equal?" "list" ("wrap5") ## #t #r #u #e
+(003) "equal?" "list" (wrap5) ## #t #r #u #e
 "#true"
              
 ("flexefy1") "list"
 comment: ## #f #a #l #s #e
-(003) "equal?" "list" ("wrap6") ## #f #a #l #s #e
+(003) "equal?" "list" (wrap6) ## #f #a #l #s #e
 "#false"
              
 ("flexefy1") "list"
 comment: ## #n #u #l
 (=) ("car") "list" ##
-("string->symbol") ("list->string") ("append") ("wrap2") ## #\
+("string->symbol") ("list->string") ("append") (wrap2) ## #\
                                                ("cdr") "list"
 
 ("flexefy1") "list"
@@ -776,7 +776,7 @@ comment: not at end of file -> reads in all the characters
 comment: takes a "program" -> repeatedly removes newlines preceding #space or #tab
 (always)
 ("append") ("newline-space-again") "program"
-           ("wrap") #newline
+           (wrap) #newline
 
 ("newline-space1") "program"
 comment: empty "program" -> removes newlines before #space or #tab
@@ -947,10 +947,10 @@ comment: #space #n #u #m #b #e #r
 ("read-sentence") ("cdr") "sentence"
 
 ("read-sentence") "sentence"
-comment: #( #a #b #s #) #space #n #u #m #b #e #r)
+comment: #( #a #b #s #) #space #n #u #m #b #e #r
 (=) #( ("car") "sentence"
 ("cons")
-  ("namefy") ("wrap") ("verb") ("gather-verb") ("cdr") "sentence"
+  ("namefy") (wrap) ("verb") ("gather-verb") ("cdr") "sentence"
   ("read-sentence")
     ("remove-leading") ("+") 2 ("length")
                                ("gather-verb")
@@ -1048,7 +1048,7 @@ nil
 comment: non empty "program" -> gathers sentences into groups of three
 (always)
 ("cons")
-  ("wrap3")
+  (wrap3)
     ("car") "program"
     ("cadr") "program"
     ("caddr") "program"
@@ -1146,7 +1146,7 @@ comment: #( #0 #0 #1 #space #a #l #w #a #y #s
 ("strip1") "program"
 comment: #a #l #w #a #y #s
 (always)
-("cons") ("wrap") ("car") "program"
+("cons") (wrap) ("car") "program"
          ("strip1") ("cdr") "program"
          
 ("strip2") "candidate" "program"
@@ -1157,497 +1157,497 @@ comment: conses up the list of candidates
 
 ("strip3") "candidate"
 comment: remove 001
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 002
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 003
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 004
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 005
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 006
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 007
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 008
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 009
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #0 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #0 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 010
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 011
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 012
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 013
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 014
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 015
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 016
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 017
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 018
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 019
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #1 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #1 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 020
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 021
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 022
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 023
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 024
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 025
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 026
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 027
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 028
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 029
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #2 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #2 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 030
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 031
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 032
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 033
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 034
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 035
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 036
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 037
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 038
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 039
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #3 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #3 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 040
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 041
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 042
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 043
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 044
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 045
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 046
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 047
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 048
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 049
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #4 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #4 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 050
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 051
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 052
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 053
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 054
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 055
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 056
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 057
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 058
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 059
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #5 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #5 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 060
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 061
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 062
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 063
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 064
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 065
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 066
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 067
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 068
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 069
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #6 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #6 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 070
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 071
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 072
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 073
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 074
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 075
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 076
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 077
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 078
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 079
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #7 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #7 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 080
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 081
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 082
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 083
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 084
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 085
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 086
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 087
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 088
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 089
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #8 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #8 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 090
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #0
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #0
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 091
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #1
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #1
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 092
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #2
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #2
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 093
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #3
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #3
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 094
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #4
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #4
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 095
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #5
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #5
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 096
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #6
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #6
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 097
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #7
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #7
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 098
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #8
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #8
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
 comment: remove 099
-("candidate-confirmed?") "candidate" ("wrap6") #Z #E #D #0 #9 #9
+("candidate-confirmed?") "candidate" (wrap6) #Z #E #D #0 #9 #9
 ("replace-candidate") "candidate"
 
 ("strip3") "candidate"
@@ -1656,12 +1656,12 @@ comment: "candidate" did not match
 "candidate"
 
 ("write-all!") "output-port" "program"
-comment
+comment: 
 ("null?") "program"
 ("close-output-port") "output-port"
 
 ("write-all!") "output-port" "program"
-comment
+comment:
 (always)
 ("begin") ("write-char") ("car") "program" "output-port"
           ("write-all!") "output-port" ("cdr") "program"
@@ -1730,7 +1730,7 @@ comment: generate combined
                                     ("filter") "not-return?"
                                                ("append") ("append")
                                                  ("read-all!") "PRELUDE"
-                                                 ("wrap2") #newline #newline
+                                                 (wrap2) #newline #newline
                                                  ("read-all!") "ZED"
 
 ("my-compile2") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "combined"
