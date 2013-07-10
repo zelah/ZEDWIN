@@ -316,11 +316,6 @@ comment: the current random number generator
 (always)
 (001) "current-pseudo-random-generator"
 
-(curry) function
-comment: takes a function -> returns the curried function
-(always)
-(002) "curry" function
-
 (default-input-port)
 comment: the default input port
 (always)
