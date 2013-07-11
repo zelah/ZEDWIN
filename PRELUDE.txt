@@ -1017,16 +1017,6 @@ comment: takes two bits -> performs the exclusive or operation
       (boolean?) bit2
 (not) (=) bit1 bit2
 
-(zed->racket) value
-comment: value is empty list or atom -> returns a Racket value
-(not) (pair?) value
-value
-
-(zed->racket) value
-comment: value is non empty list -> returns a Racket value
-(always)
-("cons") (zed->racket) (1) value (zed->racket) (!) value
-
 (zero?) number
 comment: any number -> is it zero?
 (always)
