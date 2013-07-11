@@ -316,11 +316,6 @@ comment: the default input port
 (always)
 (001) "current-input-port"
 
-(default-output-port)
-comment: the default output port
-(always)
-(001) "current-output-port"
-
 (delay) value
 comment: takes a value -> delays computation
 (always)
@@ -349,10 +344,10 @@ comment: takes an output port and an item -> displays item on the output port
 (dr) value
 comment: any value -> display it to the default output port and then return it as a value
 (always)
-(se) (display) (default-output-port) (pr) (ZEDdr) value
-     (se) (newline) (default-output-port)
-     (se) (newline) (default-output-port)
-     value
+("begin") ("display") (default-output-port) (pr) (ZEDdr) value
+          ("begin") ("newline") (default-output-port)
+          ("begin") ("newline") (default-output-port)
+          value
 
 (ZEDdr) value
 comment: value is a pair -> recursively gather upto the first 64 elements of value
@@ -367,10 +362,10 @@ value
 (drr) value
 comment: any value that is not infinite -> display then return the value
 (always)
-(se) (display) (default-output-port) (pr) value
-     (se) (newline) (default-output-port)
-     (se) (newline) (default-output-port)
-     value
+("begin") ("display") (default-output-port) (pr) value
+          ("begin") ("newline") (default-output-port)
+          ("begin") ("newline") (default-output-port)
+          value
 
 (end-of-file-object)
 comment: end of file object
