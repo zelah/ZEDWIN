@@ -351,7 +351,7 @@ comment: any value -> display it to the default output port and then return it a
 
 (ZEDdr) value
 comment: value is a pair -> recursively gather upto the first 64 elements of value
-(pair?) value
+("pair?") value
 (mp) ZEDdr (first) 64 value
 
 (ZEDdr) value
@@ -435,19 +435,19 @@ comment: any valid path -> returns the file size in bytes
 
 (first) integer list
 comment: list is not a list -> selects the first integer elements from the beginning of list
-(not) (pair?) list
+("not") ("pair?") list
 list
 
 (first) integer list
 comment: integer is zero -> selects the first integer elements from the beginning of list
-(zero?) integer
+(=) integer 0
 nil
 
 (first) integer list
 comment: integer is positive -> selects the first integer elements from the beginning of list
 (positive?) integer
 (c) (1) list
-    (first) (sub1) integer
+    (first) ("-") integer 1
             (!) list
 
 (force) value
@@ -483,12 +483,12 @@ comment: provide a title and a message -> returns a string of the user input
 (gr) garbage value
 comment: takes a value and a garbage value -> returns the value after displaying the garbage value with (dr)
 (always)
-(se) (dr) garbage value
+("begin") (dr) garbage value
 
 (grr) garbage value
 comment: takes a value and a garbage value -> returns the value after displaying the garbage value with (drr)
 (always)
-(se) (drr) garbage value
+("begin") (drr) garbage value
 
 (halve) number
 comment: any number -> returns half
@@ -616,22 +616,6 @@ comment: given a title and message -> produces a message box
 comment: given integer1 and integer2 -> returns integer1 modulo integer2
 (always)
 (003) "modulo" integer1 integer2
-
-(mp) function list
-comment: empty list -> returns the list with every element transformed by function
-(null?) list
-nil
-
-(mp) function list
-comment: list is a pair -> returns the list with every element transformed by function
-(pair?) list
-(c) (002) function (1) list
-    (mp) function (!) list
-
-(mp) function list
-comment: list is not a pair -> returns the list with every element transformed by function
-(always)
-(002) function list
 
 (multiple?) number1 number2
 comment: given number1 and number2 -> is number2 an exact multiple of number1?

@@ -191,6 +191,8 @@ comment: "program" is a list of clauses -> returns the fully combined program af
 comment: "program" is a list of combined clauses -> returns a symbol-arity hash table
 (always)
 ("make-hasheq") ("append") ("map") "arity-hash1" "program"
+                ("append") (wrap)
+                  ("cons") "'ZEDmp" 2
                 ("append") (wrap5)
                   ("cons") "'ZEDdefault-output-port" 0
                   ("cons") "'ZEDzed->racket" 1
@@ -424,8 +426,16 @@ comment: takes a hash-table and a symbol -> returns the arity of the named funct
 ("primitives")
 comment: makes a begin with definitions for the primitives
 (always)
-("append") (wrap4)
-             "'begin"
+("append") (wrap) "'begin"
+           ("append") (wrap)
+             ("quote") ("define") (003) "ZEDmp" "function" "list"
+                                  ("if") ("null?") "list"
+                                         nil
+                                         ("if") ("pair?") "list"
+                                                (c) (002) "function" (1) "list"
+                                                    ("ZEDmp") "function" (!) "list"
+                                                (002) "function" "list"
+           ("append") (wrap3)
              ("quote") ("define") "ZEDdefault-output-port" "current-output-port"
              ("quote") ("define") (002) "ZEDzed->racket" "value" 
                                   ("if") ("not") ("pair?") "value"
