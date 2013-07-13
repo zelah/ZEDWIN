@@ -685,11 +685,6 @@ comment: any number -> is it positive?
 (always)
 (>) number 0
 
-(pr) value
-comment: any value -> returns a string representation
-(always)
-(call-with-output-string) (002) (curry) "display" (zed->racket) value
-
 (predictable-random-bits) seed
 comment: takes a seed for the random number generator -> produces an infinite list of rsndom bits
 (always)
