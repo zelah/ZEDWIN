@@ -341,16 +341,6 @@ comment: takes an output port and an item -> displays item on the output port
 (always)
 (003) "display" item port
 
-(ZEDdr) value
-comment: value is a pair -> recursively gather upto the first 64 elements of value
-("pair?") value
-(mp) ZEDdr (first) 64 value
-
-(ZEDdr) value
-comment: value is basic -> return the value
-(always)
-value
-
 (drr) value
 comment: any value that is not infinite -> display then return the value
 (always)
