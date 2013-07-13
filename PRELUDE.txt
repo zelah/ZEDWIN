@@ -433,23 +433,6 @@ comment: any valid path -> returns the file size in bytes
 (always)
 (002) "file-size" path
 
-(first) integer list
-comment: list is not a list -> selects the first integer elements from the beginning of list
-("not") ("pair?") list
-list
-
-(first) integer list
-comment: integer is zero -> selects the first integer elements from the beginning of list
-(=) integer 0
-nil
-
-(first) integer list
-comment: integer is positive -> selects the first integer elements from the beginning of list
-(positive?) integer
-(c) (1) list
-    (first) ("-") integer 1
-            (!) list
-
 (force) value
 comment: takes a value -> forces a promise or returns the value
 (always)
