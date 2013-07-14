@@ -1030,7 +1030,7 @@ comment:
 (always)
 ("cons") (wrap) "'dr"
          ("cons") (wrap) "'grr"
-         ("cons") "verb"
+         ("cons") ""verb""
          ("cons") ("namefy") (wrap) "verb"
                   ("debug-sentence")
                     ("remove-leading") ("+") 2 ("length") "gather-verb"
@@ -1108,6 +1108,11 @@ comment: ""square"" #false
 comment: "square" #false
 (always)
 ("string->symbol") "noun"
+
+("debug-sentences") "sentences"
+comment: (#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x)
+(always)
+("map") "debug-sentence" "sentences"
 
 ("read-sentences") "sentences"
 comment: (#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x)
@@ -1769,11 +1774,21 @@ comment:
           ("write-all!") "output-port" ("cdr") "program"
 
 ("my-compile")
-comment: compile it
+comment: compile both normal and debug versions
+(always)
+("my-compile-a") ("must-get-file")
+
+("my-compile-a") "source"
+comment: compile both normal and debug versions
+(always)
+("begin") ("my-compile-b") ("open-input-file") "source"
+          ("my-compile-c") ("open-input-file") "source"
+          
+("my-compile-b") "source-port"
+comment: compile normally
 (always)
 ("my-compile1")
-  ("open-input-file")
-    ("must-get-file")
+  "source-port"
   ("open-input-file")
     ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\PRELUDE.txt""
   ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\TEMP.TEMP""
@@ -1782,22 +1797,41 @@ comment: compile it
             ("open-output-file")
               ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\TEMP.TEMP""
   ("begin") ("when-file-exists")
-              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET.rkt""
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET1.rkt""
             ("open-output-file")
-              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET.rkt""
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET1.rkt""
+  "read-sentences"
 
+("my-compile-c") "source-port"
+comment: compile in debug mode
+(always)
+("my-compile1")
+  "source-port"
+  ("open-input-file")
+    ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\PRELUDE.txt""
+  ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\TEMP.TEMP""
+  ("begin") ("when-file-exists")
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\TEMP.TEMP""
+            ("open-output-file")
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\TEMP.TEMP""
+  ("begin") ("when-file-exists")
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET2.rkt""
+            ("open-output-file")
+              ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET2.rkt""
+  "read-sentences"
+  
 ("must-get-file")
-comment
+comment:
 (always)
 ("must-get-file1") ("get-file")
 
 ("must-get-file1") path
-comment
+comment:
 path
 path
 
 ("must-get-file1") path
-comment
+comment:
 (always)
 ("must-get-file")
 
@@ -1807,11 +1841,11 @@ comment: ensure file can be written
 ("delete-file") "path"
 
 ("not-return?") character
-#Z
+comment: #Z
 (always)
 ("not") (=) #return character
 
-("my-compile1") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET"
+("my-compile1") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "read/debug-sentences"
 comment: generate combined
 (always)
 ("my-compile2") "ZED"
@@ -1821,7 +1855,7 @@ comment: generate combined
                 "RACKET"
                 ("combine-program-clauses")
                   ("by-three")
-                    ("read-sentences")
+                    (002) "read/debug-sentences"
                       ("discard-comments")
                         ("sentences")
                           ("leading-newlines")
