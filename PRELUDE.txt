@@ -437,16 +437,6 @@ comment: provide a title and a message -> returns a string of the user input
 (always)
 (003) "get-text-from-user" title message
 
-(gr) garbage value
-comment: takes a value and a garbage value -> returns the value after displaying the garbage value with (dr)
-(always)
-("begin") (dr) garbage value
-
-(grr) garbage value
-comment: takes a value and a garbage value -> returns the value after displaying the garbage value with (drr)
-(always)
-("begin") (drr) garbage value
-
 (halve) number
 comment: any number -> returns half
 (always)
