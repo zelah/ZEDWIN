@@ -995,6 +995,47 @@ comment: non empty "program" -> throws out the comments
                   ("cons") ("cadddr") "program"
                            ("discard-comments") ("cddddr") "program"
 
+("debug-sentence") "sentence"
+comment: takes a "sentence" of characters -> generates a Racket list structure
+("null?") "sentence"
+nil
+
+("debug-sentence") "sentence"
+comment: #space #n #u #m #b #e #r
+(=) #space ("car") "sentence"
+("debug-sentence") ("cdr") "sentence"
+
+("debug-sentence") "sentence"
+comment: #( #a #b #s #) #space #n #u #m #b #e #r
+(=) #( ("car") "sentence"
+("debug-sentence1") "sentence" ("gather-verb") ("cdr") "sentence"
+
+("debug-sentence") "sentence"
+comment: #n #u #m #b #e #r
+(always)
+("cons") ("namefy") ("noun") ("gather-noun") "sentence"
+         ("debug-sentence")
+           ("remove-leading")
+             ("length")
+               ("gather-noun") "sentence"
+             "sentence"
+             
+("debug-sentence1") "sentence" "gather-verb"
+comment: 
+(always)
+("debug-sentence2") "sentence" "gather-verb" ("verb") "gather-verb"
+
+("debug-sentence2") "sentence" "gather-verb" "verb"
+comment: 
+(always)
+("cons") (wrap) "'dr"
+         ("cons") (wrap) "'grr"
+         ("cons") "verb"
+         ("cons") ("namefy") (wrap) "verb"
+                  ("debug-sentence")
+                    ("remove-leading") ("+") 2 ("length") "gather-verb"
+                                       "sentence"
+             
 ("read-sentence") "sentence"
 comment: takes a "sentence" of characters -> generates a Racket list structure
 ("null?") "sentence"
@@ -1008,13 +1049,7 @@ comment: #space #n #u #m #b #e #r
 ("read-sentence") "sentence"
 comment: #( #a #b #s #) #space #n #u #m #b #e #r
 (=) #( ("car") "sentence"
-("cons")
-  ("namefy") (wrap) ("verb") ("gather-verb") ("cdr") "sentence"
-  ("read-sentence")
-    ("remove-leading") ("+") 2 ("length")
-                               ("gather-verb")
-                                 ("cdr") "sentence"
-                       "sentence"
+("read-sentence1") "sentence" ("gather-verb") ("cdr") "sentence"
 
 ("read-sentence") "sentence"
 comment: #n #u #m #b #e #r
@@ -1025,6 +1060,14 @@ comment: #n #u #m #b #e #r
              ("length")
                ("gather-noun") "sentence"
              "sentence"
+             
+("read-sentence1") "sentence" "gather-verb"
+comment: 
+(always)
+("cons") ("namefy") (wrap) ("verb") "gather-verb"
+         ("read-sentence")
+           ("remove-leading") ("+") 2 ("length") "gather-verb"
+                              "sentence"
 
 ("verb") "gather-verb"
 comment: #" #q #u #o #t #e #"
