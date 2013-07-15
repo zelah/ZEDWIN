@@ -1110,9 +1110,17 @@ comment: "square" #false
 ("string->symbol") "noun"
 
 ("debug-sentences") "sentences"
+comment: empty "sentences" -> instrument to program
+("null?") "sentences"
+nil
+
+("debug-sentences") "sentences"
 comment: (#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x)
 (always)
-("map") "debug-sentence" "sentences"
+("cons") ("read-sentence") ("car") "sentences" 
+         ("cons") ("debug-sentence") ("cadr") "sentences"
+         ("cons") ("debug-sentence") ("caddr") "sentences"
+         ("debug-sentences") ("cdddr") "sentences"
 
 ("read-sentences") "sentences"
 comment: (#( #s #q #u #a #r #e #) #space #x) (#( #a #l #w #a #y #s #)) (#( #" #* #" #) #space #x #space #x)
