@@ -440,7 +440,7 @@ comment: makes a begin with definitions for the primitives
              ("quote") ("define") (003) "ZEDgr" "garbage" "value"
                                   ("begin") (dr) "garbage" "value"
              ("quote") ("define") (002) "ZEDdrr" "value"
-                                  ("begin") ("display") (default-output-port) (pr) "value"
+                                  ("begin") ("display") (pr) "value" (default-output-port)
                                   ("begin") ("newline") (default-output-port)
                                   ("begin") ("newline") (default-output-port)
                                   "value"
@@ -449,7 +449,7 @@ comment: makes a begin with definitions for the primitives
                                          (mp) "ZEDZEDdr" (first) 64 "value"
                                          "value"
              ("quote") ("define") (002) "ZEDdr" "value"
-                                  ("begin") ("display") (default-output-port) (pr) (ZEDdr) "value"
+                                  ("begin") ("display") (pr) (ZEDdr) "value" (default-output-port)
                                   ("begin") ("newline") (default-output-port)
                                   ("begin") ("newline") (default-output-port)
                                   "value"
