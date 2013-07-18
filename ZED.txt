@@ -650,21 +650,7 @@ comment: ((current-directory) (square) 1) ((+ . 2) (square . 1) (current-directo
 ("schemefy1") "expression" "arity-hash"
 comment: ((+) (+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("double-application?") "expression"
-("cons") ("function") "expression"
-         ("cons") ("schemefy1") ("cdr") "expression" "arity-hash"
-                  ("gather")
-                    ("-") ("arity")
-                            "arity-hash"
-                            ("function") "expression"
-                          1
-                    ("remove-leading")
-                      ("+") 1 ("length")
-                                ("my-flatten")
-                                  ("schemefy1")
-                                    ("cdr") "expression"
-                                    "arity-hash"
-                      "expression"
-                    "arity-hash"
+("schemefy2") "expression" "arity-hash" ("schemefy1") ("cdr") "expression" "arity-hash"
 
 ("schemefy1") "expression" "arity-hash"
 comment: ((+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
@@ -676,6 +662,23 @@ comment: ((+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
                     ("cdr") "expression"
                     "arity-hash"
 
+("schemefy2") "expression" "arity-hash" "schemefied"
+comment: 
+(always)
+("cons") ("function") "expression"
+         ("cons") "schemefied"
+                  ("gather")
+                    ("-") ("arity")
+                            "arity-hash"
+                            ("function") "expression"
+                          1
+                    ("remove-leading")
+                      ("+") 1 ("length")
+                                ("my-flatten") "schemefied"
+                      "expression"
+                    "arity-hash"
+
+
 ("gather") "how-many" "expression" "arity-hash"
 comment: 0 (3) ((+ . 2) (square . 1) (current-directory . 0))
 ("=") "how-many" 0
@@ -684,16 +687,7 @@ nil
 ("gather") "how-many" "expression" "arity-hash"
 comment: 2 ((+) 1 2 3) ((+ . 2) (square . 1) (current-directory . 0))
 ("application?") "expression"
-("append") ("schemefy") "expression" "arity-hash"
-           ("gather") ("-") "how-many" 1
-                      ("remove-leading")
-                        ("length")
-                          ("my-flatten")
-                            ("schemefy")
-                              "expression"
-                              "arity-hash"
-                        "expression"
-                      "arity-hash"
+("gather1") "how-many" "expression" "arity-hash" ("schemefy") "expression" "arity-hash"
 
 ("gather") "how-many" "expression" "arity-hash"
 comment: 1 (2 3) ((+ . 2) (square . 1) (current-directory . 0))
@@ -702,6 +696,17 @@ comment: 1 (2 3) ((+ . 2) (square . 1) (current-directory . 0))
          ("gather") ("-") "how-many" 1
                     ("cdr") "expression"
                     "arity-hash"
+
+("gather1") "how-many" "expression" "arity-hash" "schemefied"
+comment: 
+(always)
+("append") "schemefied"
+           ("gather") ("-") "how-many" 1
+                      ("remove-leading")
+                        ("length")
+                          ("my-flatten") "schemefied"
+                        "expression"
+                      "arity-hash"
 
 ("map-with") "function" "list" "extra"
 comment: empty "list" -> map over the list with an extra value
@@ -1028,9 +1033,9 @@ comment:
 ("debug-sentence2") "sentence" "gather-verb" "verb"
 comment: 
 (always)
-("cons") (wrap) "'dr"
-         ("cons") (wrap) "'grr"
-         ("cons") ""verb""
+("cons") (wrap) "'ZEDdr"
+         ("cons") (wrap) "'ZEDgrr"
+         ("cons") ("string-append") ""'("" ("string-append") ("list->string") "gather-verb" "")""
          ("cons") ("namefy") (wrap) "verb"
                   ("debug-sentence")
                     ("remove-leading") ("+") 2 ("length") "gather-verb"
@@ -1826,7 +1831,7 @@ comment: compile in debug mode
               ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET2.rkt""
             ("open-output-file")
               ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\RACKET2.rkt""
-  "read-sentences"
+  "debug-sentences"
   
 ("must-get-file")
 comment:
