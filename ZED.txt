@@ -460,7 +460,7 @@ comment: makes a begin with definitions for the primitives
                                   ("if") ("char?") "value"
                                          ("string-append") ""\"#\""" ("list->string") (wrap) "value"
                                          ("if") ("string?") "value"
-                                                "value"
+                                                ("string-append") ""\"\\\"\""" ("string-append") "value" ""\"\\\"\"""
                                                 ("if") ("not") ("pair?") "value"
                                                        "value"
                                                        ("cons") ("ZEDZEDpr") (1) "value" ("ZEDZEDpr") (!) "value"
