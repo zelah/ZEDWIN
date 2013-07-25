@@ -191,7 +191,8 @@ comment: "program" is a list of clauses -> returns the fully combined program af
 comment: "program" is a list of combined clauses -> returns a symbol-arity hash table
 (always)
 ("make-hasheq") ("append") ("map") "arity-hash1" "program"
-                ("append") (wrap9)
+                ("append") (wrap10)
+                  ("cons") "'ZEDrd" 3
                   ("cons") "'ZEDgrr" 2
                   ("cons") "'ZEDgr" 2
                   ("cons") "'ZEDdrr" 1
@@ -435,7 +436,9 @@ comment: takes a hash-table and a symbol -> returns the arity of the named funct
 comment: makes a begin with definitions for the primitives
 (always)
 ("append") (wrap) "'begin"
-           ("append") (wrap9)
+           ("append") (wrap10)
+             ("quote") ("define") (004) "ZEDrd" "final" "function" "list"
+                                  (004) "foldr" "function" "final" (zed->racket) "list"
              ("quote") ("define") (003) "ZEDgrr" "garbage" "value"
                                   ("begin") (drr) "garbage" "value"
              ("quote") ("define") (003) "ZEDgr" "garbage" "value"
@@ -1044,12 +1047,22 @@ comment:
 (always)
 ("cons") (wrap) "'ZEDdr"
          ("cons") (wrap) "'ZEDgrr"
-         ("cons") ("string-append") ""'("" ("string-append") ("list->string") "gather-verb" "")""
+         ("cons") ("string-append") ""\""" ("string-append") ("list->string") "sentence" ""\"""
          ("cons") ("namefy") (wrap) "verb"
                   ("debug-sentence")
                     ("remove-leading") ("+") 2 ("length") "gather-verb"
                                        "sentence"
-             
+
+("slashefy") character
+comment: 
+(=) #" character
+(wrap2) #\ #" 
+
+("slashefy") character
+comment: 
+(always)
+(wrap) character
+    
 ("read-sentence") "sentence"
 comment: takes a "sentence" of characters -> generates a Racket list structure
 ("null?") "sentence"

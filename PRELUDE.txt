@@ -706,11 +706,6 @@ comment: takes a positive integer less than the power two to the thirty-one -> s
 (always)
 (002) "random-seed" integer
 
-(rd) final function list
-comment: takes a list and a two argument function -> accumulates the final value using function
-(always)
-(004) "foldr" function final (zed->racket) list
-
 (read) port
 comment: an input port -> reads in a single datum
 (always)
