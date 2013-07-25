@@ -1047,7 +1047,12 @@ comment:
 (always)
 ("cons") (wrap) "'ZEDdr"
          ("cons") (wrap) "'ZEDgrr"
-         ("cons") ("string-append") ""\""" ("string-append") ("list->string") "sentence" ""\"""
+         ("cons") ("string-append") ""\""" 
+                  ("string-append") ("list->string") 
+                                      ("foldr") "append" 
+                                                nil 
+                                                ("map") "slashefy" "sentence"
+                                    ""\"""
          ("cons") ("namefy") (wrap) "verb"
                   ("debug-sentence")
                     ("remove-leading") ("+") 2 ("length") "gather-verb"
