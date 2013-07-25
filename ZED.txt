@@ -191,7 +191,8 @@ comment: "program" is a list of clauses -> returns the fully combined program af
 comment: "program" is a list of combined clauses -> returns a symbol-arity hash table
 (always)
 ("make-hasheq") ("append") ("map") "arity-hash1" "program"
-                ("append") (wrap10)
+                ("append") (wrap11)
+                  ("cons") "'until-promise" 1
                   ("cons") "'ZEDrd" 3
                   ("cons") "'ZEDgrr" 2
                   ("cons") "'ZEDgr" 2
@@ -436,7 +437,13 @@ comment: takes a hash-table and a symbol -> returns the arity of the named funct
 comment: makes a begin with definitions for the primitives
 (always)
 ("append") (wrap) "'begin"
-           ("append") (wrap10)
+           ("append") (wrap11)
+             ("quote") ("define") (002) "until-promise" "value"
+                                  ("if") ("pair?") "value"
+                                         ("if") (002) "promise?" ("car") "value"
+                                                ("car") "value"
+                                                (c) (1) "value" ("until-promise") (!) "value"
+                                         "value"
              ("quote") ("define") (004) "ZEDrd" "final" "function" "list"
                                   (004) "foldr" "function" "final" (zed->racket) "list"
              ("quote") ("define") (003) "ZEDgrr" "garbage" "value"
@@ -450,7 +457,7 @@ comment: makes a begin with definitions for the primitives
                                   "value"
              ("quote") ("define") (002) "ZEDZEDdr" "value"
                                   ("if") ("pair?") "value"
-                                         (mp) "ZEDZEDdr" (first) 64 "value"
+                                         (mp) "ZEDZEDdr" (first) 64 ("until-promise") "value"
                                          "value"
              ("quote") ("define") (002) "ZEDdr" "value"
                                   ("begin") ("display") (pr) (ZEDdr) "value" (default-output-port)
@@ -1059,12 +1066,12 @@ comment:
                                        "sentence"
 
 ("slashefy") character
-comment: 
+comment: character is quotation mark -> replace quotation marks with escaped
 (=) #" character
 (wrap2) #\ #" 
 
 ("slashefy") character
-comment: 
+comment: character is not quotation mark -> replace quotation marks with escaped
 (always)
 (wrap) character
     
