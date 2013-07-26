@@ -1044,6 +1044,21 @@ comment:
 
 ("debug-sentence2") "sentence" "gather-verb" "verb"
 comment: 
+(=) "verb" "'c"
+("cons") (wrap) "'ZEDgrr"
+         ("cons") ("string-append") ""\""" 
+                  ("string-append") ("list->string") 
+                                      ("foldr") "append" 
+                                                nil 
+                                                ("map") "slashefy" "sentence"
+                                    ""\"""
+         ("cons") ("namefy") (wrap) "verb"
+                  ("read-sentence")
+                    ("remove-leading") ("+") 2 ("length") "gather-verb"
+                                       "sentence"
+
+("debug-sentence2") "sentence" "gather-verb" "verb"
+comment: 
 (always)
 ("cons") (wrap) "'ZEDdr"
          ("cons") (wrap) "'ZEDgrr"
