@@ -382,21 +382,6 @@ comment: an exact number -> returns the inexact representation
 (always)
 (002) "exact->inexact" number
 
-(fi) function list
-comment: empty list -> returns the list of elements that satisfy the function
-(null?) list
-nil
-
-(fi) function list
-comment: first element of list satisfies function -> returns the list of elements that satisfy the function
-(002) function (1) list
-(c) (1) list (fi) function (!) list
-
-(fi) function list
-comment: first element of list does not satisfy function -> returns the list of elements that satisfy the function
-(always)
-(fi) function (!) list
-
 (file-exists?) path
 comment: any path -> does the file exist?
 (always)
