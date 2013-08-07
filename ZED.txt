@@ -1959,7 +1959,7 @@ comment: compile both normal and debug versions
 ("my-compile-b") "source-port"
 comment: compile normally
 (always)
-("my-compile1")
+("my-compile-b1")
   "source-port"
   ("open-input-file")
     ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\PRELUDE.txt""
@@ -1977,7 +1977,7 @@ comment: compile normally
 ("my-compile-c") "source-port"
 comment: compile in debug mode
 (always)
-("my-compile1")
+("my-compile-c1")
   "source-port"
   ("open-input-file")
     ""C:\\Users\\Zelah\\Desktop\\ZEDWIN\\PRELUDE.txt""
@@ -2017,41 +2017,41 @@ comment: #Z
 (always)
 ("not") (=) #return character
 
-("my-compile1") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "read/debug-sentences"
+("my-compile-b1") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "read/debug-sentences"
 comment: generate combined
 (always)
-("my-compile2") "ZED"
-                "PRELUDE"
-                "TEMP-path"
-                "TEMP"
-                "RACKET"
-                ("combine-program-clauses")
-                  ("by-three")
-                    (002) "read/debug-sentences"
-                      ("discard-comments")
-                        ("sentences")
-                          ("leading-newlines")
-                            ("space-newline")
-                              ("tab-replace")
-                                ("newline-space-tab-repeats")
-                                  ("newline-space")
-                                    ("filter") "not-return?"
-                                               ("append") ("append")
-                                                 ("read-all!") "PRELUDE"
-                                                 (wrap2) #newline #newline
-                                                 ("read-all!") "ZED"
+("my-compile-b2") "ZED"
+                  "PRELUDE"
+                  "TEMP-path"
+                  "TEMP"
+                  "RACKET"
+                  ("combine-program-clauses")
+                    ("by-three")
+                      (002) "read/debug-sentences"
+                        ("discard-comments")
+                          ("sentences")
+                            ("leading-newlines")
+                              ("space-newline")
+                                ("tab-replace")
+                                  ("newline-space-tab-repeats")
+                                    ("newline-space")
+                                      ("filter") "not-return?"
+                                                 ("append") ("append")
+                                                   ("read-all!") "PRELUDE"
+                                                   (wrap2) #newline #newline
+                                                   ("read-all!") "ZED"
 
-("my-compile2") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "combined"
+("my-compile-b2") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "combined"
 comment: programize program
 (always)
-("my-compile3") "ZED"
-                "PRELUDE"
-                "TEMP-path"
-                "TEMP"
-                "RACKET"
-                ("programize") "combined" ("arity-hash") "combined"
+("my-compile-b3") "ZED"
+                  "PRELUDE"
+                  "TEMP-path"
+                  "TEMP"
+                  "RACKET"
+                  ("programize") "combined" ("arity-hash") "combined"
 
-("my-compile3") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "programized"
+("my-compile-b3") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "programized"
 comment: write out the compiled program
 (always)
 ("begin") ("display") ""#lang"" "TEMP"
@@ -2062,9 +2062,89 @@ comment: write out the compiled program
           ("begin") ("newline") "TEMP"
           ("begin") ("display") "programized" "TEMP"
           ("begin") ("close-output-port") "TEMP"
-          ("my-compile4") ("open-input-file") "TEMP-path" "RACKET"
+          ("my-compile-b4") ("open-input-file") "TEMP-path" "RACKET"
 
-("my-compile4") "TEMP" "RACKET"
+("my-compile-b4") "TEMP" "RACKET"
+comment: write out the compiled program
+(always)
+("write-all!") "RACKET" ("strip") ("read-all!") "TEMP"
+
+("my-compile-c1") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "read/debug-sentences"
+comment: generate combined
+(always)
+("my-compile-c2") "ZED"
+                  "PRELUDE"
+                  "TEMP-path"
+                  "TEMP"
+                  "RACKET"
+                  ("combine-program-clauses")
+                    ("by-three")
+                      (002) "read/debug-sentences"
+                        ("discard-comments")
+                          ("sentences")
+                            ("leading-newlines")
+                              ("space-newline")
+                                ("tab-replace")
+                                  ("newline-space-tab-repeats")
+                                    ("newline-space")
+                                      ("filter") "not-return?"
+                                                 ("append") ("append")
+                                                   ("read-all!") "PRELUDE"
+                                                   (wrap2) #newline #newline
+                                                   ("read-all!") "ZED"
+
+("my-compile-c2") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "combined"
+comment: programize program
+(always)
+("my-compile-c3") "ZED"
+                  "PRELUDE"
+                  "TEMP-path"
+                  "TEMP"
+                  "RACKET"
+                  ("programize") "combined" ("arity-hash") "combined"
+
+("my-compile-c3") "ZED" "PRELUDE" "TEMP-path" "TEMP" "RACKET" "programized"
+comment: write out the compiled program
+(always)
+("begin") ("display") ""#lang"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""racket/gui"" "TEMP"
+          ("begin") ("newline") "TEMP"
+          ("begin") ("display") ""(define"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""DEBUG"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""(open-output-file"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""\"C:\\\\Users\\\\Zelah\\\\Desktop\\\\ZEDWIN\\\\DEBUG.txt\""" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""#:exists"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""'replace))"" "TEMP"
+          ("begin") ("newline") "TEMP"
+          ("begin") ("display") ""(define"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""(de)"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""(current-output-port"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""DEBUG))"" "TEMP"
+          ("begin") ("newline") "TEMP"
+          ("begin") ("display") ""(define"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""(ad)"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""(close-output-port"" "TEMP"
+          ("begin") ("display") #space "TEMP"
+          ("begin") ("display") ""DEBUG))"" "TEMP"
+          ("begin") ("newline") "TEMP"
+          ("begin") ("display") ("primitives") "TEMP"
+          ("begin") ("newline") "TEMP"
+          ("begin") ("display") "programized" "TEMP"
+          ("begin") ("close-output-port") "TEMP"
+          ("my-compile-c4") ("open-input-file") "TEMP-path" "RACKET"
+
+("my-compile-c4") "TEMP" "RACKET"
 comment: write out the compiled program
 (always)
 ("write-all!") "RACKET" ("strip") ("read-all!") "TEMP"
