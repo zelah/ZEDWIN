@@ -2132,7 +2132,7 @@ comment: write out the compiled program
           ("begin") ("newline") "TEMP"
           ("begin") ("display") ""(define"" "TEMP"
           ("begin") ("display") #space "TEMP"
-          ("begin") ("display") ""(ad)"" "TEMP"
+          ("begin") ("display") ""(bug)"" "TEMP"
           ("begin") ("display") #space "TEMP"
           ("begin") ("display") ""(close-output-port"" "TEMP"
           ("begin") ("display") #space "TEMP"
