@@ -1,5 +1,5 @@
 Compiles under Windows 8
-Racket Version: 5.3.4
+Racket Version: 5.3.6
 Need to change hardwired paths.
 
 Instructions:
